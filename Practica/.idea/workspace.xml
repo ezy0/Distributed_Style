@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75a0119d-d0e3-47d6-8eed-bc5c53515181" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/ShopController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+    <list default="true" id="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Practica.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Practica.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/ReviewController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,35 +50,17 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/migue/Desktop/Practica1_SD/Practica/src/main/resources/templates/css&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alex/Documents/GitHub/Practica1_SD/Practica&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;a31000df514ca6ab0b7b714c2b6551d5&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\templates\css" />
-      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\templates" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\static" />
-      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\static\css" />
-      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\templates\" />
-      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\templates\css" />
-      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources" />
-    </key>
-  </component>
   <component name="RunManager">
     <configuration name="PracticaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Practica" />
@@ -96,14 +73,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="75a0119d-d0e3-47d6-8eed-bc5c53515181" name="Changes" comment="" />
+      <changelist id="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" name="Changes" comment="" />
       <created>1678957055941</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1678957055941</updated>
       <workItem from="1678957057132" duration="471000" />
-      <workItem from="1678974406857" duration="5558000" />
-      <workItem from="1679051530385" duration="2912000" />
     </task>
     <servers />
   </component>
