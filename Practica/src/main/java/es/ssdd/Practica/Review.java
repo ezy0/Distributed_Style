@@ -1,7 +1,7 @@
 package es.ssdd.Practica;
 
 public class Review {
-    private long id;
+    private int id;
 
     private String nickname;
     private String content;
@@ -10,11 +10,11 @@ public class Review {
     public Review() {
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
