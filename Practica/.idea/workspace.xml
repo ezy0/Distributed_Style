@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
@@ -20,6 +21,24 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Review.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Shop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/assets/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/assets/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/assets/css/shopStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/assets/img/16337639931288b3be7d13855b74e42171a976d6d9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/assets/img/Captura de pantalla 2023-03-20 114107.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/shop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Practica.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Practica.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/ShopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/ShopController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
+>>>>>>> 54868d9d6c1e247df0c6c15c7dd525a1eaacd8d3
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +92,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "19",
+<<<<<<< HEAD
     "last_opened_file_path": "C:/Users/alvar/OneDrive - Universidad Rey Juan Carlos/PORTATIL/Documentos/GitHub/Practica1_SD",
+=======
+    "last_opened_file_path": "C:/Users/Alex/Documents/GitHub/Practica1_SD/Practica",
+>>>>>>> 54868d9d6c1e247df0c6c15c7dd525a1eaacd8d3
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -106,7 +129,10 @@
       <workItem from="1679131161508" duration="128000" />
       <workItem from="1679311174368" duration="1031000" />
       <workItem from="1679312237993" duration="2526000" />
+<<<<<<< HEAD
       <workItem from="1679391761651" duration="47000" />
+=======
+>>>>>>> 54868d9d6c1e247df0c6c15c7dd525a1eaacd8d3
     </task>
     <servers />
   </component>
