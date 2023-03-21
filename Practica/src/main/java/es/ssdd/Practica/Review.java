@@ -2,8 +2,6 @@ package es.ssdd.Practica;
 
 public class Review {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     private String nickname;
