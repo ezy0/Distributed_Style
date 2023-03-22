@@ -1,4 +1,4 @@
-package es.ssdd.Practica;
+package es.ssdd.Practica.Models;
 
 public class Review {
     private int id;

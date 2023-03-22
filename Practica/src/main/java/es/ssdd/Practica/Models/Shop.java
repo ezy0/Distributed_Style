@@ -1,4 +1,4 @@
-package es.ssdd.Practica;
+package es.ssdd.Practica.Models;
 
 import java.util.HashMap;
 import java.util.Map;
