@@ -5,26 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/bg-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/broken.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/js/scripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/viewProduct.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ShopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Review.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/img/intro-bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/showProducts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/showProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/showProducts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ShopController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Supplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Supplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ProductController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Review.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Shop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/assets/img/intro-bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/shop.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/showProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/showProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Supplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Supplier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ReviewService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +35,8 @@
         <option value="Enum" />
         <option value="JavaScript File" />
         <option value="Class" />
+        <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -71,6 +71,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -81,7 +82,8 @@
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "C:/Users/migue/Desktop/Practica1_SD/Practica/src/main/resources/static/assets/img",
+    "last_opened_file_path": "C:/Users/Alex/Desktop/3_UNIVERSIDAD/SEGUNDO CUATRIMESTRE/SISTEMAS DISTRIBUIDOS/REPOSITORIO EJERCICIOS/dws_repository-main/Bloque I/exercise4/exercise4",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -95,14 +97,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Alex\Documents\GitHub\Practica1_SD\Practica\src\main\resources\static" />
       <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\static\assets\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\templates" />
-      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\static\assets\img" />
-      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\static\assets" />
-      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\static\assets\css" />
-      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\static" />
+      <recent name="C:\Users\Alex\Documents\GitHub\Practica1_SD\Practica\src\main\resources\static\assets\img" />
+      <recent name="C:\Users\Alex\Documents\GitHub\Practica1_SD\Practica\src\main\resources\static" />
+      <recent name="C:\Users\Alex\Documents\GitHub\Practica1_SD\Practica\src\main\resources\templates" />
+      <recent name="C:\Users\Alex\Documents\GitHub\Practica1_SD\Practica\src\main\resources\static\assets" />
+      <recent name="C:\Users\Alex\Documents\GitHub\Practica1_SD\Practica\src\main\resources\static\assets\js" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.PracticaApplication">
@@ -144,6 +147,7 @@
       <workItem from="1679488716607" duration="3284000" />
       <workItem from="1679501908601" duration="303000" />
       <workItem from="1679559473835" duration="1523000" />
+      <workItem from="1679585655286" duration="10322000" />
     </task>
     <servers />
   </component>
