@@ -5,12 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/bg-1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< Updated upstream
-      <change beforePath="$PROJECT_DIR$/Practica.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Practica.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Review.java" afterDir="false" />
-=======
->>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ShopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/img/intro-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/showProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/showProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/showProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ShopController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Review.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Shop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/assets/img/intro-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/shop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/showProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/showProducts.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +35,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="JavaScript File" />
         <option value="Class" />
       </list>
     </option>
@@ -43,6 +58,9 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2N5bnMMSlTRlwxlSJn3P3RO0Z3V" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -51,24 +69,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alex/Documents/GitHub/Practica1_SD/Practica&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-<<<<<<< Updated upstream
-=======
-    &quot;spring.configuration.checksum&quot;: &quot;a31000df514ca6ab0b7b714c2b6551d5&quot;,
->>>>>>> Stashed changes
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "jdk.selected.JAVA_MODULE": "19",
+    "last_opened_file_path": "C:/Users/migue/Desktop/Practica1_SD/Practica/src/main/resources/static/assets/img",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "spring.configuration.checksum": "a31000df514ca6ab0b7b714c2b6551d5",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\static\assets\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\templates" />
+      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\static\assets\img" />
+      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\static\assets" />
+      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\static\assets\css" />
+      <recent name="C:\Users\migue\Desktop\Practica1_SD\Practica\src\main\resources\static" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.PracticaApplication">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Practica/static/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="showProducts.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Practica/templates/showProducts.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="PracticaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Practica" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="es.ssdd.Practica.PracticaApplication" />
@@ -76,6 +119,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.showProducts.html" />
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -86,8 +135,15 @@
       <option name="presentableId" value="Default" />
       <updated>1678957055941</updated>
       <workItem from="1678957057132" duration="471000" />
-      <workItem from="1678957552877" duration="433000" />
-      <workItem from="1678957992303" duration="350000" />
+      <workItem from="1679131161508" duration="128000" />
+      <workItem from="1679311174368" duration="1031000" />
+      <workItem from="1679312237993" duration="2526000" />
+      <workItem from="1679400831986" duration="1410000" />
+      <workItem from="1679476552743" duration="447000" />
+      <workItem from="1679487976038" duration="425000" />
+      <workItem from="1679488716607" duration="3284000" />
+      <workItem from="1679501908601" duration="303000" />
+      <workItem from="1679559473835" duration="1523000" />
     </task>
     <servers />
   </component>
