@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Shop Homepage - Start Bootstrap Template</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/shopStyle.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg bg-light" style="background: var(--bs-black);color: var(--bs-black);">
+        <div class="container px-4 px-lg-5"><a class="navbar-brand" href="index.html" style="color: rgba(0,0,0,0.9);font-weight: bold;">DISTRIBUTED STYLE</a><button class="navbar-toggler" data-bs-toggle="collapse" type="button" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a aria-current="page" href="index.html" style="color: rgb(0,0,0);font-size: 20px;font-weight: bold;"></a><a class="navbar-brand" href="index.html" style="color: rgba(3,0,0,0.9);font-weight: bold;">HOME</a></div>
+    </nav>
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Shop in style</h1>
+                <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+            </div>
+        </div>
+    </header>
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">{{#products}}
+                <div class="col mb-5">
+                    <div class="card h-100" style="padding: -20px;"><img class="card-img-top w-100 d-block card-img-top" src={{image}} alt="...">
+                        <h5 class="fw-bolder" style="text-align: center;color: rgba(0,0,0,0.9);">{{name}}</h5><span style="text-align: center;color: rgba(0,0,0,0.9);">${{prize}}</span>
+                    </div>
+                    </div>{{/products}}
+                </div>
+            </div>
+    </section>
+    <footer class="bg-dark py-5">
+        <div class="container">
+            <p class="text-center text-white m-0">Copyright © Your Website 2022</p>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
