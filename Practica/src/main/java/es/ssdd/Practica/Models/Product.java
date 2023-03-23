@@ -7,16 +7,25 @@ public class Product {
     private Long id;
     private String name;
     private float prize;
+    private String image;
     private Review review;
-    private HashMap<Long, Product> products;
+   // private HashMap<Long, Product> products;
     private HashMap<Long, Supplier> suppliers;
 
-   public Product(Long id,String name,float prize,Review review){
-       this.id=id;
+   public Product(String name,float prize,Review review, String image){
        this.name=name;
        this.prize=prize;
        this.review=review;
+       this.image=image;
    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Long getId() {
         return this.id;
