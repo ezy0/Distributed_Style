@@ -1,6 +1,8 @@
 package es.ssdd.Practica.Services;
 
+import es.ssdd.Practica.Models.Composition;
 import es.ssdd.Practica.Models.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -13,6 +15,9 @@ public class ProductService {
 
     private HashMap<Long, Product> products = new HashMap<>();
     private AtomicLong lastId = new AtomicLong();
+
+    @Autowired
+    CompositionService compositionService;
 
     public ProductService(){
         createProduct(new Product("White Alien Hoodie", "This crisp white hoodie is a wardrobe staple that can be dressed up or down. Made from soft and breathable fabric, it will keep you comfortable all day long. The clean and classic design features a drawstring hood, kangaroo pocket, and ribbed cuffs and hem for a secure fit. The versatile white color allows you to pair it with almost any outfit, from jeans and sneakers to skirts and boots. Perfect for layering, this hoodie is a must-have for any fashion-conscious individual.", 80.00f, null, "../assets/img/alienSudaderaSin.png"));
@@ -32,6 +37,15 @@ public class ProductService {
     public Product getProduct(long id) {
         if (this.products.containsKey(id)) {
             return this.products.get(id);
+        }
+        return null;
+    }
+
+    public Product deleteProduct(long id){
+        Composition composition = compositionService.deleteComposition(id);
+        Product product = products.remove(id);
+        if (product != null) {
+            return product;
         }
         return null;
     }

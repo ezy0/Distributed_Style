@@ -10,7 +10,7 @@
 
     <body>
         <nav class="navbar navbar-light navbar-expand-lg bg-light" style="background: var(--bs-black);color: var(--bs-black);">
-            <div class="container px-4 px-lg-5"><a class="navbar-brand" href="index.html" style="color: rgba(0,0,0,0.9);font-weight: bold;">DISTRIBUTED STYLE</a><button class="navbar-toggler" data-bs-toggle="collapse" type="button" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a aria-current="page" href="index.html" style="color: rgb(0,0,0);font-size: 20px;font-weight: bold;"></a><a class="navbar-brand" href="index.html" style="color: rgba(3,0,0,0.9);font-weight: bold;">HOME</a></div>
+            <div class="container px-4 px-lg-5"><a class="navbar-brand" href="../index.html" style="color: rgba(0,0,0,0.9);font-weight: bold;">DISTRIBUTED STYLE</a><button class="navbar-toggler" data-bs-toggle="collapse" type="button" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><a class="navbar-brand" href="index.html" style="color: rgba(3,0,0,0.9);font-weight: bold;">HOME</a></div>
         </nav>
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
@@ -23,13 +23,14 @@
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">{{#products}}
                     <div class="col mb-5">
-                        <a class="card h-100" style="padding: -20px;" href="/products/{{-index}}"><img class="card-img-top w-100 d-block card-img-top" src={{image}} alt="...">
+                        <a class="card h-100" style="padding: -20px;" href="/products/{{index}}"><img class="card-img-top w-100 d-block card-img-top" src={{image}} alt="...">
                             <h5 class="fw-bolder" style="text-align: center;color: rgba(0,0,0,0.9);">{{name}}</h5><span style="text-align: center;color: rgba(0,0,0,0.9);">${{prize}}</span>
                         </a>
                         </div>{{/products}}
                     </div>
                 </div>
         </section>
+        <a class="btn btn-primary btn-lg btn-default" type="button" href="/products/newProduct">ADD PRODUCT</a>
         <footer class="bg-dark py-5">
             <div class="container">
                 <p class="text-center text-white m-0">Copyright © DistributedStyle 2023</p>

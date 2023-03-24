@@ -1,7 +1,6 @@
 package es.ssdd.Practica.Models;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Objects;
 
 public class Product {
@@ -10,14 +9,14 @@ public class Product {
     private String description;
     private float prize;
     private String image;
-    private Review review;
+    private Composition composition;
     private ArrayList<Supplier> suppliers;
 
-   public Product(String name, String description, float prize,Review review, String image){
+   public Product(String name, String description, float prize, Composition composition, String image){
        this.name=name;
        this.description = description;
        this.prize=prize;
-       this.review=review;
+       this.composition = composition;
        this.image=image;
    }
 
@@ -39,8 +38,8 @@ public class Product {
     public float getPrize() {
         return this.prize;
     }
-    public Review getReview() {
-        return this.review;
+    public Composition getComposition() {
+        return this.composition;
     }
     public void setId(Long id) {
         this.id = id;
@@ -48,24 +47,21 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
-    public void setDescription(String description) {
-       this.description = description;
-    }
     public void setPrize(float prize) {
         this.prize = prize;
     }
-    public void setReview(Review review) {
-        this.review = review;
+    public void setComposition(Composition composition) {
+        this.composition = composition;
     }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return id == product.id && Float.compare(product.prize, prize) == 0 && Objects.equals(name, product.name) && Objects.equals(review, product.review);
+        return id == product.id && Float.compare(product.prize, prize) == 0 && Objects.equals(name, product.name) && Objects.equals(composition, product.composition);
     }
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, prize, review);
+        return Objects.hash(id, name, prize, composition);
     }
 }

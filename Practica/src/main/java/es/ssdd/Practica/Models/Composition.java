@@ -1,11 +1,11 @@
 package es.ssdd.Practica.Models;
 
-public class Review {
+public class Composition {
     private Long id;
     private String content;
     private Product product;
 
-    public Review() {
+    public Composition() {
     }
 
     public Long getId() {
