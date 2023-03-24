@@ -22,12 +22,13 @@ public class ProductController {
 
     @GetMapping("/products/{num}")
     public String getProduct(Model model, @PathVariable int num) {
-        Product producto = productService.getProduct(num - 1);
+        Product producto = productService.getProduct(num);
 
         model.addAttribute("name", producto.getName());
         model.addAttribute("prize", producto.getPrize());
         model.addAttribute("image", producto.getImage());
         model.addAttribute("description", producto.getDescription());
+        model.addAttribute("id", producto.getId());
 
         return "viewProduct";
     }
