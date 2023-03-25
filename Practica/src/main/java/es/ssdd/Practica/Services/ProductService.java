@@ -43,10 +43,6 @@ public class ProductService {
 
     public Product deleteProduct(long id){
         Composition composition = compositionService.deleteComposition(id);
-        Product product = products.remove(id);
-        if (product != null) {
-            return product;
-        }
-        return null;
+        return products.remove(id);
     }
 }
