@@ -22,9 +22,9 @@ public class ProductController {
         return "showProducts";
     }
 
-    @GetMapping("/products/{num}")
-    public String getProduct(Model model, @PathVariable int num) {
-        Product producto = productService.getProduct(num);
+    @GetMapping("/products/{id}")
+    public String getProduct(Model model, @PathVariable int id) {
+        Product producto = productService.getProduct(id);
 
         model.addAttribute("name", producto.getName());
         model.addAttribute("prize", producto.getPrize());
@@ -46,7 +46,7 @@ public class ProductController {
     @GetMapping("/products/delete/{id}")
     public String deleteProduct(@PathVariable int id) {
         Product product = this.productService.deleteProduct(id);
-        return "showProducts";
+        return "deletedProduct";
     }
 
 
