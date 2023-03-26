@@ -23,7 +23,7 @@
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">{{#products}}
                     <div class="col mb-5">
-                        <a class="card h-100" style="padding: -20px;" href="/products/{{id}}"><img class="card-img-top w-100 d-block card-img-top" src={{image}} alt="...">
+                        <a class="card h-100" id="no-sub" style="padding: -20px;" href="/products/{{id}}"><img class="card-img-top w-100 d-block card-img-top" src={{image}} alt="...">
                             <h5 class="fw-bolder" style="text-align: center;color: rgba(0,0,0,0.9);">{{name}}</h5><span style="text-align: center;color: rgba(0,0,0,0.9);">${{prize}}</span>
                         </a>
                         </div>{{/products}}
@@ -31,7 +31,7 @@
                 </div>
         </section>
         <a class="btn btn-primary btn-lg btn-default" type="button" href="/products/newProduct">ADD PRODUCT</a>
-        <footer class="bg-dark py-5">
+        <footer class="bg-dark py-5" id="bottom">
             <div class="container">
                 <p class="text-center text-white m-0">Copyright © DistributedStyle 2023</p>
             </div>
