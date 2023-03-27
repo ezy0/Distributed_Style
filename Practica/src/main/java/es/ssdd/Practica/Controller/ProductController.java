@@ -5,10 +5,7 @@ import es.ssdd.Practica.Services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ProductController {
@@ -35,12 +32,15 @@ public class ProductController {
         return "viewProduct";
     }
 
-    @PostMapping("/products/newProduct")
-    public String newProduct(Model model, Product product) {
-
+    @GetMapping("/products/newProduct")
+    public String newProduct(@RequestParam String name, @RequestParam float prize, @RequestParam String description, @RequestParam String image) {
+        if (name.length() == 0)
+            return "/error";
+        if (image.length() == 0)
+            image = "../assets/img/16337639931288b3be7d13855b74e42171a976d6d9.jpg";
+        Product product = new Product(name, description, prize, null, image);
         productService.createProduct(product);
-
-        return "showProducts";
+        return "redirect:/products";
     }
 
     @GetMapping("/products/delete/{id}")
