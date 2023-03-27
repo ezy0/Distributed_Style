@@ -35,6 +35,9 @@ public class Product {
     public String getDescription(){
        return this.description;
     }
+    public void setDescription(String description) {
+        this.description = description;
+    }
     public float getPrize() {
         return this.prize;
     }

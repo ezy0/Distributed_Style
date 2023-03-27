@@ -45,4 +45,15 @@ public class ProductService {
         Composition composition = compositionService.deleteComposition(id);
         return products.remove(id);
     }
+
+    public Product modifyProduct(long id, Product modifiedProduct){
+        Product product = this.getProduct(id);
+        product.setName(modifiedProduct.getName());
+        product.setPrize(modifiedProduct.getPrize());
+        product.setDescription(modifiedProduct.getDescription());
+        product.setImage(modifiedProduct.getImage());
+
+        return product;
+
+    }
 }

@@ -49,5 +49,24 @@ public class ProductController {
         return "deletedProduct";
     }
 
+    @GetMapping("/products/modifyProduct/{id}")
+    public String modifyProduct(Model model, @PathVariable long id){
+        Product product = this.productService.getProduct(id);
+        //model.addAttribute("product",product);
+        model.addAttribute("name", product.getName());
+        model.addAttribute("prize", product.getPrize());
+        model.addAttribute("image", product.getImage());
+        model.addAttribute("description", product.getDescription());
+        model.addAttribute("id", product.getId());
+        return "modifyProduct";
+    }
+    @GetMapping("/products/redirectModify")
+    public String redirectModify(@RequestParam("id") long id,@RequestParam("name") String name, @RequestParam("prize") float prize,
+                                 @RequestParam("description") String description,@RequestParam("image") String image){
+        Product product = this.productService.modifyProduct(id,new Product(name,description,prize,null,image));
+        return "redirect:/products/" + id;
+    }
+
+
 
 }
