@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ProductRESTController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/img/downloads-bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/newProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/newProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/showProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/showProducts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/assets/img/downloads-bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/newProduct.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/showProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/showProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/css/Simple-Slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/assets/css/Simple-Slider.css" afterDir="false" />
     </list>
     <list id="e4e2b062-7032-456c-9273-a082a6ef3aa9" name="Changes by alvar" comment="" />
     <list id="31608a26-743a-4802-9eb6-45721681b7f7" name="Changes by Miguel A" comment="" />
@@ -155,7 +147,7 @@
       <workItem from="1679765872998" duration="2138000" />
       <workItem from="1679832913147" duration="2513000" />
       <workItem from="1679867701951" duration="2820000" />
-      <workItem from="1679911227039" duration="1763000" />
+      <workItem from="1679911227039" duration="2357000" />
     </task>
     <servers />
   </component>
