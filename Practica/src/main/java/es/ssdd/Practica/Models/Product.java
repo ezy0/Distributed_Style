@@ -9,6 +9,7 @@ public class Product {
     private String description;
     private float prize;
     private String image;
+    private Shop shop;
     private Composition composition;
     private ArrayList<Supplier> suppliers;
 
@@ -23,6 +24,12 @@ public class Product {
            this.image=image;
    }
 
+   public Shop getShop () {
+       return shop;
+   }
+   public void setShop (Shop shop) {
+       this.shop = shop;
+   }
     public String getImage() {
         return image;
     }

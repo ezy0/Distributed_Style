@@ -3,7 +3,6 @@ package es.ssdd.Practica.Models;
 public class Composition {
     private Long id;
     private String content;
-    private Product product;
 
     public Composition() {
     }
@@ -24,16 +23,8 @@ public class Composition {
         this.content = content;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
     @Override
     public String toString() {
-        return "Composition [id=" + id  + content + ", product=" + product + "]";
+        return "Composition [id=" + id  + content + "]";
     }
 }

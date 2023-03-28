@@ -7,9 +7,10 @@ import java.util.Map;
 public class Shop {
     private Long id;
     private String name;
+    private String image;
+    private ArrayList<Product> products;
 
-    public Shop(Long id, String name) {
-        this.id = id;
+    public Shop(String name) {
         this.name = name;
     }
 
@@ -27,5 +28,21 @@ public class Shop {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImage () {
+        return image;
+    }
+
+    public void setImage (String image) {
+        this.image = image;
+    }
+
+    public ArrayList<Product> getProducts () {
+        return products;
+    }
+
+    public void setProducts (ArrayList<Product> products) {
+        this.products = products;
     }
 }
