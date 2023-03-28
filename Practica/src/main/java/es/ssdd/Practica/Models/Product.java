@@ -17,7 +17,10 @@ public class Product {
        this.description = description;
        this.prize=prize;
        this.composition = composition;
-       this.image=image;
+       if (image.length() == 0)
+           this.image = "../assets/img/sudadera.jpg";
+       else
+           this.image=image;
    }
 
     public String getImage() {
