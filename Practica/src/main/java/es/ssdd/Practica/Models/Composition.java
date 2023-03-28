@@ -34,6 +34,6 @@ public class Composition {
 
     @Override
     public String toString() {
-        return "Review [id=" + id  + content + ", product=" + product + "]";
+        return "Composition [id=" + id  + content + ", product=" + product + "]";
     }
 }

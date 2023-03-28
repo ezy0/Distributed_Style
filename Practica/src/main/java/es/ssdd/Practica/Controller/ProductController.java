@@ -13,6 +13,7 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    // METODOS GET
     @GetMapping("/products")
     public String getProducts(Model model){
         model.addAttribute("products", this.productService.getProducts());
@@ -32,12 +33,13 @@ public class ProductController {
         return "viewProduct";
     }
 
+    // METODO POST
     @GetMapping("/products/newProduct")
     public String newProduct(@RequestParam String name, @RequestParam float prize, @RequestParam String description, @RequestParam String image) {
         if (name.length() == 0)
-            return "/error";
+            return "redirect:/error";
         if (image.length() == 0)
-            image = "../assets/img/16337639931288b3be7d13855b74e42171a976d6d9.jpg";
+            image = "../assets/img/sudadera.png";
         Product product = new Product(name, description, prize, null, image);
         productService.createProduct(product);
         return "redirect:/products";
@@ -46,6 +48,9 @@ public class ProductController {
     @GetMapping("/products/delete/{id}")
     public String deleteProduct(@PathVariable int id) {
         Product product = this.productService.deleteProduct(id);
+        if (product == null) {
+            return "redirect:/error";
+        }
         return "deletedProduct";
     }
 

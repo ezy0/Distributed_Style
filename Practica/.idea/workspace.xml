@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/modifyProduct.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/sudadera.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/assets/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/viewProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/viewProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Composition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Composition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/img/16337639931288b3be7d13855b74e42171a976d6d9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/img/Captura de pantalla 2023-03-20 114107.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/modifyProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/modifyProduct.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/viewProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/viewProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Composition.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Composition.class" afterDir="false" />
     </list>
     <list id="e4e2b062-7032-456c-9273-a082a6ef3aa9" name="Changes by alvar" comment="" />
     <list id="31608a26-743a-4802-9eb6-45721681b7f7" name="Changes by Miguel A" comment="" />
@@ -76,7 +75,7 @@
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "C:/Users/alvar/OneDrive - Universidad Rey Juan Carlos/PORTATIL/Escritorio/UNI/SSDD/PracticaGatos/BaskotDrippy-FASE1/baskotdrippy",
+    "last_opened_file_path": "C:/Users/Alex/Desktop/3_UNIVERSIDAD/SEGUNDO CUATRIMESTRE/SISTEMAS DISTRIBUIDOS/REPOSITORIO EJERCICIOS/dws_repository-main/Bloque I/exercise4/exercise4",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -156,6 +155,7 @@
       <workItem from="1679832913147" duration="2513000" />
       <workItem from="1679867701951" duration="2820000" />
       <workItem from="1679911227039" duration="2357000" />
+      <workItem from="1679987965248" duration="2439000" />
     </task>
     <servers />
   </component>
