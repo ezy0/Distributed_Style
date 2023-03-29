@@ -16,9 +16,9 @@ public class ShopService {
     private AtomicLong lastId = new AtomicLong();
 
     public ShopService(){
-        createShop(new Shop("Foot Looker", "../assets/img/footlocker.jpg"));
-        createShop(new Shop("Nude Project", "../assets/img/NUDE_PROJECT_COCOA_2.jpg"));
-        createShop(new Shop("Martin Valen", "../assets/img/67237831_101270447883552_3670809205297643520_n.jpg"));
+        createShop(new Shop("Foot Looker", "../assets/img/footlocker.jpg", ""));
+        createShop(new Shop("Nude Project", "../assets/img/NUDE_PROJECT_COCOA_2.jpg", ""));
+        createShop(new Shop("Martin Valen", "../assets/img/67237831_101270447883552_3670809205297643520_n.jpg", ""));
     }
 
     public Shop createShop (Shop shop) {
@@ -44,6 +44,14 @@ public class ShopService {
     }
 
     // Modify
+    public Shop modifyShop(long id, Shop modifiedShop){
+        Shop shop = this.getShop(id);
 
+        shop.setName(modifiedShop.getName());
+        shop.setImage(modifiedShop.getImage());
+        shop.setDirection(modifiedShop.getDirection());
+
+        return shop;
+    }
 
 }

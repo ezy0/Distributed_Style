@@ -33,7 +33,7 @@ public class ProductController {
         return "viewProduct";
     }
 
-    @GetMapping("shops/{id}/products/newProduct")
+    @GetMapping("shops/{id}/newProduct")
     public String newProduct(@PathVariable long id, @RequestParam String name, @RequestParam float prize, @RequestParam String description, @RequestParam String image) {
         if (name.length() == 0)
             return "redirect:/error";
@@ -64,12 +64,12 @@ public class ProductController {
         model.addAttribute("id", product.getId());
         return "modifyProduct";
     }
-    @GetMapping("/products/redirectModify")
+    /*@GetMapping("/products/redirectModify")
     public String redirectModify(@RequestParam("id") long id,@RequestParam("name") String name, @RequestParam("prize") float prize,
                                  @RequestParam("description") String description,@RequestParam("image") String image){
         Product product = this.productService.modifyProduct(id,new Product(name,description,prize,null,image, (long)1));
         return "redirect:/products/" + id;
-    }
+    }*/
 
 
 

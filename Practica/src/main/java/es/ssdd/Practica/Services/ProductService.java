@@ -51,14 +51,24 @@ public class ProductService {
         return products.remove(id);
     }
 
-    public Product modifyProduct(long id, Product modifiedProduct){
+    public Product modifyProduct(long id, long idShop, Product modifiedProduct){
         Product product = this.getProduct(id);
+        Product shopProduct = null;
+        for (Product productAux : this.shopService.getShop(idShop).getProducts())
+            if (productAux .getId() == id)
+                shopProduct = productAux;
+
+        if (shopProduct == null)
+            return null;
+        shopProduct.setName(modifiedProduct.getName());
+        shopProduct.setPrize(modifiedProduct.getPrize());
+        shopProduct.setDescription(modifiedProduct.getDescription());
+        shopProduct.setImage(modifiedProduct.getImage());
+
         product.setName(modifiedProduct.getName());
         product.setPrize(modifiedProduct.getPrize());
         product.setDescription(modifiedProduct.getDescription());
         product.setImage(modifiedProduct.getImage());
-
         return product;
-
     }
 }

@@ -41,13 +41,20 @@ public class ShopRESTController {
     @DeleteMapping("/shops/delete/{id}")
     public ResponseEntity<Shop> deleteShop(@PathVariable long id){
         Shop shop = this.shopService.getShop(id);
+        if (shop == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         if (shop.getProducts().size() > 0)
             for (Product product : shop.getProducts()) {
                 for (Product product2 : this.productService.getProducts())
                     if (Objects.equals(product.getId(), product2.getId()))
                         this.productService.deleteProduct(product2.getId());
             }
-        //shop = this.shopService.deleteShop(id);
+        return new ResponseEntity<>(shop, HttpStatus.OK);
+    }
+
+    @PutMapping("/shops/{id}/modifyShop")
+    public ResponseEntity<Shop> modifyShop(@PathVariable long id, @RequestBody Shop modifiedShop){
+        Shop shop = this.shopService.modifyShop(id, modifiedShop);
         if (shop == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(shop, HttpStatus.OK);

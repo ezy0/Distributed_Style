@@ -1,18 +1,21 @@
 package es.ssdd.Practica.Models;
 
 public class Composition {
+    private Long productId;
     private Long id;
     private String content;
 
-    public Composition() {
+    public Composition(long productId, String content) {
+        this.productId = productId;
+        this.content = content;
     }
 
-    public Long getId() {
-        return id;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
     public String getContent() {
@@ -23,8 +26,16 @@ public class Composition {
         this.content = content;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "Composition [id=" + id  + content + "]";
+        return "Composition [productId=" + productId  + content + "]";
     }
 }

@@ -8,14 +8,21 @@ public class Shop {
     private Long id;
     private String name;
     private String image;
+    private String direction;
     private ArrayList<Product> products = new ArrayList<>();
 
-    public Shop(String name) {
-        this.name = name;
+    public String getDirection() {
+        return direction;
     }
-    public Shop(String name, String image) {
+
+    public void setDirection(String direction) {
+        this.direction = direction;
+    }
+
+    public Shop(String name, String image, String direction) {
         this.name = name;
         this.image = image;
+        this.direction = direction;
     }
 
     public Long getId() {
