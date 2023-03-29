@@ -8,10 +8,14 @@ public class Shop {
     private Long id;
     private String name;
     private String image;
-    private ArrayList<Product> products;
+    private ArrayList<Product> products = new ArrayList<>();
 
     public Shop(String name) {
         this.name = name;
+    }
+    public Shop(String name, String image) {
+        this.name = name;
+        this.image = image;
     }
 
     public Long getId() {

@@ -9,11 +9,11 @@ public class Product {
     private String description;
     private float prize;
     private String image;
-    private Shop shop;
+    private Long shopId;
     private Composition composition;
     private ArrayList<Supplier> suppliers;
 
-   public Product(String name, String description, float prize, Composition composition, String image){
+   public Product(String name, String description, float prize, Composition composition, String image, Long shopId){
        this.name=name;
        this.description = description;
        this.prize=prize;
@@ -22,13 +22,14 @@ public class Product {
            this.image = "../assets/img/sudadera.jpg";
        else
            this.image=image;
+       this.shopId = shopId;
    }
 
-   public Shop getShop () {
-       return shop;
+   public Long getShopId () {
+       return shopId;
    }
-   public void setShop (Shop shop) {
-       this.shop = shop;
+   public void setShopId (Long shopId) {
+       this.shopId = shopId;
    }
     public String getImage() {
         return image;

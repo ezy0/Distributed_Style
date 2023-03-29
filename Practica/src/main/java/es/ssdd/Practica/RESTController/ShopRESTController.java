@@ -10,12 +10,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api")
 public class ShopRESTController {
     @Autowired
     ShopService shopService;
+    @Autowired
+    ProductService productService;
+
     @GetMapping("/shops")
     public ResponseEntity<Collection<Shop>> getProducts() {
         return new ResponseEntity<>(this.shopService.getShops(), HttpStatus.OK);
@@ -36,7 +40,14 @@ public class ShopRESTController {
 
     @DeleteMapping("/shops/delete/{id}")
     public ResponseEntity<Shop> deleteShop(@PathVariable long id){
-        Shop shop = this.shopService.deleteShop(id);
+        Shop shop = this.shopService.getShop(id);
+        if (shop.getProducts().size() > 0)
+            for (Product product : shop.getProducts()) {
+                for (Product product2 : this.productService.getProducts())
+                    if (Objects.equals(product.getId(), product2.getId()))
+                        this.productService.deleteProduct(product2.getId());
+            }
+        //shop = this.shopService.deleteShop(id);
         if (shop == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(shop, HttpStatus.OK);

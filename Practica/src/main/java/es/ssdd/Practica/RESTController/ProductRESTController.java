@@ -2,6 +2,7 @@ package es.ssdd.Practica.RESTController;
 
 import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Services.ProductService;
+import es.ssdd.Practica.Services.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,29 +17,31 @@ public class ProductRESTController {
     @Autowired
     ProductService productService;
 
-    @GetMapping("/products")
+
+    @GetMapping("/shops/{id}/products")
     public ResponseEntity<Collection<Product>> getProducts() {
         return new ResponseEntity<>(this.productService.getProducts(), HttpStatus.OK);
     }
 
-    @GetMapping("/products/{id}")
-    public ResponseEntity<Product> getProduct(@PathVariable long id){
-        Product product = this.productService.getProduct(id);
+    @GetMapping("/shops/{id}/products/{idP}")
+    public ResponseEntity<Product> getProduct(@PathVariable long idP){
+        Product product = this.productService.getProduct(idP);
         if (product == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
-    @PostMapping("/products/newProduct")
-    public ResponseEntity<Product> createProduct(@RequestBody Product product){
-        return new ResponseEntity<>(this.productService.createProduct(product), HttpStatus.OK);
+    @PostMapping("/shops/{id}/products/newProduct")
+    public ResponseEntity<Product> createProduct(@RequestBody Product product, @PathVariable long id){
+        this.productService.createProduct(product, id);
+        return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
-    @DeleteMapping("/products/delete/{id}")
-    public ResponseEntity<Product> deleteProduct(@PathVariable long id){
-        Product product = this.productService.deleteProduct(id);
-        if (product == null)
+    @DeleteMapping("/shops/{id}/products/delete/{idP}")
+    public ResponseEntity<Product> deleteProduct(@PathVariable long idP){
+        if (this.productService.getProduct(idP) == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        Product product = this.productService.deleteProduct(idP);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 }

@@ -4,24 +4,27 @@ import es.ssdd.Practica.Models.Composition;
 import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Shop;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
+@Service
 public class ShopService {
     private HashMap<Long, Shop> shops = new HashMap<>();
     private AtomicLong lastId = new AtomicLong();
 
     public ShopService(){
-        createShop(new Shop("Foot Looker"));
-        createShop(new Shop("Nude Project"));
-        createShop(new Shop("Martin Valen"));
+        createShop(new Shop("Foot Looker", "../assets/img/footlocker.jpg"));
+        createShop(new Shop("Nude Project", "../assets/img/NUDE_PROJECT_COCOA_2.jpg"));
+        createShop(new Shop("Martin Valen", "../assets/img/67237831_101270447883552_3670809205297643520_n.jpg"));
     }
 
     public Shop createShop (Shop shop) {
         shop.setId(lastId.incrementAndGet());
         shops.put(lastId.get(), shop);
+
         return shop;
     }
 

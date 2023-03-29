@@ -33,15 +33,14 @@ public class ProductController {
         return "viewProduct";
     }
 
-    // METODO POST
-    @GetMapping("/products/newProduct")
-    public String newProduct(@RequestParam String name, @RequestParam float prize, @RequestParam String description, @RequestParam String image) {
+    @GetMapping("shops/{id}/products/newProduct")
+    public String newProduct(@PathVariable long id, @RequestParam String name, @RequestParam float prize, @RequestParam String description, @RequestParam String image) {
         if (name.length() == 0)
             return "redirect:/error";
         if (image.length() == 0)
             image = "../assets/img/sudadera.png";
-        Product product = new Product(name, description, prize, null, image);
-        productService.createProduct(product);
+        Product product = new Product(name, description, prize, null, image, (long)1);
+        productService.createProduct(product, id);
         return "redirect:/products";
     }
 
@@ -68,7 +67,7 @@ public class ProductController {
     @GetMapping("/products/redirectModify")
     public String redirectModify(@RequestParam("id") long id,@RequestParam("name") String name, @RequestParam("prize") float prize,
                                  @RequestParam("description") String description,@RequestParam("image") String image){
-        Product product = this.productService.modifyProduct(id,new Product(name,description,prize,null,image));
+        Product product = this.productService.modifyProduct(id,new Product(name,description,prize,null,image, (long)1));
         return "redirect:/products/" + id;
     }
 
