@@ -11,24 +11,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Supplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Supplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/newShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/newShop.html" afterDir="false" />
-    </list>
-    <list id="e4e2b062-7032-456c-9273-a082a6ef3aa9" name="Changes by alvar" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Supplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Supplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/CompositionRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/CompositionRESTController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/SupplierRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/SupplierRESTController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ShopService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ShopService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/SupplierService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/SupplierService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/newShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/newShop.html" afterDir="false" />
     </list>
+    <list id="e4e2b062-7032-456c-9273-a082a6ef3aa9" name="Changes by alvar" comment="" />
     <list id="31608a26-743a-4802-9eb6-45721681b7f7" name="Changes by Miguel A" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/CompositionRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/CompositionRESTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ProductRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ProductRESTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ShopRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ShopRESTController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/CompositionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/CompositionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ShopService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ShopService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,25 +42,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java">
-      <ranges>
-        <range start1="17" end1="22" start2="17" end2="17" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="32" end1="33" start2="27" end2="27" changelist="e4e2b062-7032-456c-9273-a082a6ef3aa9" />
-        <range start1="48" end1="51" start2="42" end2="46" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="55" end1="61" start2="50" end2="51" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="62" end1="67" start2="52" end2="52" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Supplier.java">
-      <ranges>
-        <range start1="9" end1="10" start2="9" end2="11" changelist="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" />
-        <range start1="23" end1="25" start2="24" end2="32" changelist="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" />
-        <range start1="26" end1="28" start2="33" end2="35" changelist="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" />
-        <range start1="29" end1="29" start2="36" end2="37" changelist="e4e2b062-7032-456c-9273-a082a6ef3aa9" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
