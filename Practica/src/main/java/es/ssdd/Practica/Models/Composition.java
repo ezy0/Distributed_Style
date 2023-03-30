@@ -5,6 +5,8 @@ public class Composition {
     private Long id;
     private String content;
 
+    public Composition(){}
+
     public Composition(long productId, String content) {
         this.productId = productId;
         this.content = content;

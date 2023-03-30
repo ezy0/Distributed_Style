@@ -3,6 +3,7 @@ package es.ssdd.Practica.RESTController;
 import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Shop;
 import es.ssdd.Practica.Models.Supplier;
+import es.ssdd.Practica.Services.CompositionService;
 import es.ssdd.Practica.Services.ProductService;
 import es.ssdd.Practica.Services.ShopService;
 import es.ssdd.Practica.Services.SupplierService;
@@ -23,6 +24,8 @@ public class ShopRESTController {
     ProductService productService;
     @Autowired
     SupplierService supplierService;
+    @Autowired
+    CompositionService compositionService;
 
     @GetMapping("/shops")
     public ResponseEntity<Collection<Shop>> getProducts() {
@@ -42,24 +45,27 @@ public class ShopRESTController {
         return new ResponseEntity<>(this.shopService.createShop(shop), HttpStatus.OK);
     }
 
-    @DeleteMapping("/shops/{id}/delete")
+    @DeleteMapping("/shops/{id}/deleteShop")
     public ResponseEntity<Shop> deleteShop(@PathVariable long id){
         Shop shop = this.shopService.getShop(id);
         if (shop == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         if (shop.getProducts().size() > 0)
-            for (Product product : shop.getProducts()) {
+            for (Product product : shop.getProducts())
                 for (Product product2 : this.productService.getProducts())
-                    if (Objects.equals(product.getId(), product2.getId()))
+                    if (Objects.equals(product.getId(), product2.getId())){
+                        if (this.compositionService.getComposition(product2.getComposition().getId()) != null)
+                            this.compositionService.getCompositions().remove(product2.getComposition());
                         this.productService.deleteProduct(product2.getId());
-            }
+                    }
+
         if (shop.getProducts().size() > 0)
-            for (Supplier supplier : shop.getSuppliers()) {
+            for (Supplier supplier : shop.getSuppliers())
                 for (Supplier supplier2 : this.supplierService.getSuppliers())
                     if (Objects.equals(supplier.getId(), supplier2.getId()))
                         this.supplierService.deleteSupplier(supplier2.getId());
-            }
-        return new ResponseEntity<>(shop, HttpStatus.OK);
+
+        return new ResponseEntity<>(this.shopService.deleteShop(id), HttpStatus.OK);
     }
 
     @PutMapping("/shops/{id}/modifyShop")

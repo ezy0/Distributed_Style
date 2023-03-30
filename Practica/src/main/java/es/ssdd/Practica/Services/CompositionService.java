@@ -42,4 +42,12 @@ public class CompositionService {
         return compositions.put(lastId.get(), composition);
     }
 
+    public Composition modifyComposition(long id, Composition modifiedComposition){
+        Composition composition = this.getComposition(id);
+        if (composition == null)
+            return null;
+        composition.setContent(modifiedComposition.getContent());
+        return composition;
+    }
+
 }

@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -44,7 +45,7 @@ public class SupplierRESTController {
         return new ResponseEntity<>(this.supplierService.createSupplier(supplier), HttpStatus.OK);
     }
 
-    @DeleteMapping("suppliers/deleteSupplier/{idSupplier}")
+    @DeleteMapping("suppliers/{idSupplier}/deleteSupplier")
     public ResponseEntity<Supplier> deleteSupplier(@PathVariable long idSupplier){
         Supplier supplier = this.supplierService.getSupplier(idSupplier);
         if (supplier == null)
@@ -60,13 +61,18 @@ public class SupplierRESTController {
         return new ResponseEntity<>(supplier,HttpStatus.OK);
     }
 
-    @PutMapping("suppliers/modify/{idSupplier}")
+    @PutMapping("suppliers/{idSupplier}/modifySupplier")
     public ResponseEntity<Supplier> modifySupplier(@PathVariable long idSupplier,@RequestBody Supplier modifiedSupplier){
         Supplier supplier =this.supplierService.modifySupplier(idSupplier,modifiedSupplier);
         if (supplier == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        for (Shop shop : this.shopService.getShops())
+            for (Supplier supplier1 : shop.getSuppliers())
+                if (Objects.equals(supplier1.getId(), supplier.getId())){
+                    supplier1.setDescription(supplier.getDescription());
+                    supplier1.setName(supplier.getName());
+                }
         return new ResponseEntity<>(supplier,HttpStatus.OK);
     }
-
 
 }

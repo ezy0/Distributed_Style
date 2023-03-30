@@ -54,13 +54,12 @@ public class ProductRESTController {
         return new ResponseEntity<>(newProduct, HttpStatus.OK);
     }
 
-    @DeleteMapping("/shops/{id}/{idP}/delete")
+    @DeleteMapping("/shops/{id}/{idP}/deleteProduct")
     public ResponseEntity<Product> deleteProduct(@PathVariable long idP, @PathVariable long id){
-        if (this.productService.getProduct(idP) == null || this.productService.getProduct(idP).getShopId() != id)
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         Product product = this.productService.deleteProduct(idP);
         this.shopService.getShop(product.getShopId()).getProducts().remove(product);
-        this.compositionService.getCompositions().remove(product.getComposition().getId());
+        if (product.getComposition() != null)
+            this.compositionService.getCompositions().remove(product.getComposition());
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
