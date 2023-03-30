@@ -11,7 +11,6 @@ public class Product {
     private String image;
     private Long shopId;
     private Composition composition;
-    private ArrayList<Supplier> suppliers;
 
    public Product(String name, String description, float prize, Composition composition, String image, Long shopId){
        this.name=name;

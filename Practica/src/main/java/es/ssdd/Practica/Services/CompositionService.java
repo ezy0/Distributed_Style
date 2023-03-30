@@ -15,10 +15,11 @@ public class CompositionService {
     private HashMap<Long, Composition> compositions = new HashMap<>();
     private AtomicLong lastId = new AtomicLong();
 
-    /*@Autowired
-    ProductService productService;*/
-
     public CompositionService(){
+    }
+
+    public Collection<Composition> getCompositions(){
+        return this.compositions.values().stream().toList();
     }
 
     public Composition getComposition(long id) {
@@ -29,22 +30,15 @@ public class CompositionService {
     }
 
     public Composition deleteComposition(long id){
-        Composition composition = compositions.remove(id);
-        /*if (composition == null) {
-            return null;
+        if (this.compositions.containsKey(id)) {
+            return compositions.remove(id);
         }
-        productService.getProduct(compositions.get(id).getProductId()).setComposition(null);*/
-        return composition;
+        return null;
     }
 
     public Composition createComposition(Composition composition, long idProduct){
-        /*composition.setId(lastId.incrementAndGet());
+        composition.setId(lastId.incrementAndGet());
         composition.setProductId(idProduct);
-        if (productService.getProduct(idProduct) == null)
-            return null;
-        if (productService.getProduct(idProduct).getComposition() != null)
-            compositions.remove(productService.getProduct(idProduct).getComposition().getId());
-        productService.getProduct(idProduct).setComposition(composition);*/
         return compositions.put(lastId.get(), composition);
     }
 

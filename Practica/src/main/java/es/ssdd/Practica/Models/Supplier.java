@@ -7,7 +7,8 @@ import java.util.HashMap;
 public class Supplier {
     private Long id;
     private String name;
-    private ArrayList<Product> products;
+    private String description;
+    private ArrayList<Shop> shops = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -21,10 +22,17 @@ public class Supplier {
     public void setName(String name) {
         this.name = name;
     }
-    public ArrayList<Product> getProducts() {
-        return products;
+    public String getDescription(){
+        return this.description;
     }
-    public void setProducts(ArrayList<Product> products) {
-        this.products = products;
+    public void setDescription(String description){
+        this.description=description;
     }
+    public ArrayList<Shop> getShops() {
+        return shops;
+    }
+    public void setShops(ArrayList<Shop> shops) {
+        this.shops = shops;
+    }
+
 }

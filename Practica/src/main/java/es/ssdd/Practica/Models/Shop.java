@@ -10,6 +10,15 @@ public class Shop {
     private String image;
     private String direction;
     private ArrayList<Product> products = new ArrayList<>();
+    private ArrayList<Supplier> suppliers = new ArrayList<>();
+
+    public ArrayList<Supplier> getSuppliers () {
+        return suppliers;
+    }
+
+    public void setSuppliers (ArrayList<Supplier> suppliers) {
+        this.suppliers = suppliers;
+    }
 
     public String getDirection() {
         return direction;

@@ -40,17 +40,20 @@ public class ShopService {
     }
 
     public Shop deleteShop(long id){
-        return shops.remove(id);
+        if (this.shops.containsKey(id)) {
+            return this.shops.remove(id);
+        }
+        return null;
     }
 
     // Modify
     public Shop modifyShop(long id, Shop modifiedShop){
         Shop shop = this.getShop(id);
-
+        if (shop == null)
+            return null;
         shop.setName(modifiedShop.getName());
         shop.setImage(modifiedShop.getImage());
         shop.setDirection(modifiedShop.getDirection());
-
         return shop;
     }
 
