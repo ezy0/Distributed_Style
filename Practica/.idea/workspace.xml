@@ -5,29 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/deletedShop.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/deletedSupplier.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Composition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Composition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/CompositionRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/CompositionRESTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ProductRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ProductRESTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ShopRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ShopRESTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/SupplierRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/SupplierRESTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Shop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Supplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Models/Supplier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ShopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/SupplierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/SupplierController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Supplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Supplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/modifyProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/modifyProduct.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/CompositionRESTController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/CompositionRESTController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/ProductRESTController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/ProductRESTController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/ShopRESTController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/ShopRESTController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/SupplierRESTController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/SupplierRESTController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/CompositionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/CompositionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ShopService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ShopService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/SupplierService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/SupplierService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/newShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/newShop.html" afterDir="false" />
     </list>
-    <list id="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" name="Changes by Alex" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/CompositionRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/CompositionRESTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/CompositionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/CompositionService.java" afterDir="false" />
-    </list>
+    <list id="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" name="Changes by Alex" comment="" />
     <list id="e4e2b062-7032-456c-9273-a082a6ef3aa9" name="Changes by alvar" comment="" />
     <list id="31608a26-743a-4802-9eb6-45721681b7f7" name="Changes by Miguel A" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,15 +36,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/CompositionRESTController.java">
-      <ranges>
-        <range start1="6" end1="6" start2="6" end2="7" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="39" end1="43" start2="40" end2="45" changelist="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" />
-        <range start1="45" end1="45" start2="47" end2="58" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -184,6 +163,7 @@
       <workItem from="1680160588858" duration="3998000" />
       <workItem from="1680189884052" duration="2762000" />
       <workItem from="1680193028070" duration="1074000" />
+      <workItem from="1680211067258" duration="6170000" />
     </task>
     <servers />
   </component>

@@ -10,6 +10,11 @@ public class Supplier {
     private String description;
     private ArrayList<Shop> shops = new ArrayList<>();
 
+    public Supplier(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     public Long getId() {
         return id;
     }

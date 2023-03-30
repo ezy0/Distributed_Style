@@ -21,8 +21,8 @@ public class ProductController {
     }
 
     @GetMapping("/products/{id}")
-    public String getProduct(Model model, @PathVariable int id) {
-        Product producto = productService.getProduct(id);
+    public String getProduct(Model model, @PathVariable long id) {
+        Product producto = this.productService.getProduct(id);
 
         model.addAttribute("name", producto.getName());
         model.addAttribute("prize", producto.getPrize());
@@ -44,12 +44,13 @@ public class ProductController {
         return "redirect:/products";
     }
 
-    @GetMapping("/products/delete/{id}")
-    public String deleteProduct(@PathVariable int id) {
+    @DeleteMapping("/products/delete/{id}")
+    public String deleteProduct(@PathVariable long id) {
         Product product = this.productService.deleteProduct(id);
         if (product == null) {
             return "redirect:/error";
         }
+
         return "deletedProduct";
     }
 
@@ -64,10 +65,10 @@ public class ProductController {
         model.addAttribute("id", product.getId());
         return "modifyProduct";
     }
-    /*@GetMapping("/products/redirectModify")
-    public String redirectModify(@RequestParam("id") long id,@RequestParam("name") String name, @RequestParam("prize") float prize,
+   /* @GetMapping("/products/redirectModifyProduct")
+    public String redirectModifyProduct(@RequestParam("id") long id,@RequestParam("name") String name, @RequestParam("prize") float prize,
                                  @RequestParam("description") String description,@RequestParam("image") String image){
-        Product product = this.productService.modifyProduct(id,new Product(name, description, prize,null, image, (long) 1);
+        this.productService.modifyProduct(id,new Product(name, description, prize,null, image, (long) 1);
         return "redirect:/products/" + id;
     }*/
 
