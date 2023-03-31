@@ -58,20 +58,4 @@ public class ShopService {
         return shop;
     }
 
-    public Shop addSupplier(long id, Supplier supplier){
-        Shop shop = this.getShop(id);
-        if (shop == null)
-            return null;
-        shop.addSupplier(supplier);
-        return shop;
-    }
-
-    public Shop removeSupplier(long id, Supplier supplier){
-        Shop shop = this.getShop(id);
-        if (shop == null)
-            return null;
-        shop.removeSupplier(supplier);
-        return shop;
-    }
-
 }

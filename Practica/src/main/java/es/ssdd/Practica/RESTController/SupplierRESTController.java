@@ -1,5 +1,6 @@
 package es.ssdd.Practica.RESTController;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import es.ssdd.Practica.Models.Shop;
 import es.ssdd.Practica.Services.ProductService;
 import es.ssdd.Practica.Services.SupplierService;
@@ -27,12 +28,15 @@ public class SupplierRESTController {
     @Autowired
     ShopService shopService;
 
+    interface SupplierDetails extends Supplier.Basic, Supplier.Shops, Shop.Basic{}
 
+    @JsonView(SupplierDetails.class)
     @GetMapping("/suppliers")
     public ResponseEntity<Collection<Supplier>> getSuppliers(){
         return new ResponseEntity<>(this.supplierService.getSuppliers(), HttpStatus.OK);
     }
 
+    @JsonView(SupplierDetails.class)
     @GetMapping("/suppliers/{id}")
     public ResponseEntity<Supplier> getSuppliersShop(@PathVariable long id){
         Supplier supplier = this.supplierService.getSupplier(id);
@@ -41,11 +45,14 @@ public class SupplierRESTController {
         return new ResponseEntity<>(supplier, HttpStatus.OK);
     }
 
+    @JsonView(SupplierDetails.class)
     @PostMapping("/suppliers/newSupplier")
     public ResponseEntity<Supplier> createSupplier(@RequestBody Supplier supplier){
         return new ResponseEntity<>(this.supplierService.createSupplier(supplier), HttpStatus.OK);
     }
 
+    //SOLUCIONAR
+    @JsonView(SupplierDetails.class)
     @DeleteMapping("suppliers/{idSupplier}/deleteSupplier")
     public ResponseEntity<Supplier> deleteSupplier(@PathVariable long idSupplier){
         Supplier supplier = this.supplierService.deleteSupplier(idSupplier);
@@ -53,15 +60,16 @@ public class SupplierRESTController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         if (supplier.getShops().size()>0){ //If the supplier is in more than one store... It is deleted from all stores
             for(Shop shop : supplier.getShops() ){ //Recorro todas las tiendas en las que está ese supplier
-                for(Supplier supplierAux: shop.getSuppliers()){ //Go through all the suppliers of each one of the stores
-                    if (Objects.equals(supplier.getId(), supplierAux.getId())) //If the ids match, remove
-                        this.shopService.removeSupplier(shop.getId(), supplierAux);
+                for(Shop shopAux: this.shopService.getShops()){ //Go through all the suppliers of each one of the stores
+                    if (Objects.equals(shop.getId(), shopAux.getId())) //If the ids match, remove
+                        this.shopService.getShop(shop.getId()).getSuppliers().remove(shopAux);
                 }
             }
         }
         return new ResponseEntity<>(supplier,HttpStatus.OK);
     }
 
+    @JsonView(SupplierDetails.class)
     @PutMapping("suppliers/{idSupplier}/modifySupplier")
     public ResponseEntity<Supplier> modifySupplier(@PathVariable long idSupplier,@RequestBody Supplier modifiedSupplier){
         Supplier supplier =this.supplierService.modifySupplier(idSupplier,modifiedSupplier);
@@ -76,24 +84,27 @@ public class SupplierRESTController {
         return new ResponseEntity<>(supplier,HttpStatus.OK);
     }
 
+    @JsonView(SupplierDetails.class)
     @PutMapping("suppliers/{idSupplier}/addShop")
     public ResponseEntity<Supplier> addShop(@PathVariable long idSupplier,@RequestParam long idShop){
         Shop shop = this.shopService.getShop(idShop);
-        Supplier supplier =this.supplierService.addShop(idSupplier,shop);
-        if (supplier == null || shop == null)
+        Supplier supplier = this.supplierService.getSupplier(idSupplier);
+        if (shop == null || supplier == null || supplier.getShops().contains(shop))
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        this.shopService.addSupplier(idSupplier, supplier);
+        this.supplierService.getSupplier(idSupplier).getShops().add(shop);
+        this.shopService.getShop(idShop).getSuppliers().add(supplier);
         return new ResponseEntity<>(supplier,HttpStatus.OK);
     }
 
+    @JsonView(SupplierDetails.class)
     @PutMapping("suppliers/{idSupplier}/removeShop")
     public ResponseEntity<Supplier> removeShop(@PathVariable long idSupplier,@RequestParam long idShop){
         Shop shop = this.shopService.getShop(idShop);
-        Supplier supplier =this.supplierService.removeShop(idSupplier,shop);
-        if (supplier == null || shop == null)
+        Supplier supplier = this.supplierService.getSupplier(idSupplier);
+        if (shop == null || supplier == null || !supplier.getShops().contains(shop))
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        this.shopService.removeSupplier(idSupplier, supplier);
+        this.supplierService.getSupplier(idSupplier).getShops().remove(shop);
+        this.shopService.getShop(idShop).getSuppliers().remove(supplier);
         return new ResponseEntity<>(supplier,HttpStatus.OK);
     }
-
 }

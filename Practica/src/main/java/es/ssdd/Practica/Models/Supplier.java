@@ -1,13 +1,21 @@
 package es.ssdd.Practica.Models;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Supplier {
+    public interface Shops{}
+    public interface Basic{}
+    @JsonView(Basic.class)
     private Long id;
+    @JsonView(Basic.class)
     private String name;
+    @JsonView(Basic.class)
     private String description;
+    @JsonView(Shops.class)
     private ArrayList<Shop> shops = new ArrayList<>();
 
     public Supplier(String name, String description) {
@@ -38,11 +46,5 @@ public class Supplier {
     }
     public void setShops(ArrayList<Shop> shops) {
         this.shops = shops;
-    }
-    public void addShop(Shop shop){
-        this.shops.add(shop);
-    }
-    public void removeShop(Shop shop){
-        this.shops.remove(shop);
     }
 }
