@@ -34,11 +34,12 @@ public class SupplierRESTController {
     }
 
     @GetMapping("/suppliers/{id}")
-    public ResponseEntity<Collection<Supplier>> getSuppliersShop(@PathVariable long idShop){
-        Shop shop = shopService.getShop(idShop);
-        return new ResponseEntity<>(shop.getSuppliers(), HttpStatus.OK);
+    public ResponseEntity<Supplier> getSuppliersShop(@PathVariable long id){
+        Supplier supplier = this.supplierService.getSupplier(id);
+        if (supplier == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(supplier, HttpStatus.OK);
     }
-
 
     @PostMapping("/suppliers/newSupplier")
     public ResponseEntity<Supplier> createSupplier(@RequestBody Supplier supplier){
@@ -47,14 +48,14 @@ public class SupplierRESTController {
 
     @DeleteMapping("suppliers/{idSupplier}/deleteSupplier")
     public ResponseEntity<Supplier> deleteSupplier(@PathVariable long idSupplier){
-        Supplier supplier = this.supplierService.getSupplier(idSupplier);
+        Supplier supplier = this.supplierService.deleteSupplier(idSupplier);
         if (supplier == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         if (supplier.getShops().size()>0){ //If the supplier is in more than one store... It is deleted from all stores
             for(Shop shop : supplier.getShops() ){ //Recorro todas las tiendas en las que está ese supplier
                 for(Supplier supplierAux: shop.getSuppliers()){ //Go through all the suppliers of each one of the stores
                     if (Objects.equals(supplier.getId(), supplierAux.getId())) //If the ids match, remove
-                        this.supplierService.deleteSupplier(supplierAux.getId());
+                        this.shopService.removeSupplier(shop.getId(), supplierAux);
                 }
             }
         }
@@ -66,12 +67,32 @@ public class SupplierRESTController {
         Supplier supplier =this.supplierService.modifySupplier(idSupplier,modifiedSupplier);
         if (supplier == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        for (Shop shop : this.shopService.getShops())
+        /*for (Shop shop : this.shopService.getShops())
             for (Supplier supplier1 : shop.getSuppliers())
                 if (Objects.equals(supplier1.getId(), supplier.getId())){
                     supplier1.setDescription(supplier.getDescription());
                     supplier1.setName(supplier.getName());
-                }
+                }*/
+        return new ResponseEntity<>(supplier,HttpStatus.OK);
+    }
+
+    @PutMapping("suppliers/{idSupplier}/addShop")
+    public ResponseEntity<Supplier> addShop(@PathVariable long idSupplier,@RequestParam long idShop){
+        Shop shop = this.shopService.getShop(idShop);
+        Supplier supplier =this.supplierService.addShop(idSupplier,shop);
+        if (supplier == null || shop == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        this.shopService.addSupplier(idSupplier, supplier);
+        return new ResponseEntity<>(supplier,HttpStatus.OK);
+    }
+
+    @PutMapping("suppliers/{idSupplier}/removeShop")
+    public ResponseEntity<Supplier> removeShop(@PathVariable long idSupplier,@RequestParam long idShop){
+        Shop shop = this.shopService.getShop(idShop);
+        Supplier supplier =this.supplierService.removeShop(idSupplier,shop);
+        if (supplier == null || shop == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        this.shopService.removeSupplier(idSupplier, supplier);
         return new ResponseEntity<>(supplier,HttpStatus.OK);
     }
 

@@ -25,8 +25,7 @@ public class ProductService {
     public Product createProduct(Product product, long shopId){
         product.setId(lastId.incrementAndGet());
         product.setShopId(shopId);
-        products.put(lastId.get(), product);
-        return product;
+        return products.put(lastId.get(), product);
     }
     public Collection<Product> getProducts(){
         return this.products.values().stream().toList();
@@ -39,7 +38,7 @@ public class ProductService {
         return null;
     }
 
-    public Product deleteProduct(long id){
+    public Product deleteProduct(long id) {
         if (this.products.containsKey(id)) {
             return this.products.remove(id);
         }

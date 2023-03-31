@@ -4,6 +4,7 @@ import es.ssdd.Practica.Models.Composition;
 import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Services.CompositionService;
 import es.ssdd.Practica.Services.ProductService;
+import es.ssdd.Practica.Services.ShopService;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,26 +21,35 @@ public class CompositionRESTController {
     CompositionService compositionService;
     @Autowired
     ProductService productService;
+    @Autowired
+    ShopService shopService;
 
     @GetMapping("/compositions")
-    public ResponseEntity<Collection<Composition>> getAllCompositions(){
+    public ResponseEntity<Collection<Composition>> getAllCompositions() {
         return new ResponseEntity<>(this.compositionService.getCompositions(),HttpStatus.OK);
     }
 
     @GetMapping("/shops/{id}/{idP}/composition")
-    public ResponseEntity<Composition> getComposition(@PathVariable long idP){
-        if (this.productService.getProduct(idP) == null || this.productService.getProduct(idP).getComposition() == null)
+    public ResponseEntity<Composition> getComposition(@PathVariable long idP, @PathVariable long id) {
+        if (shopService.getShop(id) == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if (productService.getProduct(idP) == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if (compositionService.getComposition(productService.getProduct(idP).getComposition().getId()) == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
         Composition composition = this.compositionService.getComposition(this.productService.getProduct(idP).getComposition().getId());
-        if (composition == null)
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(composition, HttpStatus.OK);
     }
 
     @PostMapping("/shops/{id}/{idP}/newComposition")
-    public ResponseEntity<Composition> createComposition(@PathVariable long idP, @RequestBody Composition composition) {
+    public ResponseEntity<Composition> createComposition(@PathVariable long idP, @PathVariable long id, @RequestBody Composition composition) {
+        if (shopService.getShop(id) == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         if (this.productService.getProduct(idP) == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if (this.productService.getProduct(idP).getComposition() != null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         this.compositionService.createComposition(composition, idP);
         this.productService.getProduct(idP).setComposition((composition));
         return new ResponseEntity<>(composition, HttpStatus.OK);
@@ -47,6 +57,8 @@ public class CompositionRESTController {
 
     @PutMapping("/shops/{id}/{idP}/modifyComposition")
     public ResponseEntity<Composition> modifyComposition(@PathVariable long idP, @RequestBody Composition composition) {
+        if (this.compositionService.getComposition(productService.getProduct(idP).getComposition().getId()) == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(this.compositionService.modifyComposition(idP, composition), HttpStatus.OK);
     }
 

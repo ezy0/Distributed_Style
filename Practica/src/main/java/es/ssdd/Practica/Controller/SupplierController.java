@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -41,10 +42,9 @@ public class SupplierController {
     }
 
     @PostMapping("suppliers/newSupplier")
-    public String newSupplier(@RequestParam String name, @RequestParam String description){
-        if (name.length() == 0)
-            return "redirect:/error";
-
+    public String newSupplier(Model model, HttpServletRequest request, @RequestParam String name, @RequestParam String description, @RequestParam long id){
+        // seguir
+        model.addAttribute("products", this.productService.getProducts());
         Supplier supplier = new Supplier(name,description);
         supplierService.createSupplier(supplier);
         return "showSuppliers";
@@ -65,7 +65,7 @@ public class SupplierController {
             }
         }
 
-        return "deletedSupplier";
+        return "showSuppliers";
     }
 
     @GetMapping("/suppliers/modifySupplier/{id}")

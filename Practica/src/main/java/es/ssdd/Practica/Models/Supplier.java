@@ -39,5 +39,10 @@ public class Supplier {
     public void setShops(ArrayList<Shop> shops) {
         this.shops = shops;
     }
-
+    public void addShop(Shop shop){
+        this.shops.add(shop);
+    }
+    public void removeShop(Shop shop){
+        this.shops.remove(shop);
+    }
 }

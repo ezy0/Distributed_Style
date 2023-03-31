@@ -55,7 +55,7 @@ public class ShopRESTController {
                 for (Product product2 : this.productService.getProducts())
                     if (Objects.equals(product.getId(), product2.getId())){
                         if (this.compositionService.getComposition(product2.getComposition().getId()) != null)
-                            this.compositionService.getCompositions().remove(product2.getComposition());
+                            this.compositionService.deleteComposition(product2.getComposition().getId());
                         this.productService.deleteProduct(product2.getId());
                     }
 
@@ -63,7 +63,7 @@ public class ShopRESTController {
             for (Supplier supplier : shop.getSuppliers())
                 for (Supplier supplier2 : this.supplierService.getSuppliers())
                     if (Objects.equals(supplier.getId(), supplier2.getId()))
-                        this.supplierService.deleteSupplier(supplier2.getId());
+                        this.supplierService.removeShop(supplier.getId(), this.shopService.getShop(id));
 
         return new ResponseEntity<>(this.shopService.deleteShop(id), HttpStatus.OK);
     }
@@ -73,6 +73,26 @@ public class ShopRESTController {
         Shop shop = this.shopService.modifyShop(id, modifiedShop);
         if (shop == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(shop, HttpStatus.OK);
+    }
+
+    @PutMapping("/shops/{id}/addSupplier")
+    public ResponseEntity<Shop> addSupplier(@PathVariable long id, @RequestParam long idSupplier){
+        Supplier supplier = this.supplierService.getSupplier(idSupplier);
+        Shop shop = this.shopService.addSupplier(id, supplier);
+        if (shop == null || supplier == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        this.supplierService.addShop(id, shop);
+        return new ResponseEntity<>(shop, HttpStatus.OK);
+    }
+
+    @PutMapping("/shops/{id}/removeSupplier")
+    public ResponseEntity<Shop> removeSupplier(@PathVariable long id, @RequestParam long idSupplier){
+        Supplier supplier = this.supplierService.getSupplier(idSupplier);
+        Shop shop = this.shopService.removeSupplier(id, supplier);
+        if (shop == null || supplier == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        this.supplierService.removeShop(id, shop);
         return new ResponseEntity<>(shop, HttpStatus.OK);
     }
 }

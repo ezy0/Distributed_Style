@@ -43,7 +43,10 @@ public class CompositionService {
     }
 
     public Composition modifyComposition(long id, Composition modifiedComposition){
-        Composition composition = this.getComposition(id);
+        Composition composition = null;
+        for (Composition compositionAux : this.getCompositions())
+            if (compositionAux.getProductId() == id)
+                composition = compositionAux;
         if (composition == null)
             return null;
         composition.setContent(modifiedComposition.getContent());

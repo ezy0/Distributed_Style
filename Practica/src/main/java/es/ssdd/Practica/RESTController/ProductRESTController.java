@@ -49,9 +49,9 @@ public class ProductRESTController {
 
     @PostMapping("/shops/{id}/newProduct")
     public ResponseEntity<Product> createProduct(@RequestBody Product product, @PathVariable long id){
-        Product newProduct = this.productService.createProduct(product, id);
-        this.shopService.getShop(id).getProducts().add(newProduct);
-        return new ResponseEntity<>(newProduct, HttpStatus.OK);
+        this.productService.createProduct(product, id);
+        this.shopService.getShop(id).getProducts().add(product);
+        return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
     @DeleteMapping("/shops/{id}/{idP}/deleteProduct")
@@ -59,12 +59,14 @@ public class ProductRESTController {
         Product product = this.productService.deleteProduct(idP);
         this.shopService.getShop(product.getShopId()).getProducts().remove(product);
         if (product.getComposition() != null)
-            this.compositionService.getCompositions().remove(product.getComposition());
+            this.compositionService.deleteComposition(product.getComposition().getId());
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
     @PutMapping("/shops/{id}/{idP}/modifyProduct")
     public ResponseEntity<Product> modifyProduct (@RequestBody Product product, @PathVariable long id, @PathVariable long idP){
+        if (this.productService.getProduct(idP) == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(this.productService.modifyProduct(idP, id, product), HttpStatus.OK);
     }
 }

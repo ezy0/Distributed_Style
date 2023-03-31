@@ -79,10 +79,10 @@ public class ShopController {
             }
         }
 
-        return "deletedShop";
+        return "showShops";
     }
 
-    @GetMapping("/products/modifyShop/{id}")
+    @GetMapping("/shops/{id}/modifyShop")
     public String modifyShop(Model model, @PathVariable long id){ //Esto sirve para mostrar los datos de la tienda que se va a modificar
         Shop shop = this.shopService.getShop(id);
 
@@ -90,10 +90,11 @@ public class ShopController {
         model.addAttribute("name",shop.getName());
         model.addAttribute("image",shop.getImage());
         model.addAttribute("direction",shop.getDirection());
+
         return "modifyShop";
     }
 
-    @PutMapping("/products/redirectModifyShop") //Este metodo sirve para recoger los datos enviados al hacer el submit con el objetivo de usarlos para modificar la shop. Te redirige a la shop ya modificada
+    @PutMapping("/shops/redirectModifyShop") //Este metodo sirve para recoger los datos enviados al hacer el submit con el objetivo de usarlos para modificar la shop. Te redirige a la shop ya modificada
     public String redirectModifyShop(@RequestParam("idShop") long idShop,@RequestParam("name") String name, @RequestParam("image") String image,
                                  @RequestParam("direction") String direction){
         this.shopService.modifyShop(idShop,new Shop(name, image, direction)); //La id no dejará cambiarla

@@ -7,8 +7,8 @@ public class Composition {
 
     public Composition(){}
 
-    public Composition(long productId, String content) {
-        this.productId = productId;
+    public Composition(String content) {
+
         this.content = content;
     }
 

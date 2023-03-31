@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>DISTRIBUTED STYLE</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/newProductCss.css">
+</head>
+
+<body>
+<section class="py-4 py-xl-5">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+        <div class="card mb-5">
+          <div class="card-body p-sm-5">
+            <h2 class="text-center mb-4">New Supplier</h2>
+            <form action="suppliers/newSupplier" method="post">
+              <div class="mb-3"><input class="form-control" type="text" id="name" name="name" placeholder="Name" required></div>
+              <div class="mb-3"><textarea class="form-control" id="description" name="description" rows="6" placeholder="Description" required></textarea></div>
+              <div class="mb-xxl-3">{{#shops}}
+                <label>
+                  <input type="checkbox" name="options-checkbox" id="options-checkbox{{-index}}" value="{{id}}">{{name}}
+                </label>
+              </div> {{/shops}}
+              <div><button class="btn btn-primary d-block w-100" type="submit">Send</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="assets/bootstrap/js/newProductJs.js"></script>
+</body>
+
+</html>

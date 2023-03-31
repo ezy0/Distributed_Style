@@ -52,5 +52,20 @@ public class SupplierService {
         return supplier;
     }
 
+    public Supplier addShop (long id, Shop shop){
+        Supplier supplier = this.getSupplier(id);
+        if (supplier == null)
+            return null;
+        supplier.addShop(shop);
+        return supplier;
+    }
+
+    public Supplier removeShop (long id, Shop shop){
+        Supplier supplier = this.getSupplier(id);
+        if (supplier == null)
+            return null;
+        supplier.removeShop(shop);
+        return supplier;
+    }
 
 }

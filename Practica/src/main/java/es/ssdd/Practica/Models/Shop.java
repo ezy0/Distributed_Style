@@ -65,4 +65,12 @@ public class Shop {
     public void setProducts (ArrayList<Product> products) {
         this.products = products;
     }
+
+    public void addSupplier(Supplier supplier){
+        this.suppliers.add(supplier);
+    }
+
+    public void removeSupplier(Supplier supplier){
+        this.suppliers.remove(supplier);
+    }
 }

@@ -3,6 +3,7 @@ package es.ssdd.Practica.Services;
 import es.ssdd.Practica.Models.Composition;
 import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Shop;
+import es.ssdd.Practica.Models.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,6 +55,22 @@ public class ShopService {
         shop.setName(modifiedShop.getName());
         shop.setImage(modifiedShop.getImage());
         shop.setDirection(modifiedShop.getDirection());
+        return shop;
+    }
+
+    public Shop addSupplier(long id, Supplier supplier){
+        Shop shop = this.getShop(id);
+        if (shop == null)
+            return null;
+        shop.addSupplier(supplier);
+        return shop;
+    }
+
+    public Shop removeSupplier(long id, Supplier supplier){
+        Shop shop = this.getShop(id);
+        if (shop == null)
+            return null;
+        shop.removeSupplier(supplier);
         return shop;
     }
 
