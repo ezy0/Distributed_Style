@@ -24,9 +24,8 @@ public class ShopService {
 
     public Shop createShop (Shop shop) {
         shop.setId(lastId.incrementAndGet());
-        shops.put(lastId.get(), shop);
 
-        return shop;
+        return shops.put(lastId.get(), shop);
     }
 
     public Collection<Shop> getShops() {

@@ -16,20 +16,24 @@
                 <a class="navbar-brand" href="../index.html">DISTRIBUTED STYLE</a>
             </div>
         </nav>
-        <!-- Product section-->
+    <!-- Shop section-->
+        <div>
+            <h2 href=/shop/{id}">{{nameShop}}</h2> <!-- Hay que ponerlo mas bonito-->
+        </div>
+    <!-- Product section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src={{image}} alt="..." /></div>
                     <div class="col-md-6">
-                        <h1 class="display-5 fw-bolder">{{name}}</h1>
+                        <h1 class="display-5 fw-bolder">{{nameP}}</h1>
                         <div class="fs-5 mb-5">
                             <span>${{prize}}</span>
                         </div>
                         <p class="lead">{{description}}</p>
                         <div class="d-flex">
-                            <a class="btn btn-outline-dark flex-shrink-0" type="button" href="/products/modifyProduct/{{id}}">Modify</a>
-                            <a class="btn btn-outline-dark flex-shrink-0" type="button" href="/products/delete/{{id}}">Delete</a>
+                            <a class="btn btn-outline-dark flex-shrink-0" type="button" href="/products/{{idProduct}}/modifyProduct">Modify</a>
+                            <a class="btn btn-outline-dark flex-shrink-0" type="button" href="/products/{{idProduct}}/delete">Delete</a>
                             <p></p>
                             <button class="btn btn-outline-dark flex-shrink-0" type="button">Add component</button>
                             <button class="btn btn-outline-dark flex-shrink-0" type="button">Delete component</button>

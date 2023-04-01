@@ -15,7 +15,7 @@ public class CompositionController {
     @Autowired
     ProductService productService;
 
-    @PostMapping("shops/{id}/{idP}/newComposition")
+    @GetMapping("shops/{id}/{idP}/newComposition")
     public String newShop(@RequestParam String content, @PathVariable long id, @PathVariable long idP) {
         Composition composition = new Composition(content);
         productService.getProduct(composition.getProductId()).setComposition(composition);

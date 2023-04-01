@@ -41,7 +41,7 @@ public class SupplierController {
         return "viewSupplier";
     }
 
-    @PostMapping("suppliers/newSupplier")
+    @GetMapping("suppliers/newSupplier")
     public String newSupplier(Model model, HttpServletRequest request, @RequestParam String name, @RequestParam String description, @RequestParam long id){
         // seguir
         model.addAttribute("products", this.productService.getProducts());

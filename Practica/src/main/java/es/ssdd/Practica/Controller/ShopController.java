@@ -31,7 +31,7 @@ public class ShopController {
         return "showShops";
     }
 
-    @GetMapping("/shop/{id}")
+    @GetMapping("/shops/{id}")
     public String getShop(Model model, @PathVariable long id){
         Shop shop = this.shopService.getShop(id);
 
@@ -45,18 +45,20 @@ public class ShopController {
         return "viewShop";
     }
 
-    @PostMapping("shops/newShop")
-    public String newShop(@RequestParam String name, @RequestParam String image,@RequestParam String direction){ //No le meto products ni suppliers, lo hacemos en otro sitio
+
+
+    @GetMapping("shops/newShop")
+    public String newShop(@RequestParam String name, @RequestParam String direction,@RequestParam String image){ //No le meto products ni suppliers, lo hacemos en otro sitio
         if (name.length() == 0)
             return "redirect:/error";
         if (image.length() == 0)
             image = "../assets/img/sudadera.png";
         Shop shop = new Shop(name,image,direction);
         shopService.createShop(shop);
-        return "showShops";
+        return "redirect:/shops";
     }
 
-    @DeleteMapping("/shops/delete/{id}")
+    @DeleteMapping("/shops/{id}/delete")
     public String deleteShop(@PathVariable long id){
         Shop shop = this.shopService.deleteShop(id);
         if (shop == null) {
