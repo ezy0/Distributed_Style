@@ -51,7 +51,6 @@ public class SupplierRESTController {
         return new ResponseEntity<>(this.supplierService.createSupplier(supplier), HttpStatus.OK);
     }
 
-    //SOLUCIONAR
     @JsonView(SupplierDetails.class)
     @DeleteMapping("suppliers/{idSupplier}/deleteSupplier")
     public ResponseEntity<Supplier> deleteSupplier(@PathVariable long idSupplier){
@@ -62,7 +61,7 @@ public class SupplierRESTController {
             for(Shop shop : supplier.getShops() ){ //Recorro todas las tiendas en las que está ese supplier
                 for(Shop shopAux: this.shopService.getShops()){ //Go through all the suppliers of each one of the stores
                     if (Objects.equals(shop.getId(), shopAux.getId())) //If the ids match, remove
-                        this.shopService.getShop(shop.getId()).getSuppliers().remove(shopAux);
+                        this.shopService.getShop(shop.getId()).getSuppliers().remove(supplier);
                 }
             }
         }
@@ -75,12 +74,6 @@ public class SupplierRESTController {
         Supplier supplier =this.supplierService.modifySupplier(idSupplier,modifiedSupplier);
         if (supplier == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        /*for (Shop shop : this.shopService.getShops())
-            for (Supplier supplier1 : shop.getSuppliers())
-                if (Objects.equals(supplier1.getId(), supplier.getId())){
-                    supplier1.setDescription(supplier.getDescription());
-                    supplier1.setName(supplier.getName());
-                }*/
         return new ResponseEntity<>(supplier,HttpStatus.OK);
     }
 
