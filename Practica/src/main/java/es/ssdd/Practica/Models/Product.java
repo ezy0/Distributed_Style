@@ -18,7 +18,7 @@ public class Product {
        this.prize=prize;
        this.composition = composition;
        if (image.length() == 0)
-           this.image = "../assets/img/sudadera.jpg";
+           this.image = "/assets/img/sudadera.jpg";
        else
            this.image=image;
        this.shopId = shopId;

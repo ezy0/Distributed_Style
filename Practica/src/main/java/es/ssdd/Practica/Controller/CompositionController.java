@@ -22,7 +22,7 @@ public class CompositionController {
         return "showProducts";
     }
 
-    @DeleteMapping("/shops/{id}/{idP}/deleteComposition")
+    @GetMapping("/shops/{id}/{idP}/deleteComposition")
     public String deleteComposition(@PathVariable long id, @PathVariable long idP){
         if (productService.getProduct(idP).getComposition() == null)
             return "redirect:/error";
@@ -41,7 +41,7 @@ public class CompositionController {
         return "modifyComposition";
     }
 
-    @PutMapping("/shops/{id}/{idP}/redirectModifyComposition")
+    @GetMapping("/shops/{id}/{idP}/redirectModifyComposition")
     public String redirectModifyShop(@RequestParam("idComposition") long idComposition,@RequestParam("content") String content){
         this.compositionService.modifyComposition(idComposition,new Composition(content));
         return "redirect:/shop/{id}/{idP}/";

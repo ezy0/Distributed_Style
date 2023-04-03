@@ -50,7 +50,7 @@ public class SupplierController {
         return "showSuppliers";
     }
 
-    @DeleteMapping("/suppliers/delete/{id}")
+    @GetMapping("/suppliers/delete/{id}")
     public String deleteSupplier(@PathVariable long id){
         Supplier supplier = this.supplierService.deleteSupplier(id);
         if (supplier == null) {
@@ -79,7 +79,7 @@ public class SupplierController {
         return "modifySupplier";
     }
 
-    @PutMapping("/suppliers/redirectModifySupplier")
+    @GetMapping("/suppliers/redirectModifySupplier")
     public String redirectModifySupplier(@RequestParam("idSupplier") long idSupplier,@RequestParam("name") String name, @RequestParam("description") String description) {
         this.supplierService.modifySupplier(idSupplier,new Supplier(name, description));
         return "redirect:/supplier/" + idSupplier;

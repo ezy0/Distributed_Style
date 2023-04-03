@@ -52,13 +52,13 @@ public class ShopController {
         if (name.length() == 0)
             return "redirect:/error";
         if (image.length() == 0)
-            image = "../assets/img/sudadera.png";
+            image = "/assets/img/question_mark_PNG68.png";
         Shop shop = new Shop(name,image,direction);
         shopService.createShop(shop);
         return "redirect:/shops";
     }
 
-    @DeleteMapping("/shops/{id}/delete")
+    @GetMapping("/shops/{id}/delete")
     public String deleteShop(@PathVariable long id){
         Shop shop = this.shopService.deleteShop(id);
         if (shop == null) {
@@ -69,7 +69,6 @@ public class ShopController {
             for (Product product:productList)
                 this.productService.deleteProduct(product.getId());//Se deletean todos los productos asociados a esa tienda
         }
-
         Collection<Supplier> suppliersList = this.supplierService.getSuppliers();
         if(suppliersList.size()>0){
             for(Supplier supplier : suppliersList){ //Por cada supplier
@@ -80,8 +79,7 @@ public class ShopController {
                 }
             }
         }
-
-        return "showShops";
+        return "redirect:/shops";
     }
 
     @GetMapping("/shops/{id}/modifyShop")
@@ -96,7 +94,7 @@ public class ShopController {
         return "modifyShop";
     }
 
-    @PutMapping("/shops/redirectModifyShop") //Este metodo sirve para recoger los datos enviados al hacer el submit con el objetivo de usarlos para modificar la shop. Te redirige a la shop ya modificada
+    @GetMapping("/shops/redirectModifyShop") //Este metodo sirve para recoger los datos enviados al hacer el submit con el objetivo de usarlos para modificar la shop. Te redirige a la shop ya modificada
     public String redirectModifyShop(@RequestParam("idShop") long idShop,@RequestParam("name") String name, @RequestParam("image") String image,
                                  @RequestParam("direction") String direction){
         this.shopService.modifyShop(idShop,new Shop(name, image, direction)); //La id no dejará cambiarla
