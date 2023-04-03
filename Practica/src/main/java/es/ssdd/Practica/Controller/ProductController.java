@@ -2,9 +2,12 @@ package es.ssdd.Practica.Controller;
 
 import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Shop;
+import es.ssdd.Practica.Services.CompositionService;
 import es.ssdd.Practica.Services.ProductService;
 import es.ssdd.Practica.Services.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +20,9 @@ public class ProductController {
 
     @Autowired
     ShopService shopService;
+
+    @Autowired
+    CompositionService compositionService;
 
     // METODOS GET
 
@@ -32,6 +38,7 @@ public class ProductController {
         Shop shop = shopService.getShop(idShop);
         model.addAttribute("products", this.productService.getProductsShop(idShop));
         model.addAttribute("idShop", shop.getId()); //Se necesita para usarla en la url que redirige al new product dentro de una tienda
+        model.addAttribute("shopName", shop.getName());
         return "showProducts";
     }
 
@@ -58,6 +65,7 @@ public class ProductController {
         model.addAttribute("idShop",shop.getId());
         return "newProduct";
     }
+
     @GetMapping("/shops/{idShop}/redirectNewProduct")
     public String newProduct(@PathVariable long idShop, @RequestParam String name, @RequestParam float prize, @RequestParam String description, @RequestParam String image) {
         if (name.length() == 0)
@@ -65,36 +73,43 @@ public class ProductController {
         if (image.length() == 0)
             image = "/assets/img/sudadera.png";
         Product product = new Product(name, description, prize, null, image, idShop);
-        productService.createProduct(product, idShop);
+        this.productService.createProduct(product, idShop);
+        this.shopService.getShop(idShop).getProducts().add(product);
         return "redirect:/shops/{idShop}/products";
     }
 
-    @GetMapping("/shops/{idShop}/products/{id}/delete")
-    public String deleteProduct(@PathVariable long id) {
-        Product product = this.productService.deleteProduct(id);
-        if (product == null) {
+    @GetMapping("/shops/{idShop}/products/{id}/deleteProduct")
+    public String deleteProduct(@PathVariable long id, @PathVariable long idShop) {
+        Product product = this.productService.getProduct(id);
+        if (product == null || this.shopService.getShop(idShop) == null || !this.shopService.getShop(idShop).getProducts().contains(product)) {
             return "redirect:/error";
         }
+        this.shopService.getShop(idShop).getProducts().remove(product);
+        if (product.getComposition() != null)
+            this.compositionService.deleteComposition(product.getComposition().getId());
+        this.productService.deleteProduct(id);
+
         return "redirect:/shops/{idShop}/products";
     }
 
     @GetMapping("/shops/{idShop}/products/{id}/modifyProduct")
-    public String modifyProduct(Model model, @PathVariable long id){
+    public String modifyProduct(Model model, @PathVariable long id, @PathVariable long idShop){
         Product product = this.productService.getProduct(id);
-        //model.addAttribute("product",product);
+        model.addAttribute("idShop",idShop);
         model.addAttribute("name", product.getName());
         model.addAttribute("prize", product.getPrize());
         model.addAttribute("image", product.getImage());
         model.addAttribute("description", product.getDescription());
         model.addAttribute("id", product.getId());
-        return "redirect:/shops/{idShop}/products/{id}";
+        return "modifyProduct";
     }
-   /* @GetMapping("/products/redirectModifyProduct")
+
+   @GetMapping("/shops/{idShop}/products/redirectModifyProduct")    //IMAGENES VACIAS PARA PREDETERMINADO
     public String redirectModifyProduct(@RequestParam("id") long id,@RequestParam("name") String name, @RequestParam("prize") float prize,
-                                 @RequestParam("description") String description,@RequestParam("image") String image){
-        this.productService.modifyProduct(id,new Product(name, description, prize,null, image, (long) 1);
-        return "redirect:/products/" + id;
-    }*/
+                                 @RequestParam("description") String description,@RequestParam("image") String image, @PathVariable long idShop){
+        this.productService.modifyProduct(id, idShop, new Product(name, description, prize,null, image, idShop));
+        return "redirect:/shops/"+idShop+"/products/"+id;
+    }
 
 
 

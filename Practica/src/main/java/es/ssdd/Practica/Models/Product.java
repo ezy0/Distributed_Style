@@ -1,15 +1,25 @@
 package es.ssdd.Practica.Models;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class Product {
+    public interface Basic{}
+    @JsonView(Basic.class)
     private Long id;
+    @JsonView(Basic.class)
     private String name;
+    @JsonView(Basic.class)
     private String description;
+    @JsonView(Basic.class)
     private float prize;
+    @JsonView(Basic.class)
     private String image;
+    @JsonView(Basic.class)
     private Long shopId;
+    @JsonView(Basic.class)
     private Composition composition;
 
    public Product(String name, String description, float prize, Composition composition, String image, Long shopId){

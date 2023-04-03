@@ -1,6 +1,7 @@
 package es.ssdd.Practica.RESTController;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Shop;
 import es.ssdd.Practica.Services.ProductService;
 import es.ssdd.Practica.Services.SupplierService;
@@ -28,7 +29,7 @@ public class SupplierRESTController {
     @Autowired
     ShopService shopService;
 
-    interface SupplierDetails extends Supplier.Basic, Supplier.Shops, Shop.Basic{}
+    interface SupplierDetails extends Supplier.Basic, Supplier.Shops, Shop.Basic, Product.Basic{}
 
     @JsonView(SupplierDetails.class)
     @GetMapping("/suppliers")

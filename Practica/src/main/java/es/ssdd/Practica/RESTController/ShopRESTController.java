@@ -28,7 +28,7 @@ public class ShopRESTController {
     @Autowired
     CompositionService compositionService;
 
-    interface ShopDetails extends Shop.Basic, Shop.Suppliers, Supplier.Basic{}
+    interface ShopDetails extends Shop.Basic, Shop.Suppliers, Supplier.Basic, Product.Basic{}
 
     @JsonView(ShopDetails.class)
     @GetMapping("/shops")

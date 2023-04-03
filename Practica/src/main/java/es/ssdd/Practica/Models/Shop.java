@@ -40,7 +40,10 @@ public class Shop {
 
     public Shop(String name, String image, String direction) {
         this.name = name;
-        this.image = image;
+        if (image == null || image.length() == 0)
+            this.image = "/assets/img/shop.png";
+        else
+            this.image = image;
         this.direction = direction;
     }
 

@@ -33,7 +33,7 @@
         <div class="card mb-5">
           <div class="card-body p-sm-5">
             <h2 class="text-center mb-4">New Style</h2>
-            <form action="/products/redirectModifyProduct">
+            <form action="/shops/{{idShop}}/products/redirectModifyProduct">
               <input type="hidden" name="id" value="{{id}}">
               <div class="mb-3"><input class="form-control" type="text" id="name" name="name" placeholder="New name" required></div>
               <div class="mb-3"><input class="form-control" type="number" step="0.01" id="prize" name="prize" placeholder="New prize" required></div>
