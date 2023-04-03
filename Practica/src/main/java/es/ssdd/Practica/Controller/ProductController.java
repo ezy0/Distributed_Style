@@ -71,7 +71,7 @@ public class ProductController {
         if (name.length() == 0)
             return "redirect:/error";
         if (image.length() == 0)
-            image = "/assets/img/sudadera.png";
+            image = "/assets/img/new.jpg";
         Product product = new Product(name, description, prize, null, image, idShop);
         this.productService.createProduct(product, idShop);
         this.shopService.getShop(idShop).getProducts().add(product);

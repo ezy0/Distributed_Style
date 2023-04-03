@@ -41,7 +41,7 @@ public class Shop {
     public Shop(String name, String image, String direction) {
         this.name = name;
         if (image == null || image.length() == 0)
-            this.image = "/assets/img/shop.png";
+            this.image = "/assets/img/new.jpg";
         else
             this.image = image;
         this.direction = direction;

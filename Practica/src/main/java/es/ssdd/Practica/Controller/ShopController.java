@@ -69,7 +69,7 @@ public class ShopController {
         if (name.length() == 0)
             return "redirect:/error";
         if (image.length() == 0)
-            image = "/assets/img/shop.png";
+            image = "/assets/img/new.jpg";
         Shop shop = new Shop(name,image,direction);
         shopService.createShop(shop);
         return "redirect:/shops";
