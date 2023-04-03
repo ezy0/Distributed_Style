@@ -24,7 +24,7 @@
             <h1 class="card-title">Information: </h1>
             <h3 class="card-title">{{name}}</h3>
             <p class="card-text">{{direction}}</p>
-            <p class="card-text"><strong>Image: </strong><img src={{image}} alt="image"></p>
+            <p class="card-text"><strong>Image: </strong><img src={{image}} alt="image" class="img-fluid"></p>
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
               <input type="hidden" name="idShop" value="{{id}}">
               <div class="mb-3"><input class="form-control" type="text" id="name" name="name" placeholder="New name" required></div>
               <div class="mb-3"><input class="form-control" id="direction" name="direction" placeholder="New Direction" required></div>
-              <div class="mb-3"><input class="form-control" type="text" id="image" name="image" placeholder="New Image Link"></div>
+              <div class="mb-3"><input class="form-control" type="text" id="image" name="image" placeholder="New Image Link (Optional)"></div>
               <div><button class="btn btn-primary d-block w-100" type="submit">Send</button></div>
             </form>
           </div>
