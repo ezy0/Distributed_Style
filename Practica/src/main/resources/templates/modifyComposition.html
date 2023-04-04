@@ -21,22 +21,18 @@
       <div class="col-md-6 alturaCuadroIzda">
         <div class="card mb-5">
           <div class="card-body">
-            <h1 class="card-title">Current shop information: </h1>
-            <h3 class="card-title">{{name}}</h3>
-            <p class="card-text">{{direction}}</p>
-            <p class="card-text"><strong>Image: </strong><img src={{image}} alt="image" class="img-fluid"></p>
+            <h1 class="card-title">Current composition information: </h1>
+            <p class="card-text">{{content}}</p>
           </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="card mb-5">
           <div class="card-body p-sm-5">
-            <h2 class="text-center mb-4">New Style</h2>
-            <form action="/shops/redirectModifyShop">
-              <input type="hidden" name="idShop" value="{{id}}">
-              <div class="mb-3"><input class="form-control" type="text" id="name" name="name" placeholder="New name" required></div>
-              <div class="mb-3"><input class="form-control" id="direction" name="direction" placeholder="New Direction" required></div>
-              <div class="mb-3"><input class="form-control" type="text" id="image" name="image" placeholder="New Image Link (Optional)"></div>
+            <h2 class="text-center mb-4">New composition</h2>
+            <form action="/shops/{{idShop}}/products/{{idProduct}}/redirectModifyComposition">
+              <input type="hidden" name="idProduct" value="{{idProduct}}">
+              <div class="mb-3"><input class="form-control" type="text" id="content" name="content" placeholder="New content"></div>
               <div><button class="btn btn-primary d-block w-100" type="submit">Send</button></div>
             </form>
           </div>

@@ -36,10 +36,11 @@ public class CompositionService {
         return null;
     }
 
+    //Cuando se crea un composition, esta se guarda en el mapa en la posición de idProduct. (No necesariamente uno tras otra)
     public Composition createComposition(Composition composition, long idProduct){
-        composition.setId(lastId.incrementAndGet());
+        composition.setId(idProduct); //lastId.incrementAndGet() ponia antes
         composition.setProductId(idProduct);
-        return compositions.put(lastId.get(), composition);
+        return compositions.put(idProduct, composition); //(lastId.get(), composition) ponia antes
     }
 
     public Composition modifyComposition(long id, Composition modifiedComposition){

@@ -1,8 +1,11 @@
 package es.ssdd.Practica.Controller;
 
 import es.ssdd.Practica.Models.Composition;
+import es.ssdd.Practica.Models.Product;
+import es.ssdd.Practica.Models.Shop;
 import es.ssdd.Practica.Services.CompositionService;
 import es.ssdd.Practica.Services.ProductService;
+import es.ssdd.Practica.Services.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,35 +18,61 @@ public class CompositionController {
     @Autowired
     ProductService productService;
 
-    @GetMapping("shops/{id}/{idP}/newComposition")
-    public String newShop(@RequestParam String content, @PathVariable long id, @PathVariable long idP) {
+    @Autowired
+    ShopService shopService;
+
+    @GetMapping("shops/{idShop}/products/{idProduct}/newComposition")
+    public String newComposition(Model model, @PathVariable long idShop, @PathVariable long idProduct) {
+        Shop shop = this.shopService.getShop(idShop);
+        Product product = this.productService.getProduct(idProduct);
+
+        model.addAttribute("shopName",shop.getName());
+        model.addAttribute("productName",product.getName());
+
+        model.addAttribute("idShop",idShop);
+        model.addAttribute("idProduct",idProduct);
+
+        return "newComposition";
+    }
+
+    @GetMapping("shops/{idShop}/products/{idProduct}/redirectNewComposition")
+    public String newComposition(@PathVariable long idShop, @PathVariable long idProduct,@RequestParam String content){
         Composition composition = new Composition(content);
-        productService.getProduct(composition.getProductId()).setComposition(composition);
-        return "showProducts";
+        compositionService.createComposition(composition,idProduct);
+        productService.getProduct(idProduct).setComposition(composition);
+
+        return "redirect:/shops/"+idShop+"/products/"+idProduct;
     }
 
-    @GetMapping("/shops/{id}/{idP}/deleteComposition")
-    public String deleteComposition(@PathVariable long id, @PathVariable long idP){
-        if (productService.getProduct(idP).getComposition() == null)
-            return "redirect:/error";
-        Composition composition = productService.getProduct(idP).getComposition();
-        productService.getProduct(idP).setComposition(null);
+    @GetMapping("/shops/{idShop}/products/{idProduct}/deleteComposition")
+    public String deleteComposition(@PathVariable long idShop, @PathVariable long idProduct){
+        if (productService.getProduct(idProduct).getComposition() == null)
+            return "redirect:/error"; //Mejor mostrar mensaje de que no se puede borrar
+        Composition composition = productService.getProduct(idProduct).getComposition();
+        productService.getProduct(idProduct).setComposition(null);
         compositionService.deleteComposition(composition.getId());
-        return "viewProduct";
+
+        return "redirect:/shops/"+idShop+"/products/"+idProduct;
     }
 
-    @GetMapping("/shops/{id}/{idP}/modifyComposition")
-    public String modifyComposition(Model model, @PathVariable long id, @PathVariable long idP){
-        Composition composition = this.compositionService.getComposition(id);
+    @GetMapping("/shops/{idShop}/products/{idProduct}/modifyComposition")
+    public String modifyComposition(Model model, @PathVariable long idShop, @PathVariable long idProduct){
+        Composition composition = this.compositionService.getComposition(idProduct);
+
+        model.addAttribute("idShop",idShop);
+        model.addAttribute("idProduct",idProduct);
 
         model.addAttribute("content",composition.getContent());
 
         return "modifyComposition";
     }
 
-    @GetMapping("/shops/{id}/{idP}/redirectModifyComposition")
-    public String redirectModifyShop(@RequestParam("idComposition") long idComposition,@RequestParam("content") String content){
-        this.compositionService.modifyComposition(idComposition,new Composition(content));
-        return "redirect:/shop/{id}/{idP}/";
+    @GetMapping("/shops/{idShop}/products/{idProduct}/redirectModifyComposition")
+    public String redirectModifyShop(@PathVariable long idProduct, @PathVariable long idShop,@RequestParam("content") String content){
+
+        Product product = productService.getProduct(idProduct);
+        this.compositionService.modifyComposition(product.getComposition().getId(),new Composition(content));
+
+        return "redirect:/shops/"+idShop+"/products/"+idProduct;
     }
 }

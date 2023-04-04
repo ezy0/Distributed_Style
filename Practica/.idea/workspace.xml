@@ -5,10 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/modifyComposition.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/newComposition.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/CompositionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/CompositionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/CompositionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/CompositionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/modifyProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/modifyProduct.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/modifyShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/modifyShop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/showShops.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/showShops.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/viewProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/viewProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/CompositionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/CompositionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/CompositionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/CompositionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/modifyProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/modifyProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/modifyShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/modifyShop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/viewProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/viewProduct.html" afterDir="false" />
     </list>
     <list id="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" name="Changes by Alex" comment="" />
     <list id="e4e2b062-7032-456c-9273-a082a6ef3aa9" name="Changes by alvar" comment="" />
@@ -166,7 +179,9 @@
       <workItem from="1680477966346" duration="5936000" />
       <workItem from="1680514116438" duration="6915000" />
       <workItem from="1680539637486" duration="1355000" />
-      <workItem from="1680559158987" duration="2145000" />
+      <workItem from="1680559158987" duration="2424000" />
+      <workItem from="1680629086104" duration="127000" />
+      <workItem from="1680639551702" duration="8076000" />
     </task>
     <servers />
   </component>

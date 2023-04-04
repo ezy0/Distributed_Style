@@ -1,5 +1,6 @@
 package es.ssdd.Practica.Controller;
 
+import es.ssdd.Practica.Models.Composition;
 import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Shop;
 import es.ssdd.Practica.Services.CompositionService;
@@ -42,10 +43,11 @@ public class ProductController {
         return "showProducts";
     }
 
-    @GetMapping("/shops/{idShop}/products/{idProduct}")     //"/products/{id}" ANTES
+    @GetMapping("/shops/{idShop}/products/{idProduct}")
     public String getProduct(Model model, @PathVariable long idShop, @PathVariable long idProduct) {
         Product producto = this.productService.getProduct(idProduct);
         Shop shop = this.shopService.getShop(idShop);
+        Composition composition = this.compositionService.getComposition(idProduct);
 
         model.addAttribute("nameP", producto.getName());
         model.addAttribute("prize", producto.getPrize());
@@ -55,6 +57,11 @@ public class ProductController {
 
         model.addAttribute("idShop",shop.getId());
         model.addAttribute("nameShop", shop.getName());
+
+        if(composition!=null)
+            model.addAttribute("content",composition.getContent());
+        else
+            model.addAttribute("content","El producto no tiene asignado aún ninguna composición");
 
         return "viewProduct";
     }

@@ -23,6 +23,7 @@ public class ProductService {
     public Product createProduct(Product product, long shopId){
         product.setId(lastId.incrementAndGet());
         product.setShopId(shopId);
+
         return products.put(lastId.get(), product);
     }
     public Collection<Product> getProducts(){
