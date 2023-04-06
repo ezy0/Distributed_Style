@@ -1,6 +1,7 @@
 package es.ssdd.Practica.Controller;
 
 
+import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Shop;
 import es.ssdd.Practica.Models.Supplier;
 import es.ssdd.Practica.Services.ProductService;
@@ -12,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -30,7 +32,7 @@ public class SupplierController {
         return "showSuppliers";
     }
 
-    @GetMapping("/supplier/{id}")
+    @GetMapping("/suppliers/{id}")
     public String getSupplier(Model model, @PathVariable long id){
         Supplier supplier = this.supplierService.getSupplier(id);
 
@@ -41,13 +43,30 @@ public class SupplierController {
         return "viewSupplier";
     }
 
-    @GetMapping("suppliers/newSupplier")
-    public String newSupplier(Model model, HttpServletRequest request, @RequestParam String name, @RequestParam String description, @RequestParam long id){
-        // seguir
-        model.addAttribute("products", this.productService.getProducts());
-        Supplier supplier = new Supplier(name,description);
-        supplierService.createSupplier(supplier);
-        return "showSuppliers";
+    @GetMapping("/suppliers/newSupplier")
+    public String newSupplier(Model model){
+        model.addAttribute("shops", this.shopService.getShops());
+        return "newSupplier";
+    }
+
+    @GetMapping("/suppliers/redirectNewSupplier")
+    public String newSupplier(HttpServletRequest request, @RequestParam String name, @RequestParam String description, @RequestParam ArrayList<Long> ids) {
+        ArrayList<Shop> shops = new ArrayList<>();
+        String[] selectedValues = request.getParameterValues("checkbox");
+        if (selectedValues != null) {
+            for (String value : selectedValues) {
+                shops.add(this.shopService.getShop(Long.parseLong(value)));
+            }
+        }
+        Supplier supplier = new Supplier(name, description, shops);
+        this.supplierService.createSupplier(supplier);
+        if (selectedValues != null) {
+            for (String value : selectedValues) {
+                this.shopService.getShop(Long.parseLong(value)).getSuppliers().add(supplier);
+            }
+        }
+        return "redirect:/suppliers";
+
     }
 
     @GetMapping("/suppliers/delete/{id}")
@@ -81,7 +100,7 @@ public class SupplierController {
 
     @GetMapping("/suppliers/redirectModifySupplier")
     public String redirectModifySupplier(@RequestParam("idSupplier") long idSupplier,@RequestParam("name") String name, @RequestParam("description") String description) {
-        this.supplierService.modifySupplier(idSupplier,new Supplier(name, description));
+        this.supplierService.modifySupplier(idSupplier,new Supplier(name, description, null));
         return "redirect:/supplier/" + idSupplier;
     }
 

@@ -18,9 +18,10 @@ public class Supplier {
     @JsonView(Shops.class)
     private ArrayList<Shop> shops = new ArrayList<>();
 
-    public Supplier(String name, String description) {
+    public Supplier(String name, String description, ArrayList<Shop> shops) {
         this.name = name;
         this.description = description;
+        this.shops = shops;
     }
 
     public Long getId() {
