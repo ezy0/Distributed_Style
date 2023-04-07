@@ -27,6 +27,7 @@
         <div class="d-flex">
           <a class="btn btn-outline-dark flex-shrink-0" type="button" style="margin-right: 10px" href="/suppliers/modifySupplier/{{id}}">Modify</a>
           <a class="btn btn-outline-dark flex-shrink-0" type="button" style="margin-right: 10px" href="/suppliers/delete/{{id}}">Delete</a>
+
         </div><br><b>SUPPLYING TO:</b><br><br>
         <div class="d-flex">{{#shops}}
           <div class="col mb-5">
@@ -35,6 +36,8 @@
             </a>
           </div>{{/shops}}
       </div>
+        <a class="btn btn-outline-dark flex-shrink-0" type="button" style="margin-right: 10px" href="/suppliers/{{id}}/addShopsToSupplier">Add shops</a>
+        <a class="btn btn-outline-dark flex-shrink-0" type="button" style="margin-right: 10px" href="/suppliers/{{id}}/removeShopsToSupplier">Delete shops</a>
     </div>
   </div>
 </section>

@@ -12,7 +12,9 @@ import es.ssdd.Practica.Models.Shop;
 import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Supplier;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Objects;
 
 @Controller
@@ -126,6 +128,70 @@ public class ShopController {
         return "redirect:/shops/"+idShop;
     }
 
+    @GetMapping("/shops/{id}/addSuppliersToShop")
+    public String addSuppliersToShop(Model model, @PathVariable long id){
+        Shop shop = this.shopService.getShop(id);
+        Collection<Supplier> suppliers = this.supplierService.getSuppliers();
+
+        model.addAttribute("suppliers",suppliers); //Muestra mal, cambiar
+        model.addAttribute("idShop",shop.getId());
+
+        return "addSuppliersToShop";
+    }
+
+    @GetMapping("/shops/{id}/redirectAddSuppliersToShop")
+    public String redirectAddSuppliersToShop(HttpServletRequest request, @PathVariable long id){
+        Shop shop = this.shopService.getShop(id);
+
+        String[] selectedValues = request.getParameterValues("checkbox"); //id del supplier
+
+        if (selectedValues != null) { //Se añade a las tiendas el supplier
+            for (String value : selectedValues) { //id del suplier es value
+                this.supplierService.getSupplier(Long.parseLong(value)).getShops().add(shop);
+            }
+        }
+
+        if (selectedValues != null) { //Se añade al supplier las tiendas
+            for (String value : selectedValues) {
+                this.shopService.getShop(shop.getId()).getSuppliers().add(supplierService.getSupplier(Long.parseLong(value)));
+            }
+        }
+
+        return "redirect:/shops/"+id;
+    }
+
+    @GetMapping("/shops/{id}/removeSuppliersToShop")
+    public String removeSuppliersToShop(Model model, @PathVariable long id){
+
+        Shop shop = this.shopService.getShop(id);
+
+        model.addAttribute("suppliers",shop.getSuppliers()); //Solo quiero mostrar las tiendas de ese suplier, no todas
+        model.addAttribute("idShop",shop.getId());
+
+        return "removeSuppliersToShop";
+    }
+
+    @GetMapping("/shops/{id}/redirectRemoveShopsToSupplier")
+    public String redirectRemoveShopsToSupplier(HttpServletRequest request, @PathVariable long id){
+        Shop shop = this.shopService.getShop(id);
+
+
+        String[] selectedValues = request.getParameterValues("checkbox"); //id del supplier
+
+        if (selectedValues != null) {
+            for (String value : selectedValues) {
+                this.supplierService.getSupplier(Long.parseLong(value)).getShops().remove(shop);
+            }
+        }
+
+        if (selectedValues != null) {
+            for (String value : selectedValues) {
+                this.shopService.getShop(shop.getId()).getSuppliers().remove(supplierService.getSupplier(Long.parseLong(value)));
+            }
+        }
+
+        return "redirect:/shops/"+id;
+    }
 
 
 }
