@@ -1,10 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>DISTRIBUTED STYLE</title>
-</head>
-<body>
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>DISTRIBUTED STYLE</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/newProductCss.css">
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="/suppliers/{id}">{{name}}</a>
+    </div>
+</nav>
+<section class="py-4 py-xl-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 alturaCuadroIzda">
+                <div class="card mb-5">
+                    <div class="card-body">
+                        <h1 class="card-title">Current supplier information: </h1>
+                        <h3 class="card-title">{{name}}</h3>
+                        <p class="card-text">{{description}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-5">
+                    <div class="card-body p-sm-5">
+                        <h2 class="text-center mb-4">New Style</h2>
+                        <form action="/suppliers/redirectModifySupplier">
+                            <input type="hidden" name="idSupplier" value="{{id}}">
+                            <div class="mb-3"><input class="form-control" type="text" id="name" name="name" placeholder="New name" required></div>
+                            <div class="mb-3"><input class="form-control" id="description" name="description" placeholder="New Description" required></div>
+                            <div><button class="btn btn-primary d-block w-100" type="submit">Send</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="/assets/bootstrap/js/newProductJs.js"></script>
 </body>
+
 </html>

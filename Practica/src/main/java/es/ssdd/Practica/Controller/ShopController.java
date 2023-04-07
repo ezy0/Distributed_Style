@@ -32,6 +32,7 @@ public class ShopController {
     public String getShops(Model model){
         ArrayList<Shop> shops = new ArrayList<>();
         Supplier supplier;
+        Boolean created = true;
         for (Shop shop : this.shopService.getShops()) {
             if (shop.getProducts().size() == 0 && shop.getId() <= 3) {
                 Product product;
@@ -44,12 +45,13 @@ public class ShopController {
                 this.productService.createProduct(product, shop.getId());
                 if (product.getId() < 4) {
                     this.shopService.getShop(shop.getId()).getProducts().add(product);
+                    created = false;
                 } else
                     this.productService.deleteProduct(product.getId());
             }
             shops.add(shop);
         }
-        if (this.supplierService.getSuppliers().isEmpty()){
+        if (this.supplierService.getSuppliers().isEmpty() && !created){
             supplier = new Supplier("Global Suppliers", "Supplying shops around the world since 1995", shops);
             this.supplierService.createSupplier(supplier);
             for (Shop shop : this.shopService.getShops())

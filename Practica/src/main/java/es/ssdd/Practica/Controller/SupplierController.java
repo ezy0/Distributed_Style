@@ -76,15 +76,11 @@ public class SupplierController {
         if (supplier == null) {
             return "redirect:/error";
         }
-        Collection<Shop> shopsList = this.shopService.getShops();
-        for(Shop shop : shopsList){ //Nos recorremos todas las tiendas
-            for(Supplier supplierAux : shop.getSuppliers()){ //Nos recorremos cada uno de los suppliers de esa tienda
-                if (Objects.equals(supplier.getId(), supplierAux.getId())){ //Si el supplier que se quiere eliminar reparte a una tienda...
-                    shop.getSuppliers().remove(supplierAux); //El supplier se elimina de la lista de suppliers de la tienda
-                }
-            }
-        }
-
+        if (supplier.getShops() != null)
+            for (Shop shop : supplier.getShops())
+                for(Shop shop2 : this.shopService.getShops())
+                    if (Objects.equals(shop.getId(), shop2.getId()))
+                        this.shopService.getShop(shop.getId()).getSuppliers().remove(supplier);
         return "showSuppliers";
     }
 
@@ -102,7 +98,7 @@ public class SupplierController {
     @GetMapping("/suppliers/redirectModifySupplier")
     public String redirectModifySupplier(@RequestParam("idSupplier") long idSupplier,@RequestParam("name") String name, @RequestParam("description") String description) {
         this.supplierService.modifySupplier(idSupplier,new Supplier(name, description, null));
-        return "redirect:/supplier/" + idSupplier;
+        return "redirect:/suppliers/" + idSupplier;
     }
 
 
