@@ -36,6 +36,7 @@ public class SupplierController {
     public String getSupplier(Model model, @PathVariable long id){
         Supplier supplier = this.supplierService.getSupplier(id);
 
+        model.addAttribute("shops", supplier.getShops());
         model.addAttribute("id",supplier.getId());
         model.addAttribute("name",supplier.getName());
         model.addAttribute("description",supplier.getDescription());
@@ -50,7 +51,7 @@ public class SupplierController {
     }
 
     @GetMapping("/suppliers/redirectNewSupplier")
-    public String newSupplier(HttpServletRequest request, @RequestParam String name, @RequestParam String description, @RequestParam ArrayList<Long> ids) {
+    public String newSupplier(HttpServletRequest request, @RequestParam String name, @RequestParam String description) {
         ArrayList<Shop> shops = new ArrayList<>();
         String[] selectedValues = request.getParameterValues("checkbox");
         if (selectedValues != null) {

@@ -16,14 +16,14 @@
         <div class="card mb-5">
           <div class="card-body p-sm-5">
             <h2 class="text-center mb-4">New Supplier</h2>
-            <form action="suppliers/newSupplier">
+            <form action="/suppliers/redirectNewSupplier">
               <div class="mb-3"><input class="form-control" type="text" id="name" name="name" placeholder="Name" required></div>
               <div class="mb-3"><textarea class="form-control" id="description" name="description" rows="6" placeholder="Description" required></textarea></div>
               <div class="mb-xxl-3">{{#shops}}
                 <label>
-                  <input type="checkbox" name="options-checkbox{{-index}}" id="options-checkbox{{-index}}" value="{{id}}">{{name}}
-                </label>
-              </div> {{/shops}}
+                  <input type="checkbox" name="checkbox" id="options-checkbox{{-index}}" value="{{id}}">{{name}}
+                </label>{{/shops}}
+              </div>
               <div><button class="btn btn-primary d-block w-100" type="submit">Send</button></div>
             </form>
           </div>

@@ -1,6 +1,7 @@
 package es.ssdd.Practica.RESTController;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import es.ssdd.Practica.Models.Composition;
 import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Shop;
 import es.ssdd.Practica.Models.Supplier;
@@ -28,7 +29,7 @@ public class ShopRESTController {
     @Autowired
     CompositionService compositionService;
 
-    interface ShopDetails extends Shop.Basic, Shop.Suppliers, Supplier.Basic, Product.Basic{}
+    interface ShopDetails extends Shop.Basic, Shop.Suppliers, Supplier.Basic, Product.Basic, Composition.Basic{}
 
     @JsonView(ShopDetails.class)
     @GetMapping("/shops")
@@ -69,7 +70,7 @@ public class ShopRESTController {
             for (Supplier supplier : shop.getSuppliers())
                 for (Supplier supplier2 : this.supplierService.getSuppliers())
                     if (Objects.equals(supplier.getId(), supplier2.getId()))
-                        this.supplierService.getSupplier(supplier.getId()).getShops().remove(this.shopService.getShop(id));
+                        this.supplierService.getSupplier(supplier.getId()).getShops().remove(shop);
 
         return new ResponseEntity<>(this.shopService.deleteShop(id), HttpStatus.OK);
     }

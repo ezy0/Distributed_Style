@@ -1,8 +1,16 @@
 package es.ssdd.Practica.Models;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 public class Composition {
+
+    public interface Basic{}
+    public interface Details{}
+    @JsonView(Details.class)
     private Long productId;
+    @JsonView(Details.class)
     private Long id;
+    @JsonView(Basic.class)
     private String content;
 
     public Composition(){}

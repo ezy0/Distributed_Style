@@ -24,14 +24,15 @@ public class ShopController {
     ProductService productService;
     @Autowired
     SupplierService supplierService;
-
     @Autowired
     CompositionService compositionService;
 
 
     @GetMapping("/shops")
     public String getShops(Model model){
-        for (Shop shop : this.shopService.getShops())
+        ArrayList<Shop> shops = new ArrayList<>();
+        Supplier supplier;
+        for (Shop shop : this.shopService.getShops()) {
             if (shop.getProducts().size() == 0 && shop.getId() <= 3) {
                 Product product;
                 if (shop.getId() == 1)
@@ -41,11 +42,19 @@ public class ShopController {
                 else
                     product = new Product("White Sneakers", "White sneakers from Martin Valen", 79.99F, null, "/assets/img/martin.jpg", shop.getId());
                 this.productService.createProduct(product, shop.getId());
-                if (product.getId() < 4)
+                if (product.getId() < 4) {
                     this.shopService.getShop(shop.getId()).getProducts().add(product);
-                else
+                } else
                     this.productService.deleteProduct(product.getId());
             }
+            shops.add(shop);
+        }
+        if (this.supplierService.getSuppliers().isEmpty()){
+            supplier = new Supplier("Global Suppliers", "Supplying shops around the world since 1995", shops);
+            this.supplierService.createSupplier(supplier);
+            for (Shop shop : this.shopService.getShops())
+                shop.getSuppliers().add(supplier);
+        }
         model.addAttribute("shops", this.shopService.getShops());
         return "showShops";
     }
@@ -65,12 +74,12 @@ public class ShopController {
 
 
     @GetMapping("shops/newShop")
-    public String newShop(@RequestParam String name, @RequestParam String direction,@RequestParam String image){ //No le meto products ni suppliers, lo hacemos en otro sitio
+    public String newShop(@RequestParam String name, @RequestParam String direction, @RequestParam String image){ //No le meto products ni suppliers, lo hacemos en otro sitio
         if (name.length() == 0)
             return "redirect:/error";
         if (image.length() == 0)
             image = "/assets/img/new.jpg";
-        Shop shop = new Shop(name,image,direction);
+        Shop shop = new Shop(name,image, direction);
         shopService.createShop(shop);
         return "redirect:/shops";
     }
@@ -90,11 +99,11 @@ public class ShopController {
                             this.compositionService.deleteComposition(product2.getComposition().getId());
                         this.productService.deleteProduct(product2.getId());
                     }
-        if (shop.getSuppliers() != null && shop.getSuppliers().size() > 0)
+        if (shop.getSuppliers() != null && !shop.getSuppliers().isEmpty())
             for (Supplier supplier : shop.getSuppliers())
                 for (Supplier supplier2 : this.supplierService.getSuppliers())
                     if (Objects.equals(supplier.getId(), supplier2.getId()))
-                        this.supplierService.getSupplier(supplier.getId()).getShops().remove(this.shopService.getShop(id));
+                        this.supplierService.getSupplier(supplier.getId()).getShops().remove(shop);
         return "redirect:/shops";
     }
 

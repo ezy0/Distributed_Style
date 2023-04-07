@@ -3,8 +3,6 @@ package es.ssdd.Practica.Models;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Shop {
     public interface Suppliers{}

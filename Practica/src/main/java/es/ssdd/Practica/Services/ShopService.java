@@ -1,10 +1,6 @@
 package es.ssdd.Practica.Services;
 
-import es.ssdd.Practica.Models.Composition;
-import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Shop;
-import es.ssdd.Practica.Models.Supplier;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -17,9 +13,9 @@ public class ShopService {
     private AtomicLong lastId = new AtomicLong();
 
     public ShopService(){
-        createShop(new Shop("Foot Looker", "/assets/img/footlocker.png", ""));
-        createShop(new Shop("Nude Project", "/assets/img/NUDE_PROJECT_COCOA_2.png", ""));
-        createShop(new Shop("Martin Valen", "/assets/img/67237831_101270447883552_3670809205297643520_n.jpg", ""));
+        createShop(new Shop("Foot Looker", "/assets/img/footlocker.png", "C. de la Palma, 69, 28015 Madrid"));
+        createShop(new Shop("Nude Project", "/assets/img/NUDE_PROJECT_COCOA_2.png", "C/ Gran Vía, 18, 28013 Madrid"));
+        createShop(new Shop("Martin Valen", "/assets/img/67237831_101270447883552_3670809205297643520_n.jpg", "C. de Fuente Chica, 28034 Madrid"));
     }
 
     public Shop createShop (Shop shop) {
