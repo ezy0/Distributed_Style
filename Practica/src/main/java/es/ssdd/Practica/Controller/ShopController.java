@@ -131,9 +131,13 @@ public class ShopController {
     @GetMapping("/shops/{id}/addSuppliersToShop")
     public String addSuppliersToShop(Model model, @PathVariable long id){
         Shop shop = this.shopService.getShop(id);
-        Collection<Supplier> suppliers = this.supplierService.getSuppliers();
+        Collection<Supplier> newSuppliers = new ArrayList<>();
 
-        model.addAttribute("suppliers",suppliers); //Muestra mal, cambiar
+        for (Supplier supplier : this.supplierService.getSuppliers())
+            if (!shop.getSuppliers().contains(supplier))
+                newSuppliers.add(supplier);
+
+        model.addAttribute("suppliers",newSuppliers); //Muestra mal, cambiar
         model.addAttribute("idShop",shop.getId());
 
         return "addSuppliersToShop";

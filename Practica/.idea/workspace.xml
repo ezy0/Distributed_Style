@@ -5,20 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/addShopsToSupplier.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/addSuppliersToShop.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/removeShopsToSupplier.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/removeSuppliersToShop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/CompositionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/CompositionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ShopController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/SupplierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/SupplierController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/viewShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/viewShop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/viewSupplier.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/viewSupplier.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/removeShopsToSupplier.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/removeShopsToSupplier.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/removeSuppliersToShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/removeSuppliersToShop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ShopController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/SupplierController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/SupplierController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/modifyShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/modifyShop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/viewShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/viewShop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/viewSupplier.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/viewSupplier.html" afterDir="false" />
     </list>
     <list id="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" name="Changes by Alex" comment="" />
     <list id="e4e2b062-7032-456c-9273-a082a6ef3aa9" name="Changes by alvar" comment="" />
@@ -184,6 +178,7 @@
       <workItem from="1680863550054" duration="9777000" />
       <workItem from="1680879353321" duration="1654000" />
       <workItem from="1680896870341" duration="13316000" />
+      <workItem from="1680946531232" duration="1389000" />
     </task>
     <servers />
   </component>

@@ -58,7 +58,8 @@ public class CompositionController {
     @GetMapping("/shops/{idShop}/products/{idProduct}/modifyComposition")
     public String modifyComposition(Model model, @PathVariable long idShop, @PathVariable long idProduct){
         Composition composition = this.compositionService.getComposition(idProduct);
-
+        if (composition == null)
+            return "redirect:/error";
         model.addAttribute("idShop",idShop);
         model.addAttribute("idProduct",idProduct);
 

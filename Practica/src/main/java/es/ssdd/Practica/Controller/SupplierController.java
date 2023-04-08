@@ -103,27 +103,14 @@ public class SupplierController {
     @GetMapping("/suppliers/{id}/addShopsToSupplier")
     public String addShopsToSupplier(Model model, @PathVariable long id){
         Supplier supplier = this.supplierService.getSupplier(id);
-        Collection<Shop> shops = this.shopService.getShops();
+        Collection<Shop> newShops = new ArrayList<>();
 
-       // Collection<Shop> shopsSupplier = supplier.getShops();
-       // Collection<Shop> shops2 = this.shopService.getShops();
-        //shops.retainAll(shopsSupplier); operacion de interseccion, tampoco funciona
+        for (Shop shop : this.shopService.getShops())
+            if (!supplier.getShops().contains(shop))
+                newShops.add(shop);
 
-/*
-        for(Shop shop: shops){ //No va, muestra todos
-            if(!supplier.getShops().contains(shop))
-                shops2.add(shop);
-        }
-
-        for(Shop shop: shops){ //No va
-            if(supplier.getShops().contains(shop))
-                shops.remove(shop);
-        }
-         */
-
-        model.addAttribute("shops",shops); //Solo quiero mostrar las tiendas que no tienen ese supplier
+        model.addAttribute("shops",newShops); //Solo quiero mostrar las tiendas que no tienen ese supplier
         model.addAttribute("idSupplier",supplier.getId());
-        //model.addAttribute("name",supplier.getName());
 
         return "addShopsToSupplier";
     }
