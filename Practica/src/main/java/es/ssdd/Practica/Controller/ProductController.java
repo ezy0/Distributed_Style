@@ -58,11 +58,14 @@ public class ProductController {
         model.addAttribute("idShop",shop.getId());
         model.addAttribute("nameShop", shop.getName());
 
-        if(composition!=null)
+        if(composition!=null) {
+            model.addAttribute("existsComposition", true);
             model.addAttribute("content",composition.getContent());
-        else
+        }
+        else {
+            model.addAttribute("existsComposition", false);
             model.addAttribute("content","El producto no tiene asignado aún ninguna composición");
-
+        }
         return "viewProduct";
     }
 
