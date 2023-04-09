@@ -13,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -60,7 +59,7 @@ public class SupplierRESTController {
         if (supplier == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         if (supplier.getShops().size()>0){ //If the supplier is in more than one store... It is deleted from all stores
-            for(Shop shop : supplier.getShops() ){ //Recorro todas las tiendas en las que está ese supplier
+            for(Shop shop : supplier.getShops() ){
                 for(Shop shopAux: this.shopService.getShops()){ //Go through all the suppliers of each one of the stores
                     if (Objects.equals(shop.getId(), shopAux.getId())) //If the ids match, remove
                         this.shopService.getShop(shop.getId()).getSuppliers().remove(supplier);
@@ -80,7 +79,7 @@ public class SupplierRESTController {
     }
 
     @JsonView(SupplierDetails.class)
-    @PutMapping("suppliers/{idSupplier}/addShop")
+    @PutMapping("/suppliers/{idSupplier}/addShop")
     public ResponseEntity<Supplier> addShop(@PathVariable long idSupplier,@RequestParam long idShop){
         Shop shop = this.shopService.getShop(idShop);
         Supplier supplier = this.supplierService.getSupplier(idSupplier);

@@ -13,7 +13,7 @@ public class ShopService {
     private AtomicLong lastId = new AtomicLong();
 
     public ShopService(){
-        createShop(new Shop("Foot Looker", "/assets/img/footlocker.png", "C. de la Palma, 69, 28015 Madrid"));
+        createShop(new Shop("Foot Locker", "/assets/img/footlocker.png", "C. de la Palma, 69, 28015 Madrid"));
         createShop(new Shop("Nude Project", "/assets/img/NUDE_PROJECT_COCOA_2.png", "C/ Gran Vía, 18, 28013 Madrid"));
         createShop(new Shop("Martin Valen", "/assets/img/67237831_101270447883552_3670809205297643520_n.jpg", "C. de Fuente Chica, 28034 Madrid"));
     }
@@ -42,7 +42,6 @@ public class ShopService {
         return null;
     }
 
-    // Modify
     public Shop modifyShop(long id, Shop modifiedShop){
         Shop shop = this.getShop(id);
         if (shop == null)
@@ -52,5 +51,4 @@ public class ShopService {
         shop.setDirection(modifiedShop.getDirection());
         return shop;
     }
-
 }

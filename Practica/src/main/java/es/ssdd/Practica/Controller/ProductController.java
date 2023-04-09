@@ -7,8 +7,7 @@ import es.ssdd.Practica.Services.CompositionService;
 import es.ssdd.Practica.Services.ProductService;
 import es.ssdd.Practica.Services.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,20 +24,12 @@ public class ProductController {
     @Autowired
     CompositionService compositionService;
 
-    // METODOS GET
 
-    /* Esto sería en el caso de que queramos mostrar TODOS los productos de TODAS las tiendas
-    @GetMapping("/products")
-    public String getProducts(Model model){
-        model.addAttribute("products", this.productService.getProducts());
-        return "showProducts";
-    }
-*/
     @GetMapping("/shops/{idShop}/products")
     public String getShopProducts(Model model, @PathVariable long idShop){
         Shop shop = shopService.getShop(idShop);
         model.addAttribute("products", this.productService.getProductsShop(idShop));
-        model.addAttribute("idShop", shop.getId()); //Se necesita para usarla en la url que redirige al new product dentro de una tienda
+        model.addAttribute("idShop", shop.getId());
         model.addAttribute("shopName", shop.getName());
         return "showProducts";
     }
@@ -64,7 +55,7 @@ public class ProductController {
         }
         else {
             model.addAttribute("existsComposition", false);
-            model.addAttribute("content","El producto no tiene asignado aún ninguna composición");
+            model.addAttribute("content","This product hasn't got a composition yet");
         }
         return "viewProduct";
     }
@@ -114,7 +105,7 @@ public class ProductController {
         return "modifyProduct";
     }
 
-   @GetMapping("/shops/{idShop}/products/redirectModifyProduct")    //IMAGENES VACIAS PARA PREDETERMINADO
+   @GetMapping("/shops/{idShop}/products/redirectModifyProduct")
     public String redirectModifyProduct(@RequestParam("id") long id,@RequestParam("name") String name, @RequestParam("prize") float prize,
                                  @RequestParam("description") String description,@RequestParam("image") String image, @PathVariable long idShop){
         this.productService.modifyProduct(id, idShop, new Product(name, description, prize,null, image, idShop));

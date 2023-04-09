@@ -1,8 +1,7 @@
 package es.ssdd.Practica.Services;
 
 import es.ssdd.Practica.Models.Composition;
-import es.ssdd.Practica.Models.Product;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -36,11 +35,10 @@ public class CompositionService {
         return null;
     }
 
-    //Cuando se crea un composition, esta se guarda en el mapa en la posición de idProduct. (No necesariamente uno tras otra)
     public Composition createComposition(Composition composition, long idProduct){
-        composition.setId(idProduct); //lastId.incrementAndGet() ponia antes
+        composition.setId(idProduct);
         composition.setProductId(idProduct);
-        return compositions.put(idProduct, composition); //(lastId.get(), composition) ponia antes
+        return compositions.put(idProduct, composition);
     }
 
     public Composition modifyComposition(long id, Composition modifiedComposition){

@@ -70,7 +70,7 @@ public class ShopController {
         model.addAttribute("name",shop.getName());
         model.addAttribute("image",shop.getImage());
         model.addAttribute("direction",shop.getDirection());
-        model.addAttribute("products",shop.getProducts()); //Estas 2 si sobran luego se quitan
+        model.addAttribute("products",shop.getProducts());
         model.addAttribute("suppliers",shop.getSuppliers());
 
         return "viewShop";
@@ -78,7 +78,7 @@ public class ShopController {
 
 
     @GetMapping("shops/newShop")
-    public String newShop(@RequestParam String name, @RequestParam String direction, @RequestParam String image){ //No le meto products ni suppliers, lo hacemos en otro sitio
+    public String newShop(@RequestParam String name, @RequestParam String direction, @RequestParam String image){
         if (name.length() == 0)
             return "redirect:/error";
         if (image.length() == 0)
@@ -112,7 +112,7 @@ public class ShopController {
     }
 
     @GetMapping("/shops/{id}/modifyShop")
-    public String modifyShop(Model model, @PathVariable long id){ //Esto sirve para mostrar los datos de la tienda que se va a modificar
+    public String modifyShop(Model model, @PathVariable long id){
         Shop shop = this.shopService.getShop(id);
         model.addAttribute("id",shop.getId());
         model.addAttribute("name",shop.getName());
@@ -121,10 +121,10 @@ public class ShopController {
         return "modifyShop";
     }
 
-    @GetMapping("/shops/redirectModifyShop") //Este metodo sirve para recoger los datos enviados al hacer el submit con el objetivo de usarlos para modificar la shop. Te redirige a la shop ya modificada
+    @GetMapping("/shops/redirectModifyShop")
     public String redirectModifyShop(@RequestParam("idShop") long idShop,@RequestParam("name") String name, @RequestParam("image") String image,
                                  @RequestParam("direction") String direction){
-        this.shopService.modifyShop(idShop,new Shop(name, image, direction)); //La id no dejará cambiarla
+        this.shopService.modifyShop(idShop,new Shop(name, image, direction));
         return "redirect:/shops/"+idShop;
     }
 
@@ -137,7 +137,7 @@ public class ShopController {
             if (!shop.getSuppliers().contains(supplier))
                 newSuppliers.add(supplier);
 
-        model.addAttribute("suppliers",newSuppliers); //Muestra mal, cambiar
+        model.addAttribute("suppliers",newSuppliers);
         model.addAttribute("idShop",shop.getId());
 
         return "addSuppliersToShop";
@@ -147,15 +147,15 @@ public class ShopController {
     public String redirectAddSuppliersToShop(HttpServletRequest request, @PathVariable long id){
         Shop shop = this.shopService.getShop(id);
 
-        String[] selectedValues = request.getParameterValues("checkbox"); //id del supplier
+        String[] selectedValues = request.getParameterValues("checkbox");
 
-        if (selectedValues != null) { //Se añade a las tiendas el supplier
-            for (String value : selectedValues) { //id del suplier es value
+        if (selectedValues != null) {
+            for (String value : selectedValues) {
                 this.supplierService.getSupplier(Long.parseLong(value)).getShops().add(shop);
             }
         }
 
-        if (selectedValues != null) { //Se añade al supplier las tiendas
+        if (selectedValues != null) {
             for (String value : selectedValues) {
                 this.shopService.getShop(shop.getId()).getSuppliers().add(supplierService.getSupplier(Long.parseLong(value)));
             }
@@ -169,7 +169,7 @@ public class ShopController {
 
         Shop shop = this.shopService.getShop(id);
 
-        model.addAttribute("suppliers",shop.getSuppliers()); //Solo quiero mostrar las tiendas de ese suplier, no todas
+        model.addAttribute("suppliers",shop.getSuppliers());
         model.addAttribute("idShop",shop.getId());
 
         return "removeSuppliersToShop";
@@ -180,7 +180,7 @@ public class ShopController {
         Shop shop = this.shopService.getShop(id);
 
 
-        String[] selectedValues = request.getParameterValues("checkbox"); //id del supplier
+        String[] selectedValues = request.getParameterValues("checkbox");
 
         if (selectedValues != null) {
             for (String value : selectedValues) {

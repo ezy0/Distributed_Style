@@ -2,9 +2,7 @@ package es.ssdd.Practica.Models;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Supplier {
     public interface Shops{}

@@ -1,15 +1,11 @@
 package es.ssdd.Practica.Services;
 
-import es.ssdd.Practica.Models.Composition;
-import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Supplier;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicLong;
-
-import es.ssdd.Practica.Models.Shop;
 
 
 @Service

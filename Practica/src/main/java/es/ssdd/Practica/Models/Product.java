@@ -2,7 +2,6 @@ package es.ssdd.Practica.Models;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Product {
@@ -28,7 +27,7 @@ public class Product {
        this.prize=prize;
        this.composition = composition;
        if (image.length() == 0)
-           this.image = "/assets/img/sudadera.jpg";
+           this.image = "/assets/img/new.jpg";
        else
            this.image=image;
        this.shopId = shopId;

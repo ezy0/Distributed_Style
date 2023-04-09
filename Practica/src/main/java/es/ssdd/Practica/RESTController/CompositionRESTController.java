@@ -1,13 +1,9 @@
 package es.ssdd.Practica.RESTController;
 
 import es.ssdd.Practica.Models.Composition;
-import es.ssdd.Practica.Models.Product;
-import es.ssdd.Practica.Models.Shop;
-import es.ssdd.Practica.Models.Supplier;
 import es.ssdd.Practica.Services.CompositionService;
 import es.ssdd.Practica.Services.ProductService;
 import es.ssdd.Practica.Services.ShopService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

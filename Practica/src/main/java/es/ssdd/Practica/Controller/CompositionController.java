@@ -47,7 +47,7 @@ public class CompositionController {
     @GetMapping("/shops/{idShop}/products/{idProduct}/deleteComposition")
     public String deleteComposition(@PathVariable long idShop, @PathVariable long idProduct){
         if (productService.getProduct(idProduct).getComposition() == null)
-            return "redirect:/error"; //Mejor mostrar mensaje de que no se puede borrar
+            return "redirect:/error";
         Composition composition = productService.getProduct(idProduct).getComposition();
         productService.getProduct(idProduct).setComposition(null);
         compositionService.deleteComposition(composition.getId());

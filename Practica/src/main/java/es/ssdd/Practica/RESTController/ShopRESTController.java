@@ -100,12 +100,13 @@ public class ShopRESTController {
     @PutMapping("/shops/{id}/removeSupplier")
     public ResponseEntity<Shop> removeSupplier(@PathVariable long id, @RequestParam long idSupplier){
 
+
         Supplier supplier = this.supplierService.getSupplier(idSupplier);
         Shop shop = this.shopService.getShop(id);
         if (supplier == null || shop == null || !shop.getSuppliers().contains(supplier))
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        this.supplierService.getSupplier(idSupplier).getShops().remove(shop);
         this.shopService.getShop(id).getSuppliers().remove(supplier);
-        this.supplierService.getSupplier(id).getShops().remove(shop);
         return new ResponseEntity<>(shop, HttpStatus.OK);
     }
 }

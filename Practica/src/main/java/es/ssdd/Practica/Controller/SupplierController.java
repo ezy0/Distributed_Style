@@ -109,7 +109,7 @@ public class SupplierController {
             if (!supplier.getShops().contains(shop))
                 newShops.add(shop);
 
-        model.addAttribute("shops",newShops); //Solo quiero mostrar las tiendas que no tienen ese supplier
+        model.addAttribute("shops",newShops);
         model.addAttribute("idSupplier",supplier.getId());
 
         return "addShopsToSupplier";
@@ -120,13 +120,13 @@ public class SupplierController {
         Supplier supplier = this.supplierService.getSupplier(id);
         String[] selectedValues = request.getParameterValues("checkbox");
 
-        if (selectedValues != null) { //Se añade a las tiendas el supplier
+        if (selectedValues != null) {
             for (String value : selectedValues) {
                 this.shopService.getShop(Long.parseLong(value)).getSuppliers().add(supplier);
             }
         }
 
-        if (selectedValues != null) { //Se añade al supplier las tiendas
+        if (selectedValues != null) {
             for (String value : selectedValues) {
                 this.supplierService.getSupplier(supplier.getId()).getShops().add(shopService.getShop(Long.parseLong(value)));
             }
@@ -139,9 +139,8 @@ public class SupplierController {
     public String removeShopsToSupplier(Model model, @PathVariable long id){
         Supplier supplier = this.supplierService.getSupplier(id);
 
-        model.addAttribute("shops",supplier.getShops()); //Solo quiero mostrar las tiendas de ese suplier, no todas
+        model.addAttribute("shops",supplier.getShops());
         model.addAttribute("idSupplier",supplier.getId());
-        //model.addAttribute("name",supplier.getName());
 
         return "removeShopsToSupplier";
     }
@@ -151,13 +150,13 @@ public class SupplierController {
         Supplier supplier = this.supplierService.getSupplier(id);
         String[] selectedValues = request.getParameterValues("checkbox");
 
-        if (selectedValues != null) { //Se eliminan a las tiendas el supplier
+        if (selectedValues != null) {
             for (String value : selectedValues) {
                 this.shopService.getShop(Long.parseLong(value)).getSuppliers().remove(supplier);
             }
         }
 
-        if (selectedValues != null) { //Se añade al supplier las tiendas
+        if (selectedValues != null) {
             for (String value : selectedValues) {
                 this.supplierService.getSupplier(supplier.getId()).getShops().remove(shopService.getShop(Long.parseLong(value)));
             }
@@ -165,8 +164,5 @@ public class SupplierController {
 
         return "redirect:/suppliers/"+id;
     }
-
-
-
 
 }
