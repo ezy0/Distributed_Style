@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "880ebec5-d2ae-4ebd-ad9f-2f8b595b4da8",
+		"_postman_id": "88c8001b-9e09-42c3-a2f4-9b971b0c6356",
 		"name": "Practica SSDD",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "25894440"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -16,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"prueba2\",\r\n    \"image\" : \"pruebaa1\",\r\n    \"direction\" : \"pruebaaa1\"\r\n}",
+							"raw": "{\r\n    \"name\" : \"prueba1\",\r\n    \"image\" : \"\",\r\n    \"direction\" : \"prueba1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -65,7 +64,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/shops/1",
+							"raw": "http://localhost:8080/api/shops/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -74,7 +73,7 @@
 							"path": [
 								"api",
 								"shops",
-								"1"
+								"4"
 							]
 						}
 					},
@@ -95,7 +94,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/shops/3/modifyShop",
+							"raw": "http://localhost:8080/api/shops/4/modifyShop",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -104,7 +103,7 @@
 							"path": [
 								"api",
 								"shops",
-								"3",
+								"4",
 								"modifyShop"
 							]
 						}
@@ -148,7 +147,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/shops/1/addSupplier?idSupplier=1",
+							"raw": "http://localhost:8080/api/shops/4/addSupplier?idSupplier=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -157,7 +156,7 @@
 							"path": [
 								"api",
 								"shops",
-								"1",
+								"4",
 								"addSupplier"
 							],
 							"query": [
@@ -218,7 +217,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/shops/1/newProduct",
+							"raw": "http://localhost:8080/api/shops/4/newProduct",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -227,7 +226,7 @@
 							"path": [
 								"api",
 								"shops",
-								"1",
+								"4",
 								"newProduct"
 							]
 						}
@@ -260,7 +259,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/shops/1/1",
+							"raw": "http://localhost:8080/api/shops/4/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -269,8 +268,8 @@
 							"path": [
 								"api",
 								"shops",
-								"1",
-								"1"
+								"4",
+								"4"
 							]
 						}
 					},
@@ -291,7 +290,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/shops/1/1/modifyProduct",
+							"raw": "http://localhost:8080/api/shops/4/4/modifyProduct",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -300,8 +299,8 @@
 							"path": [
 								"api",
 								"shops",
-								"1",
-								"1",
+								"4",
+								"4",
 								"modifyProduct"
 							]
 						}
@@ -314,7 +313,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/shops/1/1/deleteProduct",
+							"raw": "http://localhost:8080/api/shops/4/4/deleteProduct",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -323,8 +322,8 @@
 							"path": [
 								"api",
 								"shops",
-								"1",
-								"1",
+								"4",
+								"4",
 								"deleteProduct"
 							]
 						}
@@ -351,7 +350,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/shops/3/3/newComposition",
+							"raw": "http://localhost:8080/api/shops/4/4/newComposition",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -360,8 +359,8 @@
 							"path": [
 								"api",
 								"shops",
-								"3",
-								"3",
+								"4",
+								"4",
 								"newComposition"
 							]
 						}
@@ -394,7 +393,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/shops/3/3/composition",
+							"raw": "http://localhost:8080/api/shops/4/4/composition",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -403,8 +402,8 @@
 							"path": [
 								"api",
 								"shops",
-								"3",
-								"3",
+								"4",
+								"4",
 								"composition"
 							]
 						}
@@ -426,7 +425,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/shops/3/3/modifyComposition",
+							"raw": "http://localhost:8080/api/shops/4/4/modifyComposition",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -435,8 +434,8 @@
 							"path": [
 								"api",
 								"shops",
-								"3",
-								"3",
+								"4",
+								"4",
 								"modifyComposition"
 							]
 						}
@@ -449,7 +448,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/shops/3/3/deleteComposition",
+							"raw": "http://localhost:8080/api/shops/4/4/deleteComposition",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -458,8 +457,8 @@
 							"path": [
 								"api",
 								"shops",
-								"3",
-								"3",
+								"4",
+								"4",
 								"deleteComposition"
 							]
 						}
@@ -478,7 +477,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"prueba\",\r\n    \"description\" : \"pruebaa\",\r\n    \"shops\" : []\r\n}",
+							"raw": "{\r\n    \"name\" : \"prueba\",\r\n    \"description\" : \"prueba\",\r\n    \"shops\" : []\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -507,7 +506,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/suppliers/1",
+							"raw": "http://localhost:8080/api/suppliers/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -516,7 +515,7 @@
 							"path": [
 								"api",
 								"suppliers",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -557,7 +556,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/suppliers/1/modifySupplier",
+							"raw": "http://localhost:8080/api/suppliers/2/modifySupplier",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -566,7 +565,7 @@
 							"path": [
 								"api",
 								"suppliers",
-								"1",
+								"2",
 								"modifySupplier"
 							]
 						}
@@ -579,7 +578,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/suppliers/1/deleteSupplier",
+							"raw": "http://localhost:8080/api/suppliers/2/deleteSupplier",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -588,7 +587,7 @@
 							"path": [
 								"api",
 								"suppliers",
-								"1",
+								"2",
 								"deleteSupplier"
 							]
 						}
@@ -610,7 +609,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/suppliers/1/addShop?idShop=1",
+							"raw": "http://localhost:8080/api/suppliers/2/addShop?idShop=4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -619,13 +618,13 @@
 							"path": [
 								"api",
 								"suppliers",
-								"1",
+								"2",
 								"addShop"
 							],
 							"query": [
 								{
 									"key": "idShop",
-									"value": "1"
+									"value": "4"
 								}
 							]
 						}
@@ -638,7 +637,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/suppliers/1/removeShop?idShop=1",
+							"raw": "http://localhost:8080/api/suppliers/2/removeShop?idShop=4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -647,13 +646,13 @@
 							"path": [
 								"api",
 								"suppliers",
-								"1",
+								"2",
 								"removeShop"
 							],
 							"query": [
 								{
 									"key": "idShop",
-									"value": "1"
+									"value": "4"
 								}
 							]
 						}
