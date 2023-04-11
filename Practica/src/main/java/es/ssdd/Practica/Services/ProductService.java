@@ -30,7 +30,7 @@ public class ProductService {
 
     public Collection<Product> getProductsShop(long shopId){
         ArrayList<Product> listProducts = new ArrayList<>();
-        for (HashMap.Entry<Long, Product> entry : products.entrySet()) {
+        for (HashMap.Entry<Long, Product> entry : products.entrySet()) { //Search in the map for products whose shopId is correct
             if (entry.getValue().getShopId().equals(shopId))
                 listProducts.add(entry.getValue());
         }

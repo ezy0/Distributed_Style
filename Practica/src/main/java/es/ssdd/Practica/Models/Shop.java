@@ -39,7 +39,7 @@ public class Shop {
     public Shop(String name, String image, String direction) {
         this.name = name;
         if (image == null || image.length() == 0)
-            this.image = "/assets/img/new.jpg";
+            this.image = "/assets/img/new.jpg"; //Set default image
         else
             this.image = image;
         this.direction = direction;

@@ -16,7 +16,6 @@ public class Composition {
     public Composition(){}
 
     public Composition(String content) {
-
         this.content = content;
     }
 

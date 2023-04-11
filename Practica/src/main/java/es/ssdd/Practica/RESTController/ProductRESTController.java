@@ -32,7 +32,7 @@ public class ProductRESTController {
     @GetMapping("/shops/{id}/products")
     public ResponseEntity<Collection<Product>> getProducts(@PathVariable long id) {
         Collection<Product> products= this.productService.getProducts();
-        for (Product product : products)
+        for (Product product : products) //We select the correct products
             if (product.getShopId() != id)
                 products.remove(product);
         return new ResponseEntity<>(products, HttpStatus.OK);
@@ -51,7 +51,7 @@ public class ProductRESTController {
         if (product.getDescription() == null || product.getName() == null || product.getPrize() < 0)
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         if (product.getImage() == null)
-            product.setImage("/assets/img/new.jpg");
+            product.setImage("/assets/img/new.jpg"); //Set default image
         this.productService.createProduct(product, id);
         this.shopService.getShop(id).getProducts().add(product);
         return new ResponseEntity<>(product, HttpStatus.OK);
@@ -73,7 +73,7 @@ public class ProductRESTController {
         if (this.productService.getProduct(idP) == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         if (product.getImage() == null)
-            product.setImage("/assets/img/new.jpg");
+            product.setImage("/assets/img/new.jpg"); //Set default image
         return new ResponseEntity<>(this.productService.modifyProduct(idP, id, product), HttpStatus.OK);
     }
 }

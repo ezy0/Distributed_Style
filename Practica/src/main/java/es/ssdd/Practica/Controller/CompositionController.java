@@ -37,6 +37,7 @@ public class CompositionController {
 
     @GetMapping("shops/{idShop}/products/{idProduct}/redirectNewComposition")
     public String newComposition(@PathVariable long idShop, @PathVariable long idProduct,@RequestParam String content){
+        //Create new composition with the information received in the forms
         Composition composition = new Composition(content);
         compositionService.createComposition(composition,idProduct);
         productService.getProduct(idProduct).setComposition(composition);
@@ -60,6 +61,7 @@ public class CompositionController {
         Composition composition = this.compositionService.getComposition(idProduct);
         if (composition == null)
             return "redirect:/error";
+        ////Send the data to HTML of the composition that you want to modify
         model.addAttribute("idShop",idShop);
         model.addAttribute("idProduct",idProduct);
 
@@ -70,7 +72,7 @@ public class CompositionController {
 
     @GetMapping("/shops/{idShop}/products/{idProduct}/redirectModifyComposition")
     public String redirectModifyShop(@PathVariable long idProduct, @PathVariable long idShop,@RequestParam("content") String content){
-
+        //Receive new data and modify the composition
         Product product = productService.getProduct(idProduct);
         this.compositionService.modifyComposition(product.getComposition().getId(),new Composition(content));
 

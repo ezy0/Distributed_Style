@@ -61,16 +61,16 @@ public class ShopRESTController {
         if (shop == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         if (shop.getProducts().size() > 0)
-            for (Product product : shop.getProducts())
+            for (Product product : shop.getProducts()) //All products in the shop are removed
                 for (Product product2 : this.productService.getProducts())
                     if (Objects.equals(product.getId(), product2.getId())){
                         if (product2.getComposition() != null && this.compositionService.getComposition(product2.getComposition().getId()) != null)
-                            this.compositionService.deleteComposition(product2.getComposition().getId());
+                            this.compositionService.deleteComposition(product2.getComposition().getId()); //Also eliminate the composition of each product, in case the product has a composition
                         this.productService.deleteProduct(product2.getId());
                     }
         if (shop.getSuppliers().size() > 0)
             for (Supplier supplier : shop.getSuppliers())
-                for (Supplier supplier2 : this.supplierService.getSuppliers())
+                for (Supplier supplier2 : this.supplierService.getSuppliers()) //The shop is deleted from the list of suppliers' shops
                     if (Objects.equals(supplier.getId(), supplier2.getId()))
                         this.supplierService.getSupplier(supplier.getId()).getShops().remove(shop);
 
@@ -95,8 +95,8 @@ public class ShopRESTController {
         Shop shop = this.shopService.getShop(id);
         if (supplier == null || shop == null || shop.getSuppliers().contains(supplier))
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        this.shopService.getShop(id).getSuppliers().add(supplier);
-        this.supplierService.getSupplier(idSupplier).getShops().add(shop);
+        this.shopService.getShop(id).getSuppliers().add(supplier); //Add the supplier to the shop suppliers list
+        this.supplierService.getSupplier(idSupplier).getShops().add(shop); //Add the shop to the supplier shops list
         return new ResponseEntity<>(shop, HttpStatus.OK);
     }
 
@@ -107,8 +107,8 @@ public class ShopRESTController {
         Shop shop = this.shopService.getShop(id);
         if (supplier == null || shop == null || !shop.getSuppliers().contains(supplier))
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        this.supplierService.getSupplier(idSupplier).getShops().remove(shop);
-        this.shopService.getShop(id).getSuppliers().remove(supplier);
+        this.supplierService.getSupplier(idSupplier).getShops().remove(shop); //Remove the shop to the supplier shops list
+        this.shopService.getShop(id).getSuppliers().remove(supplier); //Remove the supplier to the shop suppliers list
         return new ResponseEntity<>(shop, HttpStatus.OK);
     }
 }

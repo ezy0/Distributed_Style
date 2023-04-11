@@ -49,7 +49,7 @@ public class ProductController {
         model.addAttribute("idShop",shop.getId());
         model.addAttribute("nameShop", shop.getName());
 
-        if(composition!=null) {
+        if(composition!=null) { //If product has composition, the add composition button is not shown
             model.addAttribute("existsComposition", true);
             model.addAttribute("content",composition.getContent());
         }
@@ -57,6 +57,7 @@ public class ProductController {
             model.addAttribute("existsComposition", false);
             model.addAttribute("content","This product hasn't got a composition yet");
         }
+
         return "viewProduct";
     }
 
@@ -72,7 +73,8 @@ public class ProductController {
         if (name.length() == 0)
             return "redirect:/error";
         if (image.length() == 0)
-            image = "/assets/img/new.jpg";
+            image = "/assets/img/new.jpg"; //Set default image
+        //Create new product with the information received in the forms
         Product product = new Product(name, description, prize, null, image, idShop);
         this.productService.createProduct(product, idShop);
         this.shopService.getShop(idShop).getProducts().add(product);
@@ -86,7 +88,7 @@ public class ProductController {
             return "redirect:/error";
         }
         this.shopService.getShop(idShop).getProducts().remove(product);
-        if (product.getComposition() != null)
+        if (product.getComposition() != null) //If product has composition, also delete the composition
             this.compositionService.deleteComposition(product.getComposition().getId());
         this.productService.deleteProduct(id);
 
@@ -96,6 +98,7 @@ public class ProductController {
     @GetMapping("/shops/{idShop}/products/{id}/modifyProduct")
     public String modifyProduct(Model model, @PathVariable long id, @PathVariable long idShop){
         Product product = this.productService.getProduct(id);
+        //Send the data to HTML of the product that you want to modify
         model.addAttribute("idShop",idShop);
         model.addAttribute("name", product.getName());
         model.addAttribute("prize", product.getPrize());
@@ -108,6 +111,7 @@ public class ProductController {
    @GetMapping("/shops/{idShop}/products/redirectModifyProduct")
     public String redirectModifyProduct(@RequestParam("id") long id,@RequestParam("name") String name, @RequestParam("prize") float prize,
                                  @RequestParam("description") String description,@RequestParam("image") String image, @PathVariable long idShop){
+        //Receive new data and modify the product
         this.productService.modifyProduct(id, idShop, new Product(name, description, prize,null, image, idShop));
         return "redirect:/shops/"+idShop+"/products/"+id;
     }
