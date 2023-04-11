@@ -74,13 +74,14 @@ public class SupplierController {
         if (supplier == null) {
             return "redirect:/error";
         }
-        if (supplier.getShops() != null)
+        if (supplier.getShops() != null) {
             for (Shop shop : supplier.getShops())
-                for(Shop shop2 : this.shopService.getShops())
+                for (Shop shop2 : this.shopService.getShops())
                     if (Objects.equals(shop.getId(), shop2.getId()))
                         this.shopService.getShop(shop.getId()).getSuppliers().remove(supplier);
-                        //The supplier is deleted from the list of shops' suppliers
-        return "showSuppliers";
+            //The supplier is deleted from the list of shops' suppliers
+        }
+        return "redirect:/suppliers";
     }
 
     @GetMapping("/suppliers/modifySupplier/{id}")
