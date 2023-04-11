@@ -48,6 +48,8 @@ public class CompositionRESTController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         if (this.productService.getProduct(idP).getComposition() != null)
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        if (composition.getContent() == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         this.compositionService.createComposition(composition, idP);
         this.productService.getProduct(idP).setComposition((composition));
         return new ResponseEntity<>(composition, HttpStatus.OK);
@@ -55,6 +57,8 @@ public class CompositionRESTController {
 
     @PutMapping("/shops/{id}/{idP}/modifyComposition")
     public ResponseEntity<Composition> modifyComposition(@PathVariable long idP, @RequestBody Composition composition) {
+        if (composition.getContent() == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         if (this.compositionService.getComposition(productService.getProduct(idP).getComposition().getId()) == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(this.compositionService.modifyComposition(idP, composition), HttpStatus.OK);

@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"prueba1\",\r\n    \"image\" : \"\",\r\n    \"direction\" : \"prueba1\"\r\n}",
+							"raw": "{\r\n    \"name\" : \"Nike\",\r\n    \"image\" : \"\",\r\n    \"direction\" : \"C/ Nike, Madrid\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -86,7 +86,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"prueba2\",\r\n    \"image\" : \"\",\r\n    \"direction\" : \"pruebaaa1\"\r\n}",
+							"raw": "{\r\n    \"name\" : \"Adidas\",\r\n    \"image\" : \"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Original_Adidas_logo.svg/2077px-Original_Adidas_logo.svg.png\",\r\n    \"direction\" : \"C/ Adidas, Madrid\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -147,7 +147,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/shops/4/addSupplier?idSupplier=1",
+							"raw": "http://localhost:8080/api/shops/4/addSupplier?idSupplier=2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -162,7 +162,7 @@
 							"query": [
 								{
 									"key": "idSupplier",
-									"value": "1"
+									"value": "2"
 								}
 							]
 						}
@@ -209,7 +209,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"p1\",\r\n    \"prize\" : 80,\r\n    \"description\" : \"\",\r\n    \"image\" : \"\"\r\n}",
+							"raw": "{\r\n    \"name\" : \"Nike Hoodie\",\r\n    \"prize\" : 79.99,\r\n    \"description\" : \"Hot and nice hoodie\",\r\n    \"image\" : \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -282,7 +282,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"nuevo\",\r\n    \"prize\" : 50,\r\n    \"description\" : \"aaa\",\r\n    \"image\" : \"\"\r\n}",
+							"raw": "{\r\n    \"name\" : \"Black hoodie\",\r\n    \"prize\" : 69.99,\r\n    \"description\" : \"Really warm\",\r\n    \"image\" : \"https://img2.freepng.es/20180925/lvf/kisspng-hoodie-nike-sweater-adidas-air-jordan-nike-trainings-hoodie-damen-kapuzenjacke-schwarz-5baab163c27aa6.1045388315379131877966.jpg\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -342,7 +342,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\" : \"pruebaaaaa3\"\r\n    \r\n}",
+							"raw": "{\r\n    \"content\" : \"100% Cotton\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -417,7 +417,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\" : \"cambio1\"\r\n    \r\n}",
+							"raw": "{\r\n    \"content\" : \"100% Love\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -477,7 +477,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"prueba\",\r\n    \"description\" : \"prueba\",\r\n    \"shops\" : []\r\n}",
+							"raw": "{\r\n    \"name\" : \"Distributed Originals\",\r\n    \"description\" : \"Distributing the best clothes around the world\",\r\n    \"shops\" : []\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -502,9 +502,21 @@
 				},
 				{
 					"name": "viewSupplier",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"prueba\",\r\n    \"description\" : \"prueba\",\r\n    \"shops\" : []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:8080/api/suppliers/2",
 							"protocol": "http",
@@ -548,7 +560,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"cambio1\",\r\n    \"description\" : \"cambio2\"\r\n}",
+							"raw": "{\r\n    \"name\" : \"Not Distributed Originals\",\r\n    \"description\" : \"Not the same\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

@@ -48,6 +48,10 @@ public class ProductRESTController {
 
     @PostMapping("/shops/{id}/newProduct")
     public ResponseEntity<Product> createProduct(@RequestBody Product product, @PathVariable long id){
+        if (product.getDescription() == null || product.getName() == null || product.getPrize() < 0)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        if (product.getImage() == null)
+            product.setImage("/assets/img/new.jpg");
         this.productService.createProduct(product, id);
         this.shopService.getShop(id).getProducts().add(product);
         return new ResponseEntity<>(product, HttpStatus.OK);
@@ -64,8 +68,12 @@ public class ProductRESTController {
 
     @PutMapping("/shops/{id}/{idP}/modifyProduct")
     public ResponseEntity<Product> modifyProduct (@RequestBody Product product, @PathVariable long id, @PathVariable long idP){
+        if (product.getDescription() == null || product.getName() == null || product.getPrize() < 0)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         if (this.productService.getProduct(idP) == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if (product.getImage() == null)
+            product.setImage("/assets/img/new.jpg");
         return new ResponseEntity<>(this.productService.modifyProduct(idP, id, product), HttpStatus.OK);
     }
 }

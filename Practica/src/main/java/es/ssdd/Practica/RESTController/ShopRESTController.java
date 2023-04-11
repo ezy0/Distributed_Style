@@ -49,6 +49,8 @@ public class ShopRESTController {
     @JsonView(ShopDetails.class)
     @PostMapping("/shops/newShop")
     public ResponseEntity<Shop> createShop(@RequestBody Shop shop){
+        if (shop.getDirection() == null || shop.getName() == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         return new ResponseEntity<>(this.shopService.createShop(shop), HttpStatus.OK);
     }
 
@@ -62,7 +64,7 @@ public class ShopRESTController {
             for (Product product : shop.getProducts())
                 for (Product product2 : this.productService.getProducts())
                     if (Objects.equals(product.getId(), product2.getId())){
-                        if (this.compositionService.getComposition(product2.getComposition().getId()) != null)
+                        if (product2.getComposition() != null && this.compositionService.getComposition(product2.getComposition().getId()) != null)
                             this.compositionService.deleteComposition(product2.getComposition().getId());
                         this.productService.deleteProduct(product2.getId());
                     }
@@ -78,6 +80,8 @@ public class ShopRESTController {
     @JsonView(ShopDetails.class)
     @PutMapping("/shops/{id}/modifyShop")
     public ResponseEntity<Shop> modifyShop(@PathVariable long id, @RequestBody Shop modifiedShop){
+        if (modifiedShop.getDirection() == null || modifiedShop.getName() == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         Shop shop = this.shopService.modifyShop(id, modifiedShop);
         if (shop == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -99,8 +103,6 @@ public class ShopRESTController {
     @JsonView(ShopDetails.class)
     @PutMapping("/shops/{id}/removeSupplier")
     public ResponseEntity<Shop> removeSupplier(@PathVariable long id, @RequestParam long idSupplier){
-
-
         Supplier supplier = this.supplierService.getSupplier(idSupplier);
         Shop shop = this.shopService.getShop(id);
         if (supplier == null || shop == null || !shop.getSuppliers().contains(supplier))

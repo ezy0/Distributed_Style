@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -39,7 +40,7 @@ public class SupplierRESTController {
 
     @JsonView(SupplierDetails.class)
     @GetMapping("/suppliers/{id}")
-    public ResponseEntity<Supplier> getSuppliersShop(@PathVariable long id){
+    public ResponseEntity<Supplier> getSupplier(@PathVariable long id){
         Supplier supplier = this.supplierService.getSupplier(id);
         if (supplier == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -49,6 +50,8 @@ public class SupplierRESTController {
     @JsonView(SupplierDetails.class)
     @PostMapping("/suppliers/newSupplier")
     public ResponseEntity<Supplier> createSupplier(@RequestBody Supplier supplier){
+        if (supplier.getShops() == null || supplier.getDescription() == null || supplier.getName() == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         return new ResponseEntity<>(this.supplierService.createSupplier(supplier), HttpStatus.OK);
     }
 
@@ -72,6 +75,8 @@ public class SupplierRESTController {
     @JsonView(SupplierDetails.class)
     @PutMapping("suppliers/{idSupplier}/modifySupplier")
     public ResponseEntity<Supplier> modifySupplier(@PathVariable long idSupplier,@RequestBody Supplier modifiedSupplier){
+        if (modifiedSupplier.getDescription() == null || modifiedSupplier.getName() == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         Supplier supplier =this.supplierService.modifySupplier(idSupplier,modifiedSupplier);
         if (supplier == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

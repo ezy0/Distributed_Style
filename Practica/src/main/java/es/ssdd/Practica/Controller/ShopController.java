@@ -94,7 +94,6 @@ public class ShopController {
         if (shop == null) {
             return "redirect:/error";
         }
-        ArrayList<Product> productList = shop.getProducts();
         if (shop.getSuppliers() != null && shop.getProducts().size() > 0)
             for (Product product : shop.getProducts())
                 for (Product product2 : this.productService.getProducts())
