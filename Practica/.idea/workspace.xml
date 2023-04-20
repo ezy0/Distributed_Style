@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/SupplierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/SupplierController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/deletedProduct.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/deletedShop.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/deletedSupplier.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/SupplierController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/SupplierController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/deletedProduct.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/deletedShop.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/deletedSupplier.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <list id="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" name="Changes by Alex" comment="" />
     <list id="e4e2b062-7032-456c-9273-a082a6ef3aa9" name="Changes by alvar" comment="" />
@@ -186,6 +180,13 @@
       <workItem from="1681213925528" duration="4516000" />
       <workItem from="1681231067190" duration="7834000" />
       <workItem from="1681239108545" duration="1924000" />
+      <workItem from="1681283219932" duration="357000" />
+      <workItem from="1681284445289" duration="181000" />
+      <workItem from="1681286222898" duration="705000" />
+      <workItem from="1681299720625" duration="629000" />
+      <workItem from="1681827276501" duration="353000" />
+      <workItem from="1681903349759" duration="1775000" />
+      <workItem from="1681978998235" duration="425000" />
     </task>
     <servers />
   </component>
