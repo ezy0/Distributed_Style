@@ -1,8 +1,12 @@
 package es.ssdd.Practica.Services;
 
+import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Supplier;
+import es.ssdd.Practica.Repositories.SupplierRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicLong;
@@ -11,40 +15,46 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class SupplierService {
 
-    private HashMap<Long, Supplier> suppliers = new HashMap<>();
-    private AtomicLong lastId = new AtomicLong();
+    @Autowired
+    private SupplierRepository supplierRepository;
 
     public SupplierService(){
     }
-    public Supplier createSupplier(Supplier supplier){
-        supplier.setId(lastId.incrementAndGet());
-        suppliers.put(lastId.get(), supplier);
-        return supplier;
+
+    public Supplier createSupplier(Supplier supplier) {
+       this.supplierRepository.save(supplier);
+       return supplier;
     }
-    public Supplier getSupplier(long id){
-        if (this.suppliers.containsKey(id)) {
-            return this.suppliers.get(id);
+
+    public Supplier getSupplier(long id) {
+        if (this.supplierRepository.existsById(id))
+            return this.supplierRepository.getById(id);
+        return null;
+    }
+
+    public Collection<Supplier> getSuppliers() {
+        return this.supplierRepository.findAll();
+    }
+
+    @Transactional
+    public Supplier deleteSupplier(long id) {
+        if (this.supplierRepository.existsById(id)) {
+            Supplier supplier = this.supplierRepository.findById(id).get();
+            this.supplierRepository.deleteById(id);
+            return supplier;
         }
         return null;
     }
 
-    public Collection<Supplier> getSuppliers(){
-        return this.suppliers.values().stream().toList();
-    }
-
-    public Supplier deleteSupplier(long id){
-        if (this.suppliers.containsKey(id)) {
-            return suppliers.remove(id);
-        }
-        return null;
-    }
-
+    @Transactional
     public Supplier modifySupplier(long id, Supplier modifiedSupplier) {
-        Supplier supplier = this.getSupplier(id);
-        if (supplier == null)
-            return null;
-        supplier.setName(modifiedSupplier.getName());
-        supplier.setDescription(modifiedSupplier.getDescription());
-        return supplier;
+        if (this.supplierRepository.existsById(id)) {
+            Supplier supplier = this.supplierRepository.findById(id).get();
+            supplier.setName(modifiedSupplier.getName());
+            supplier.setDescription(modifiedSupplier.getDescription());
+            this.supplierRepository.save(supplier);
+            return supplier;
+        }
+        return null;
     }
 }

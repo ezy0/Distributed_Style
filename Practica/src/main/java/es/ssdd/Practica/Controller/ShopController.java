@@ -33,7 +33,7 @@ public class ShopController {
     @GetMapping("/shops")
     public String getShops(Model model){
         ArrayList<Shop> shops = new ArrayList<>();
-        Supplier supplier;
+        /*Supplier supplier;
         Boolean created = true;
         for (Shop shop : this.shopService.getShops()) {
             if (shop.getProducts().size() == 0 && shop.getId() <= 3) { //1 product is created for each store automatically when you press the "visit shops" button in the index for the first time
@@ -58,7 +58,7 @@ public class ShopController {
             this.supplierService.createSupplier(supplier);
             for (Shop shop : this.shopService.getShops())
                 shop.getSuppliers().add(supplier);
-        }
+        }*/
         model.addAttribute("shops", this.shopService.getShops());
         return "showShops";
     }

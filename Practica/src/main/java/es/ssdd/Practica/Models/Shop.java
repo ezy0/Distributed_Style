@@ -2,21 +2,31 @@ package es.ssdd.Practica.Models;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
 public class Shop {
     public interface Suppliers{}
     public interface Basic{}
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonView(Basic.class)
     private Long id;
+
     @JsonView(Basic.class)
     private String name;
     @JsonView(Basic.class)
     private String image;
     @JsonView(Basic.class)
     private String direction;
+
+    @OneToMany(cascade=CascadeType.ALL)
     @JsonView(Basic.class)
     private ArrayList<Product> products = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "shop")
     @JsonView(Suppliers.class)
     private ArrayList<Supplier> suppliers = new ArrayList<>();
 
@@ -34,6 +44,9 @@ public class Shop {
 
     public void setDirection(String direction) {
         this.direction = direction;
+    }
+
+    public Shop () {
     }
 
     public Shop(String name, String image, String direction) {

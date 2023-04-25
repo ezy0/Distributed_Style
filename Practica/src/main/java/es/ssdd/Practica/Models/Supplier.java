@@ -2,19 +2,31 @@ package es.ssdd.Practica.Models;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import javax.persistence.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
 
+@Entity
 public class Supplier {
     public interface Shops{}
     public interface Basic{}
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonView(Basic.class)
     private Long id;
+
     @JsonView(Basic.class)
     private String name;
     @JsonView(Basic.class)
     private String description;
+
+    @ManyToMany
     @JsonView(Shops.class)
     private ArrayList<Shop> shops = new ArrayList<>();
+
+    public Supplier(){}
 
     public Supplier(String name, String description, ArrayList<Shop> shops) {
         this.name = name;

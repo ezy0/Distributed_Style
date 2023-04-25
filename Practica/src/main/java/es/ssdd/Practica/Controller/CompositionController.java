@@ -3,6 +3,7 @@ package es.ssdd.Practica.Controller;
 import es.ssdd.Practica.Models.Composition;
 import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Shop;
+import es.ssdd.Practica.Repositories.CompositionRepository;
 import es.ssdd.Practica.Services.CompositionService;
 import es.ssdd.Practica.Services.ProductService;
 import es.ssdd.Practica.Services.ShopService;
@@ -17,9 +18,10 @@ public class CompositionController {
     CompositionService compositionService;
     @Autowired
     ProductService productService;
-
     @Autowired
     ShopService shopService;
+    @Autowired
+    CompositionRepository compositionRepository;
 
     @GetMapping("shops/{idShop}/products/{idProduct}/newComposition")
     public String newComposition(Model model, @PathVariable long idShop, @PathVariable long idProduct) {

@@ -2,12 +2,19 @@ package es.ssdd.Practica.Models;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
 public class Product {
+
     public interface Basic{}
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonView(Basic.class)
     private Long id;
+
     @JsonView(Basic.class)
     private String name;
     @JsonView(Basic.class)
@@ -16,12 +23,18 @@ public class Product {
     private float prize;
     @JsonView(Basic.class)
     private String image;
+
     @JsonView(Basic.class)
     private Long shopId;
+
+    @OneToOne(cascade=CascadeType.ALL)
     @JsonView(Basic.class)
     private Composition composition;
 
-   public Product(String name, String description, float prize, Composition composition, String image, Long shopId){
+    public Product () {
+    }
+
+    public Product(String name, String description, float prize, Composition composition, String image, Long shopId){
        this.name=name;
        this.description = description;
        this.prize=prize;
@@ -31,12 +44,12 @@ public class Product {
        else
            this.image=image;
        this.shopId = shopId;
-   }
+    }
 
-   public Long getShopId () {
+    public Long getShopId () {
        return shopId;
    }
-   public void setShopId (Long shopId) {
+    public void setShopId (Long shopId) {
        this.shopId = shopId;
    }
     public String getImage() {

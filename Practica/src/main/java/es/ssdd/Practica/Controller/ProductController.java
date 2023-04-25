@@ -28,7 +28,7 @@ public class ProductController {
     @GetMapping("/shops/{idShop}/products")
     public String getShopProducts(Model model, @PathVariable long idShop){
         Shop shop = shopService.getShop(idShop);
-        model.addAttribute("products", this.productService.getProductsShop(idShop));
+        model.addAttribute("products",shop.getProducts());
         model.addAttribute("idShop", shop.getId());
         model.addAttribute("shopName", shop.getName());
         return "showProducts";
@@ -36,15 +36,15 @@ public class ProductController {
 
     @GetMapping("/shops/{idShop}/products/{idProduct}")
     public String getProduct(Model model, @PathVariable long idShop, @PathVariable long idProduct) {
-        Product producto = this.productService.getProduct(idProduct);
+        Product product = this.productService.getProduct(idProduct);
         Shop shop = this.shopService.getShop(idShop);
         Composition composition = this.compositionService.getComposition(idProduct);
 
-        model.addAttribute("nameP", producto.getName());
-        model.addAttribute("prize", producto.getPrize());
-        model.addAttribute("image", producto.getImage());
-        model.addAttribute("description", producto.getDescription());
-        model.addAttribute("idProduct", producto.getId());
+        model.addAttribute("nameP", product.getName());
+        model.addAttribute("prize", product.getPrize());
+        model.addAttribute("image", product.getImage());
+        model.addAttribute("description", product.getDescription());
+        model.addAttribute("idProduct", product.getId());
 
         model.addAttribute("idShop",shop.getId());
         model.addAttribute("nameShop", shop.getName());
