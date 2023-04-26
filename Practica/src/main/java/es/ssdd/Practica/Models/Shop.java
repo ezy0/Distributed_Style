@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Shop {
@@ -24,17 +25,17 @@ public class Shop {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JsonView(Basic.class)
-    private ArrayList<Product> products = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "shop")
+    @ManyToMany()
     @JsonView(Suppliers.class)
-    private ArrayList<Supplier> suppliers = new ArrayList<>();
+    private List<Supplier> suppliers = new ArrayList<>();
 
-    public ArrayList<Supplier> getSuppliers () {
+    public List<Supplier> getSuppliers () {
         return suppliers;
     }
 
-    public void setSuppliers (ArrayList<Supplier> suppliers) {
+    public void setSuppliers (List<Supplier> suppliers) {
         this.suppliers = suppliers;
     }
 
@@ -82,11 +83,11 @@ public class Shop {
         this.image = image;
     }
 
-    public ArrayList<Product> getProducts () {
+    public List<Product> getProducts () {
         return products;
     }
 
-    public void setProducts (ArrayList<Product> products) {
+    public void setProducts (List<Product> products) {
         this.products = products;
     }
 }

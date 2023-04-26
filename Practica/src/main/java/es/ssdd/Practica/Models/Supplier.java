@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Supplier {
@@ -22,13 +23,13 @@ public class Supplier {
     @JsonView(Basic.class)
     private String description;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "suppliers")
     @JsonView(Shops.class)
-    private ArrayList<Shop> shops = new ArrayList<>();
+    private List<Shop> shops = new ArrayList<>();
 
     public Supplier(){}
 
-    public Supplier(String name, String description, ArrayList<Shop> shops) {
+    public Supplier(String name, String description, List<Shop> shops) {
         this.name = name;
         this.description = description;
         this.shops = shops;
@@ -52,10 +53,10 @@ public class Supplier {
     public void setDescription(String description){
         this.description=description;
     }
-    public ArrayList<Shop> getShops() {
+    public List<Shop> getShops() {
         return shops;
     }
-    public void setShops(ArrayList<Shop> shops) {
+    public void setShops(List<Shop> shops) {
         this.shops = shops;
     }
 }
