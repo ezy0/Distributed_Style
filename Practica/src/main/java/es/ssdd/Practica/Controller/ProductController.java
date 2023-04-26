@@ -87,6 +87,8 @@ public class ProductController {
         if (product == null || this.shopService.getShop(idShop) == null || !this.shopService.getShop(idShop).getProducts().contains(product)) {
             return "redirect:/error";
         }
+
+        // Al borrar un producto, con CascadeType.All se borra sola la composition (QUITAR)
         this.shopService.getShop(idShop).getProducts().remove(product);
         if (product.getComposition() != null) //If product has composition, also delete the composition
             this.compositionService.deleteComposition(product.getComposition().getId());

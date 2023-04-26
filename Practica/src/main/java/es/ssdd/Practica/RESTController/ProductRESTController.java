@@ -61,6 +61,7 @@ public class ProductRESTController {
     public ResponseEntity<Product> deleteProduct(@PathVariable long idP, @PathVariable long id){
         Product product = this.productService.deleteProduct(idP);
         this.shopService.getShop(product.getShopId()).getProducts().remove(product);
+        // Al borrar un producto, con CascadeType.All se borra sola la composition (QUITAR)
         if (product.getComposition() != null)
             this.compositionService.deleteComposition(product.getComposition().getId());
         return new ResponseEntity<>(product, HttpStatus.OK);

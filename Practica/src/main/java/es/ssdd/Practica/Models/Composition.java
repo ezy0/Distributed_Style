@@ -10,11 +10,11 @@ public class Composition {
     public interface Basic{}
     public interface Details{}
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonView(Details.class)
     private Long productId;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonView(Details.class)
     private Long id;
     @JsonView(Basic.class)

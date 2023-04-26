@@ -5,43 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/CompositionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/ShopRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/SupplierRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/CompositionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/CompositionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/CompositionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/CompositionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/assets/css/Simple-Slider-swiper-bundle.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/assets/css/Simple-Slider-swiper-bundle.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/assets/css/swiper-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/assets/css/swiper-icons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/assets/fonts/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/assets/fonts/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/assets/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/assets/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/assets/js/Simple-Slider-swiper-bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/assets/js/Simple-Slider-swiper-bundle.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/assets/js/Simple-Slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/assets/js/Simple-Slider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/assets/js/grayscale.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/assets/js/grayscale.js" afterDir="false" />
-    </list>
-    <list id="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" name="Changes by Alex" comment="">
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Composition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Composition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Supplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Supplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/SupplierService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/SupplierService.java" afterDir="false" />
-    </list>
-    <list id="e4e2b062-7032-456c-9273-a082a6ef3aa9" name="Changes by alvar" comment="" />
-    <list id="31608a26-743a-4802-9eb6-45721681b7f7" name="Changes by Miguel A" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ShopController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Composition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Composition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Supplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Supplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ShopService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ShopService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ProductRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ProductRESTController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/CompositionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/CompositionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/ShopRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/ShopRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/SupplierRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/SupplierRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
+    <list id="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" name="Changes by Alex" comment="" />
+    <list id="e4e2b062-7032-456c-9273-a082a6ef3aa9" name="Changes by alvar" comment="" />
+    <list id="31608a26-743a-4802-9eb6-45721681b7f7" name="Changes by Miguel A" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,70 +39,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ProductService.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="8" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="6" end1="6" start2="10" end2="11" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="14" end1="16" start2="19" end2="24" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="21" end1="22" start2="29" end2="29" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="23" end1="25" start2="30" end2="32" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="26" end1="26" start2="33" end2="34" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="27" end1="28" start2="35" end2="36" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="30" end1="31" start2="38" end2="39" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="37" end1="38" start2="45" end2="46" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="40" end1="42" start2="48" end2="50" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="46" end1="46" start2="54" end2="55" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="47" end1="49" start2="56" end2="60" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="53" end1="53" start2="64" end2="65" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="54" end1="62" start2="66" end2="76" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Product.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="5" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="6" end1="6" start2="7" end2="8" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="7" end1="7" start2="9" end2="10" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="8" end1="8" start2="11" end2="14" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="10" end1="10" start2="16" end2="17" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="18" end1="18" start2="25" end2="26" changelist="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" />
-        <range start1="20" end1="20" start2="28" end2="30" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="23" end1="24" start2="33" end2="37" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="33" end1="34" start2="46" end2="47" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="35" end1="36" start2="48" end2="49" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="38" end1="39" start2="51" end2="52" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Composition.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="7" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="8" end1="8" start2="11" end2="14" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="10" end1="10" start2="16" end2="17" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Supplier.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="6" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="5" end1="5" start2="7" end2="8" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="6" end1="6" start2="9" end2="10" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="9" end1="9" start2="13" end2="16" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="11" end1="11" start2="18" end2="19" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="15" end1="15" start2="23" end2="25" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="18" end1="18" start2="28" end2="30" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Shop.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="5" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="6" end1="6" start2="7" end2="8" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="9" end1="9" start2="11" end2="14" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="11" end1="11" start2="16" end2="17" changelist="31608a26-743a-4802-9eb6-45721681b7f7" />
-        <range start1="17" end1="17" start2="23" end2="25" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="19" end1="19" start2="27" end2="29" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-        <range start1="38" end1="38" start2="48" end2="51" changelist="63a22a94-10a1-4c5f-a7fe-0d9af6665ba4" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -170,6 +85,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "spring.configuration.checksum": "a31000df514ca6ab0b7b714c2b6551d5",
     "vue.rearranger.settings.migration": "true"
   }
@@ -287,11 +203,15 @@
       <workItem from="1681978998235" duration="425000" />
       <workItem from="1682406573298" duration="321000" />
       <workItem from="1682406917255" duration="5375000" />
+      <workItem from="1682507246256" duration="4856000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="application.properties" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

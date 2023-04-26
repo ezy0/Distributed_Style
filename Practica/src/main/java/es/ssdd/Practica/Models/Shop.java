@@ -22,7 +22,7 @@ public class Shop {
     @JsonView(Basic.class)
     private String direction;
 
-    @OneToMany(cascade=CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JsonView(Basic.class)
     private ArrayList<Product> products = new ArrayList<>();
 
