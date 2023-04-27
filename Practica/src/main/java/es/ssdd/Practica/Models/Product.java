@@ -23,7 +23,6 @@ public class Product {
     private float prize;
     @JsonView(Basic.class)
     private String image;
-
     @JsonView(Basic.class)
     private Long shopId;
 

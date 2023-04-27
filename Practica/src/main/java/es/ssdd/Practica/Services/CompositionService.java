@@ -24,11 +24,12 @@ public class CompositionService {
     public Composition createComposition1(Composition composition) {
         return this.compositionRepository.save(composition);
     }
-    public Composition createComposition(Composition composition, long idProduct){
+    public Composition createComposition(Composition composition, long idProduct) {
         composition.setId(idProduct);
         composition.setProductId(idProduct);
         return this.compositionRepository.save(composition);
     }
+
     public Collection<Composition> getCompositions(){
         return this.compositionRepository.findAll();
     }

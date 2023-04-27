@@ -12,6 +12,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Service
@@ -49,6 +50,14 @@ public class ProductService {
     public Product getProduct(long id) {
         if (this.productRepository.existsById(id)) {
             return this.productRepository.findById(id).get();
+        }
+        return null;
+    }
+
+    public Product getProductByName(String name) {
+        Optional<Product> product = this.productRepository.findByName(name);
+        if (product.isPresent()) {
+            return product.get();
         }
         return null;
     }

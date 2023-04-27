@@ -10,11 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Optional;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class ShopService {
@@ -31,13 +27,17 @@ public class ShopService {
     @PostConstruct
     public void init(){
 
+        // SUPPLIER
+        Supplier supplier = new Supplier("Global Suppliers", "Supplying shops around the world since 1995");
+
         // SHOPS
         Shop footLocker = new Shop("Foot Locker", "/assets/img/footlocker.png", "C. de la Palma, 69, 28015 Madrid");
         Shop nudeProject = new Shop("Nude Project", "/assets/img/NUDE_PROJECT_COCOA_2.png", "C/ Gran Vía, 18, 28013 Madrid");
         Shop martinValen = new Shop("Martin Valen", "/assets/img/67237831_101270447883552_3670809205297643520_n.jpg", "C. de Fuente Chica, 28034 Madrid");
 
-        // SUPPLIER
-        Supplier supplier = new Supplier("Global Suppliers", "Supplying shops around the world since 1995", new ArrayList<>(this.getShops()));
+        footLocker.getSuppliers().add(supplier);
+        nudeProject.getSuppliers().add(supplier);
+        martinValen.getSuppliers().add(supplier);
 
         // PRODUCTS
         Product footLockerP = new Product("Nike Air Jordan", "Nike Air Jordan 1 Black", 100F, null, "/assets/img/locker.jpg", footLocker.getId());
@@ -49,31 +49,63 @@ public class ShopService {
         Composition composition2 = new Composition("100% cotton");
         Composition composition3 = new Composition("100% fur");
 
-        this.compositionService.createComposition1(composition1);
-        this.compositionService.createComposition1(composition2);
-        this.compositionService.createComposition1(composition3);
+        // GUARDAMOS SUPPLIER
+        this.supplierService.createSupplier(supplier);
 
-        footLockerP.setComposition(composition1);
-        nudeProjectP.setComposition(composition2);
-        martinValenP.setComposition(composition3);
-
-        this.productService.createProduct1(footLockerP);
-        this.productService.createProduct1(nudeProjectP);
-        this.productService.createProduct1(martinValenP);
-
-        footLocker.getProducts().add(footLockerP);
-        nudeProject.getProducts().add(nudeProjectP);
-        martinValen.getProducts().add(martinValenP);
-
+        // GUARDAMOS TIENDAS
         this.createShop(footLocker);
         this.createShop(nudeProject);
         this.createShop(martinValen);
 
-        long shop1 = this.shopRepository.findByName("Foot Locker").get().getId();
-        long shop2 = this.shopRepository.findByName("Nude Project").get().getId();
-        long shop3 = this.shopRepository.findByName("Martin Valen").get().getId();
+        // GUARDAMOS PRODUCTOS
+        long idTienda1 = this.shopRepository.findByName("Foot Locker").get().getId();
+        long idTienda2 = this.shopRepository.findByName("Nude Project").get().getId();
+        long idTienda3 = this.shopRepository.findByName("Martin Valen").get().getId();
+
+        footLockerP.setShopId(idTienda1);
+        nudeProjectP.setShopId(idTienda2);
+        martinValenP.setShopId(idTienda3);
 
 
+        //this.productService.createProduct1(footLockerP);
+        //this.productService.createProduct1(nudeProjectP);
+        //this.productService.createProduct1(martinValenP);
+
+        Product pr1 = this.productService.createProduct1(footLockerP);
+        Product pr2 = this.productService.createProduct1(nudeProjectP);
+        Product pr3 = this.productService.createProduct1(martinValenP);
+
+        // GUARDAMOS COMPOSITIONS
+        long idProduct1 = pr1.getId();
+        long idProduct2 = pr2.getId();
+        long idProduct3 = pr3.getId();
+
+        //composition1.setProductId(idProduct1);
+        //composition2.setProductId(idProduct2);
+        //composition3.setProductId(idProduct3);
+
+        //this.compositionService.createComposition(composition1, idProduct1);
+        //this.compositionService.createComposition(composition2, idProduct2);
+        //this.compositionService.createComposition(composition3, idProduct3);
+
+        composition1.setProductId(idProduct1);
+        pr1.setComposition(composition1);
+        this.compositionService.createComposition1(composition1);
+        pr2.setComposition(this.compositionService.createComposition(composition2, idProduct2));
+        pr3.setComposition(this.compositionService.createComposition(composition3, idProduct3));
+
+        this.productService.createProduct1(pr1);
+        this.productService.createProduct1(pr2);
+        this.productService.createProduct1(pr3);
+
+        // GUARDAR PRODUCTOS EN TIENDAS
+        footLocker.getProducts().add(footLockerP);
+        nudeProject.getProducts().add(nudeProjectP);
+        martinValen.getProducts().add(martinValenP);
+
+        this.shopRepository.save(footLocker);
+        this.shopRepository.save(nudeProject);
+        this.shopRepository.save(martinValen);
     }
 
     public Shop createShop (Shop shop) {

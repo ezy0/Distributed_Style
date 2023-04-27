@@ -35,6 +35,11 @@ public class Supplier {
         this.shops = shops;
     }
 
+    public Supplier(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     public Long getId() {
         return id;
     }
