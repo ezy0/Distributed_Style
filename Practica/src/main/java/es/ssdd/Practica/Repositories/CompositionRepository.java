@@ -8,5 +8,4 @@ import java.util.Optional;
 public interface CompositionRepository extends JpaRepository<Composition, Long> {
 
     Optional<Composition> findByContent(String content);
-
 }

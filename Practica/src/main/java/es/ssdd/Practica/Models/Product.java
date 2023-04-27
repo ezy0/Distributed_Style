@@ -27,7 +27,8 @@ public class Product {
     @JsonView(Basic.class)
     private Long shopId;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    // (cascade = CascadeType.ALL)
+    @OneToOne
     @JsonView(Basic.class)
     private Composition composition;
 

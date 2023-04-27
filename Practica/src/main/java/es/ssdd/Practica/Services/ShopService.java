@@ -13,6 +13,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Service
@@ -27,33 +28,52 @@ public class ShopService {
     @Autowired
     private SupplierService supplierService;
 
-    //private HashMap<Long, Shop> shops = new HashMap<>();
-    //private AtomicLong lastId = new AtomicLong();
-
     @PostConstruct
-    public void shopInit(){
+    public void init(){
 
-        Shop footLocker = createShop(new Shop("Foot Locker", "/assets/img/footlocker.png", "C. de la Palma, 69, 28015 Madrid"));
-        Product footLockerP = new Product("Nike Air Jordan", "Nike Air Jordan 1 Black", 100F, null, "/assets/img/locker.jpg", footLocker.getId());
-        this.productService.createProduct(footLockerP, footLocker.getId());
-        Composition composition1 = new Composition("100% leather");
-        this.compositionService.createComposition(composition1,footLockerP.getId());
+        // SHOPS
+        Shop footLocker = new Shop("Foot Locker", "/assets/img/footlocker.png", "C. de la Palma, 69, 28015 Madrid");
+        Shop nudeProject = new Shop("Nude Project", "/assets/img/NUDE_PROJECT_COCOA_2.png", "C/ Gran Vía, 18, 28013 Madrid");
+        Shop martinValen = new Shop("Martin Valen", "/assets/img/67237831_101270447883552_3670809205297643520_n.jpg", "C. de Fuente Chica, 28034 Madrid");
 
-
-        Shop nudeProject = createShop(new Shop("Nude Project", "/assets/img/NUDE_PROJECT_COCOA_2.png", "C/ Gran Vía, 18, 28013 Madrid"));
-        Product nudeProjectP = new Product("Nude Sweater", "Nude Project brow sweater", 69.99F, null, "/assets/img/nude.jpg", nudeProject.getId());
-        this.productService.createProduct(nudeProjectP, nudeProject.getId());
-        Composition composition2 = new Composition("100% cotton");
-        this.compositionService.createComposition(composition2,footLockerP.getId());
-
-        Shop martinValen = createShop(new Shop("Martin Valen", "/assets/img/67237831_101270447883552_3670809205297643520_n.jpg", "C. de Fuente Chica, 28034 Madrid"));
-        Product martinValenP = new Product("White Sneakers", "White sneakers from Martin Valen", 79.99F, null, "/assets/img/martin.jpg", martinValen.getId());
-        this.productService.createProduct(martinValenP, martinValen.getId());
-
+        // SUPPLIER
         Supplier supplier = new Supplier("Global Suppliers", "Supplying shops around the world since 1995", new ArrayList<>(this.getShops()));
-        this.supplierService.createSupplier(supplier);
-        for (Shop shop : this.getShops())
-            shop.getSuppliers().add(supplier);
+
+        // PRODUCTS
+        Product footLockerP = new Product("Nike Air Jordan", "Nike Air Jordan 1 Black", 100F, null, "/assets/img/locker.jpg", footLocker.getId());
+        Product nudeProjectP = new Product("Nude Sweater", "Nude Project brow sweater", 69.99F, null, "/assets/img/nude.jpg", nudeProject.getId());
+        Product martinValenP = new Product("White Sneakers", "White sneakers from Martin Valen", 79.99F, null, "/assets/img/martin.jpg", martinValen.getId());
+
+        // COMPOSITIONS
+        Composition composition1 = new Composition("100% leather");
+        Composition composition2 = new Composition("100% cotton");
+        Composition composition3 = new Composition("100% fur");
+
+        this.compositionService.createComposition1(composition1);
+        this.compositionService.createComposition1(composition2);
+        this.compositionService.createComposition1(composition3);
+
+        footLockerP.setComposition(composition1);
+        nudeProjectP.setComposition(composition2);
+        martinValenP.setComposition(composition3);
+
+        this.productService.createProduct1(footLockerP);
+        this.productService.createProduct1(nudeProjectP);
+        this.productService.createProduct1(martinValenP);
+
+        footLocker.getProducts().add(footLockerP);
+        nudeProject.getProducts().add(nudeProjectP);
+        martinValen.getProducts().add(martinValenP);
+
+        this.createShop(footLocker);
+        this.createShop(nudeProject);
+        this.createShop(martinValen);
+
+        long shop1 = this.shopRepository.findByName("Foot Locker").get().getId();
+        long shop2 = this.shopRepository.findByName("Nude Project").get().getId();
+        long shop3 = this.shopRepository.findByName("Martin Valen").get().getId();
+
+
     }
 
     public Shop createShop (Shop shop) {

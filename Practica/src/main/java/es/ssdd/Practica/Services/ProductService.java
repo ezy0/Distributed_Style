@@ -20,10 +20,11 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    //private HashMap<Long, Product> products = new HashMap<>();
-    //private AtomicLong lastId = new AtomicLong();
-
     public ProductService(){
+    }
+
+    public Product createProduct1(Product product) {
+        return this.productRepository.save(product);
     }
 
     public Product createProduct(Product product, long shopId){

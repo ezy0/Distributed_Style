@@ -15,17 +15,15 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class CompositionService {
 
-    /*
-    private HashMap<Long, Composition> compositions = new HashMap<>();
-    private AtomicLong lastId = new AtomicLong();
-    */
-
     @Autowired
     private CompositionRepository compositionRepository;
 
     public CompositionService(){
     }
 
+    public Composition createComposition1(Composition composition) {
+        return this.compositionRepository.save(composition);
+    }
     public Composition createComposition(Composition composition, long idProduct){
         composition.setId(idProduct);
         composition.setProductId(idProduct);

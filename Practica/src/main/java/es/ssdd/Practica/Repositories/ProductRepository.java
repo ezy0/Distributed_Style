@@ -11,10 +11,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     Optional<Product> findByName(String name);
     Optional<Product> findByDescription(String description);
     Optional<Product> findByPrize(float prize);
-    List<Product> findProductsByShopId(long shopId);
-    List<Product> findByPrizeLessThan50();
-    List<Product> findByPrizeGreaterThan50();
-
-
+    List<Product> findByShopId(long shopId);
 }
 

@@ -20,8 +20,6 @@ public class CompositionController {
     ProductService productService;
     @Autowired
     ShopService shopService;
-    @Autowired
-    CompositionRepository compositionRepository;
 
     @GetMapping("shops/{idShop}/products/{idProduct}/newComposition")
     public String newComposition(Model model, @PathVariable long idShop, @PathVariable long idProduct) {

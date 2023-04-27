@@ -23,11 +23,12 @@ public class Shop {
     @JsonView(Basic.class)
     private String direction;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    // (cascade = CascadeType.ALL)
+    @OneToMany
     @JsonView(Basic.class)
     private List<Product> products = new ArrayList<>();
 
-    @ManyToMany()
+    @ManyToMany(fetch = FetchType.EAGER)
     @JsonView(Suppliers.class)
     private List<Supplier> suppliers = new ArrayList<>();
 
