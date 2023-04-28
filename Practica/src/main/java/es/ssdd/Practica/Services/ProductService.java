@@ -5,15 +5,12 @@ import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Repositories.CompositionRepository;
 import es.ssdd.Practica.Repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class ProductService {
@@ -27,11 +24,11 @@ public class ProductService {
     public ProductService(){
     }
 
-    public Product createProduct1(Product product) {
+    public Product saveProduct(Product product) {
         return this.productRepository.save(product);
     }
 
-    public Product createProduct(Product product, long shopId){
+    public Product saveProduct(Product product, long shopId){
         product.setShopId(shopId);
         this.productRepository.save(product);
         return product;
@@ -57,14 +54,7 @@ public class ProductService {
         return null;
     }
 
-    public Product getProductByName(String name) {
-        Optional<Product> product = this.productRepository.findByName(name);
-        if (product.isPresent()) {
-            return product.get();
-        }
-        return null;
-    }
-
+    @Transactional
     public Product setComposition(Product product, long compositionId){
        product.setComposition(this.compositionRepository.findById(compositionId).get());
        return product;

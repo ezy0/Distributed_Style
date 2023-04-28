@@ -76,8 +76,10 @@ public class ProductController {
             image = "/assets/img/new.jpg"; //Set default image
         //Create new product with the information received in the forms
         Product product = new Product(name, description, prize, null, image, idShop);
-        this.productService.createProduct(product, idShop);
+        this.productService.saveProduct(product, idShop);
         this.shopService.getShop(idShop).getProducts().add(product);
+        this.productService.saveProduct(product, idShop);
+        this.shopService.saveShop(this.shopService.getShop(idShop));
         return "redirect:/shops/{idShop}/products";
     }
 
@@ -87,12 +89,15 @@ public class ProductController {
         if (product == null || this.shopService.getShop(idShop) == null || !this.shopService.getShop(idShop).getProducts().contains(product)) {
             return "redirect:/error";
         }
+        Composition composition = product.getComposition();
+        if (composition != null) { //If product has composition, also delete the composition
+            product.setComposition(null);
+            compositionService.deleteComposition(composition.getId());
+        }
 
-        // Al borrar un producto, con CascadeType.All se borra sola la composition (QUITAR)
-        this.shopService.getShop(idShop).getProducts().remove(product);
-        if (product.getComposition() != null) //If product has composition, also delete the composition
-            this.compositionService.deleteComposition(product.getComposition().getId());
+        this.shopService.getShop(idShop).getProducts().remove(this.productService.saveProduct(product));
         this.productService.deleteProduct(id);
+        this.shopService.saveShop(this.shopService.getShop(idShop));
 
         return "redirect:/shops/{idShop}/products";
     }
@@ -117,7 +122,4 @@ public class ProductController {
         this.productService.modifyProduct(id, idShop, new Product(name, description, prize,null, image, idShop));
         return "redirect:/shops/"+idShop+"/products/"+id;
     }
-
-
-
 }

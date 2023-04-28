@@ -1,6 +1,6 @@
 package es.ssdd.Practica.Controller;
 
-import es.ssdd.Practica.Repositories.SupplierRepository;
+import es.ssdd.Practica.Repositories.ShopRepository;
 import es.ssdd.Practica.Services.CompositionService;
 import es.ssdd.Practica.Services.ProductService;
 import es.ssdd.Practica.Services.ShopService;
@@ -17,6 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.List;
+
+import org.springframework.data.domain.Sort;
 
 @Controller
 public class ShopController {
@@ -29,6 +32,8 @@ public class ShopController {
     SupplierService supplierService;
     @Autowired
     CompositionService compositionService;
+    @Autowired
+    ShopRepository shopRepository;
 
     @GetMapping("/shops")
     public String getShops(Model model){
@@ -36,6 +41,26 @@ public class ShopController {
         return "showShops";
     }
 
+    @GetMapping("/shops/")
+    public String getShopsOrderByNameAsc(Model model, @RequestParam Sort sort){
+        List<Shop> shops = new ArrayList<>();
+        /*if (sort.toString().equals("nombre,asc")) {
+            shops = shopRepository.findAll(Sort.by("nombre").ascending());
+        } else if (sort.toString().equals("nombre,desc")) {
+            shops = shopRepository.findAll(Sort.by("nombre").descending());
+        }*/
+        shops = shopRepository.findAll(Sort.by("nombre").ascending());
+        model.addAttribute("shops", shops);
+        return "showShops";
+    }
+/*
+    @GetMapping("/shops/orderByNameDesc")
+    public String getShopsOrderByNameDesc(Model model){
+        List<Shop> shops = shopRepository.findAll(Sort.by(Sort.Direction.DESC, "name"));
+        model.addAttribute("shops", this.shopService.getShops());
+        return "showShops";
+    }
+*/
     @GetMapping("/shops/{id}")
     public String getShop(Model model, @PathVariable long id){
         Shop shop = this.shopService.getShop(id);
@@ -57,7 +82,7 @@ public class ShopController {
             image = "/assets/img/new.jpg"; //Set default image
         //Create new shop with the information received in the forms
         Shop shop = new Shop(name,image, direction);
-        shopService.createShop(shop);
+        shopService.saveShop(shop);
         return "redirect:/shops";
     }
 
@@ -126,7 +151,7 @@ public class ShopController {
             for (String value : selectedValues) {
                 supplier = this.supplierService.getSupplier(Long.parseLong(value));
                 supplier.getShops().add(shop);
-                this.supplierService.createSupplier(supplier);
+                this.supplierService.saveSupplier(supplier);
             }   //Add the shop to the supplier shops list
         }
 
@@ -134,7 +159,7 @@ public class ShopController {
             for (String value : selectedValues) {
                 supplier = this.supplierService.getSupplier(Long.parseLong(value));
                 shop.getSuppliers().add(supplier);
-                this.shopService.createShop(shop);
+                this.shopService.saveShop(shop);
             } //Add the supplier to the shop suppliers list
         }
 
@@ -155,19 +180,19 @@ public class ShopController {
     @GetMapping("/shops/{id}/redirectRemoveShopsToSupplier")
     public String redirectRemoveShopsToSupplier(HttpServletRequest request, @PathVariable long id){
         Shop shop = this.shopService.getShop(id);
-
-
         String[] selectedValues = request.getParameterValues("checkbox");
 
         if (selectedValues != null) {
             for (String value : selectedValues) {
                 this.supplierService.getSupplier(Long.parseLong(value)).getShops().remove(shop);
+                this.supplierService.saveSupplier(this.supplierService.getSupplier(Long.parseLong(value)));
             } //Remove the shop to the supplier shops list
         }
 
         if (selectedValues != null) {
             for (String value : selectedValues) {
                 this.shopService.getShop(shop.getId()).getSuppliers().remove(supplierService.getSupplier(Long.parseLong(value)));
+                this.shopService.saveShop(shop);
             } //Remove the supplier to the shop suppliers list
         }
 

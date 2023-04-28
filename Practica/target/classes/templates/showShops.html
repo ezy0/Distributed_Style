@@ -34,6 +34,12 @@
     <a class="btn btn-primary btn-lg btn-default" type="button" style="text-align: center; margin-right: 10px" href="/newShop.html">ADD SHOP</a>
     <a class="btn btn-primary btn-lg btn-default" type="button" style="text-align: center" href="/suppliers">VIEW SUPPLIERS</a>
 </div>
+
+<form method="get" action="/shops/">
+    <button type="submit" name="sort" value="nombre,asc">Ordenar por nombre ascendente</button>
+    <button type="submit" name="sort" value="nombre,desc">Ordenar por nombre descendente</button>
+</form>
+
 <footer class="bg-dark py-5">
     <div class="container">
         <p class="text-center text-white m-0">Copyright © DistributedStyle 2023</p>

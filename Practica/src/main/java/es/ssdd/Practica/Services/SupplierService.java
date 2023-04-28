@@ -1,6 +1,5 @@
 package es.ssdd.Practica.Services;
 
-import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Supplier;
 import es.ssdd.Practica.Repositories.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ public class SupplierService {
     public SupplierService(){
     }
 
-    public Supplier createSupplier(Supplier supplier) {
+    public Supplier saveSupplier(Supplier supplier) {
        this.supplierRepository.save(supplier);
        return supplier;
     }

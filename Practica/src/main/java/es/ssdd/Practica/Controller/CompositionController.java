@@ -3,7 +3,6 @@ package es.ssdd.Practica.Controller;
 import es.ssdd.Practica.Models.Composition;
 import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Shop;
-import es.ssdd.Practica.Repositories.CompositionRepository;
 import es.ssdd.Practica.Services.CompositionService;
 import es.ssdd.Practica.Services.ProductService;
 import es.ssdd.Practica.Services.ShopService;
@@ -38,9 +37,9 @@ public class CompositionController {
     @GetMapping("shops/{idShop}/products/{idProduct}/redirectNewComposition")
     public String newComposition(@PathVariable long idShop, @PathVariable long idProduct,@RequestParam String content){
         //Create new composition with the information received in the forms
-        Composition composition = new Composition(content);
-        compositionService.createComposition(composition,idProduct);
-        productService.getProduct(idProduct).setComposition(composition);
+        Product product = productService.getProduct(idProduct);
+        product.setComposition(this.compositionService.saveComposition(new Composition(content), idProduct));
+        this.productService.saveProduct(product);
 
         return "redirect:/shops/"+idShop+"/products/"+idProduct;
     }
@@ -52,16 +51,17 @@ public class CompositionController {
         Composition composition = productService.getProduct(idProduct).getComposition();
         productService.getProduct(idProduct).setComposition(null);
         compositionService.deleteComposition(composition.getId());
+        productService.saveProduct(productService.getProduct(idProduct));
 
         return "redirect:/shops/"+idShop+"/products/"+idProduct;
     }
 
     @GetMapping("/shops/{idShop}/products/{idProduct}/modifyComposition")
     public String modifyComposition(Model model, @PathVariable long idShop, @PathVariable long idProduct){
-        Composition composition = this.compositionService.getComposition(idProduct);
+        Composition composition = this.productService.getProduct(idProduct).getComposition();
         if (composition == null)
             return "redirect:/error";
-        ////Send the data to HTML of the composition that you want to modify
+        //Send the data to HTML of the composition that you want to modify
         model.addAttribute("idShop",idShop);
         model.addAttribute("idProduct",idProduct);
 

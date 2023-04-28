@@ -23,8 +23,7 @@ public class Shop {
     @JsonView(Basic.class)
     private String direction;
 
-    // (cascade = CascadeType.ALL)
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "shop_product",
             joinColumns = @JoinColumn(name = "shop_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id"))

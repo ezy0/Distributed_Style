@@ -58,29 +58,34 @@ public class SupplierController {
             }
         }
         Supplier supplier = new Supplier(name, description, shops); //Use the auxiliary list to create the supplier
-        this.supplierService.createSupplier(supplier);
+        this.supplierService.saveSupplier(supplier);
         if (selectedValues != null) { //Add the supplier to the shop suppliers list
             for (String value : selectedValues) {
                 this.shopService.getShop(Long.parseLong(value)).getSuppliers().add(supplier);
+                this.shopService.saveShop(this.shopService.getShop(Long.parseLong(value)));
             }
         }
+        this.supplierService.saveSupplier(supplier);
         return "redirect:/suppliers";
 
     }
 
     @GetMapping("/suppliers/delete/{id}")
     public String deleteSupplier(@PathVariable long id){
-        Supplier supplier = this.supplierService.deleteSupplier(id);
+        Supplier supplier = this.supplierService.getSupplier(id);
         if (supplier == null) {
             return "redirect:/error";
         }
         if (supplier.getShops() != null) {
             for (Shop shop : supplier.getShops())
                 for (Shop shop2 : this.shopService.getShops())
-                    if (Objects.equals(shop.getId(), shop2.getId()))
+                    if (Objects.equals(shop.getId(), shop2.getId())) {
                         this.shopService.getShop(shop.getId()).getSuppliers().remove(supplier);
+                        this.shopService.saveShop(this.shopService.getShop(shop.getId()));
+                    }
             //The supplier is deleted from the list of shops' suppliers
         }
+        this.supplierService.deleteSupplier(id);
         return "redirect:/suppliers";
     }
 
@@ -98,7 +103,7 @@ public class SupplierController {
     @GetMapping("/suppliers/redirectModifySupplier")
     public String redirectModifySupplier(@RequestParam("idSupplier") long idSupplier,@RequestParam("name") String name, @RequestParam("description") String description) {
         //Receive new data and modify the supplier
-        this.supplierService.modifySupplier(idSupplier,new Supplier(name, description, null));
+        this.supplierService.saveSupplier(this.supplierService.modifySupplier(idSupplier,new Supplier(name, description, null)));
         return "redirect:/suppliers/" + idSupplier;
     }
 
@@ -126,12 +131,14 @@ public class SupplierController {
         if (selectedValues != null) {
             for (String value : selectedValues) {
                 this.shopService.getShop(Long.parseLong(value)).getSuppliers().add(supplier);
+                this.shopService.saveShop(this.shopService.getShop(Long.parseLong(value)));
             } //Add the supplier to the shop suppliers list
         }
 
         if (selectedValues != null) {
             for (String value : selectedValues) {
                 this.supplierService.getSupplier(supplier.getId()).getShops().add(shopService.getShop(Long.parseLong(value)));
+                this.supplierService.saveSupplier(supplier);
             } //Add the shop to the supplier shops list
         }
 
@@ -156,12 +163,14 @@ public class SupplierController {
         if (selectedValues != null) {
             for (String value : selectedValues) {
                 this.shopService.getShop(Long.parseLong(value)).getSuppliers().remove(supplier);
+                this.shopService.saveShop(this.shopService.getShop(Long.parseLong(value)));
             } //Remove the supplier to the shop suppliers list
         }
 
         if (selectedValues != null) {
             for (String value : selectedValues) {
                 this.supplierService.getSupplier(supplier.getId()).getShops().remove(shopService.getShop(Long.parseLong(value)));
+                this.supplierService.saveSupplier(supplier);
             } //Remove the shop to the supplier shops list
         }
 

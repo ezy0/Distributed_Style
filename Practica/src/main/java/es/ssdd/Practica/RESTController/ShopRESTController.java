@@ -51,7 +51,7 @@ public class ShopRESTController {
     public ResponseEntity<Shop> createShop(@RequestBody Shop shop){
         if (shop.getDirection() == null || shop.getName() == null)
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        return new ResponseEntity<>(this.shopService.createShop(shop), HttpStatus.OK);
+        return new ResponseEntity<>(this.shopService.saveShop(shop), HttpStatus.OK);
     }
 
     @JsonView(ShopDetails.class)

@@ -13,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -52,7 +51,7 @@ public class SupplierRESTController {
     public ResponseEntity<Supplier> createSupplier(@RequestBody Supplier supplier){
         if (supplier.getShops() == null || supplier.getDescription() == null || supplier.getName() == null)
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        return new ResponseEntity<>(this.supplierService.createSupplier(supplier), HttpStatus.OK);
+        return new ResponseEntity<>(this.supplierService.saveSupplier(supplier), HttpStatus.OK);
     }
 
     @JsonView(SupplierDetails.class)

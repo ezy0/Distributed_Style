@@ -50,7 +50,7 @@ public class CompositionRESTController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         if (composition.getContent() == null)
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        this.compositionService.createComposition(composition, idP);
+        this.compositionService.saveComposition(composition, idP);
         this.productService.getProduct(idP).setComposition((composition));
         return new ResponseEntity<>(composition, HttpStatus.OK);
     }

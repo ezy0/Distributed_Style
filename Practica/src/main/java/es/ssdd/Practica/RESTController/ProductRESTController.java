@@ -52,7 +52,7 @@ public class ProductRESTController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         if (product.getImage() == null)
             product.setImage("/assets/img/new.jpg"); //Set default image
-        this.productService.createProduct(product, id);
+        this.productService.saveProduct(product, id);
         this.shopService.getShop(id).getProducts().add(product);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }

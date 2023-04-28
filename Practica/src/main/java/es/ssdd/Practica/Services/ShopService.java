@@ -50,38 +50,38 @@ public class ShopService {
         Composition composition3 = new Composition("100% fur");
 
         // GUARDAMOS SUPPLIER
-        this.supplierService.createSupplier(supplier);
+        this.supplierService.saveSupplier(supplier);
 
         // GUARDAMOS TIENDAS
-        this.createShop(footLocker);
-        this.createShop(nudeProject);
-        this.createShop(martinValen);
+        this.saveShop(footLocker);
+        this.saveShop(nudeProject);
+        this.saveShop(martinValen);
 
         // GUARDAMOS PRODUCTOS
-        long idTienda1 = this.shopRepository.findByName("Foot Locker").get().getId();
-        long idTienda2 = this.shopRepository.findByName("Nude Project").get().getId();
-        long idTienda3 = this.shopRepository.findByName("Martin Valen").get().getId();
+        long idTienda1 = this.shopRepository.findByName("Foot Locker").get(0).getId();
+        long idTienda2 = this.shopRepository.findByName("Nude Project").get(0).getId();
+        long idTienda3 = this.shopRepository.findByName("Martin Valen").get(0).getId();
 
         footLockerP.setShopId(idTienda1);
         nudeProjectP.setShopId(idTienda2);
         martinValenP.setShopId(idTienda3);
 
-        Product pr1 = this.productService.createProduct1(footLockerP);
-        Product pr2 = this.productService.createProduct1(nudeProjectP);
-        Product pr3 = this.productService.createProduct1(martinValenP);
+        Product pr1 = this.productService.saveProduct(footLockerP);
+        Product pr2 = this.productService.saveProduct(nudeProjectP);
+        Product pr3 = this.productService.saveProduct(martinValenP);
 
         // GUARDAMOS COMPOSITIONS
         long idProduct1 = pr1.getId();
         long idProduct2 = pr2.getId();
         long idProduct3 = pr3.getId();
 
-        pr1.setComposition(this.compositionService.createComposition(composition1, idProduct1));
-        pr2.setComposition(this.compositionService.createComposition(composition2, idProduct2));
-        pr3.setComposition(this.compositionService.createComposition(composition3, idProduct3));
+        pr1.setComposition(this.compositionService.saveComposition(composition1, idProduct1));
+        pr2.setComposition(this.compositionService.saveComposition(composition2, idProduct2));
+        pr3.setComposition(this.compositionService.saveComposition(composition3, idProduct3));
 
-        this.productService.createProduct1(pr1);
-        this.productService.createProduct1(pr2);
-        this.productService.createProduct1(pr3);
+        this.productService.saveProduct(pr1);
+        this.productService.saveProduct(pr2);
+        this.productService.saveProduct(pr3);
 
         // GUARDAR PRODUCTOS EN TIENDAS
         footLocker.getProducts().add(footLockerP);
@@ -93,7 +93,7 @@ public class ShopService {
         this.shopRepository.save(martinValen);
     }
 
-    public Shop createShop (Shop shop) {
+    public Shop saveShop(Shop shop) {
         this.shopRepository.save(shop);
         return shop;
     }

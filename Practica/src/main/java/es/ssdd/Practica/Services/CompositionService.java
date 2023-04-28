@@ -2,15 +2,14 @@ package es.ssdd.Practica.Services;
 
 import es.ssdd.Practica.Models.Composition;
 
-import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Repositories.CompositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import javax.transaction.Transactional;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.Optional;
 
 @Service
 public class CompositionService {
@@ -21,10 +20,7 @@ public class CompositionService {
     public CompositionService(){
     }
 
-    public Composition createComposition1(Composition composition) {
-        return this.compositionRepository.save(composition);
-    }
-    public Composition createComposition(Composition composition, long idProduct) {
+    public Composition saveComposition(Composition composition, long idProduct) {
         composition.setId(idProduct);
         composition.setProductId(idProduct);
         return this.compositionRepository.save(composition);
