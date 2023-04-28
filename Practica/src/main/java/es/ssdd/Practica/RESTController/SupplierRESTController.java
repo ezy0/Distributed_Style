@@ -57,18 +57,20 @@ public class SupplierRESTController {
     @JsonView(SupplierDetails.class)
     @DeleteMapping("suppliers/{idSupplier}/deleteSupplier")
     public ResponseEntity<Supplier> deleteSupplier(@PathVariable long idSupplier){
-        Supplier supplier = this.supplierService.deleteSupplier(idSupplier);
+        Supplier supplier = this.supplierService.getSupplier(idSupplier);
         if (supplier == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         if (supplier.getShops().size()>0){ //If the supplier is in more than one store... It is deleted from all stores
             for(Shop shop : supplier.getShops() ){
-                for(Shop shopAux: this.shopService.getShops()){ //Go through all the suppliers of each one of the stores
-                    if (Objects.equals(shop.getId(), shopAux.getId())) //If the ids match, remove
+                for(Shop shopAux: this.shopService.getShops()) { //Go through all the suppliers of each one of the stores
+                    if (Objects.equals(shop.getId(), shopAux.getId())){ //If the ids match, remove
                         this.shopService.getShop(shop.getId()).getSuppliers().remove(supplier);
+                        this.shopService.saveShop(this.shopService.getShop(shop.getId()));
+                    }
                 }
             }
         }
-        return new ResponseEntity<>(supplier,HttpStatus.OK);
+        return new ResponseEntity<>(this.supplierService.deleteSupplier(idSupplier),HttpStatus.OK);
     }
 
     @JsonView(SupplierDetails.class)
@@ -89,9 +91,10 @@ public class SupplierRESTController {
         Supplier supplier = this.supplierService.getSupplier(idSupplier);
         if (shop == null || supplier == null || supplier.getShops().contains(shop))
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        this.supplierService.getSupplier(idSupplier).getShops().add(shop);
         this.shopService.getShop(idShop).getSuppliers().add(supplier);
-        return new ResponseEntity<>(supplier,HttpStatus.OK);
+        this.shopService.saveShop(shop);
+        this.supplierService.getSupplier(idSupplier).getShops().add(shop);
+        return new ResponseEntity<>(this.supplierService.saveSupplier(supplier),HttpStatus.OK);
     }
 
     @JsonView(SupplierDetails.class)
@@ -101,8 +104,10 @@ public class SupplierRESTController {
         Supplier supplier = this.supplierService.getSupplier(idSupplier);
         if (shop == null || supplier == null || !supplier.getShops().contains(shop))
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        this.supplierService.getSupplier(idSupplier).getShops().remove(shop);
         this.shopService.getShop(idShop).getSuppliers().remove(supplier);
+        this.shopService.saveShop(shop);
+        this.supplierService.getSupplier(idSupplier).getShops().remove(shop);
+        this.supplierService.saveSupplier(supplier);
         return new ResponseEntity<>(supplier,HttpStatus.OK);
     }
 }

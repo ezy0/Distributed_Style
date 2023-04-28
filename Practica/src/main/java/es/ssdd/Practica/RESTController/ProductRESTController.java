@@ -1,5 +1,6 @@
 package es.ssdd.Practica.RESTController;
 
+import es.ssdd.Practica.Models.Composition;
 import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Services.CompositionService;
 import es.ssdd.Practica.Services.ProductService;
@@ -54,16 +55,24 @@ public class ProductRESTController {
             product.setImage("/assets/img/new.jpg"); //Set default image
         this.productService.saveProduct(product, id);
         this.shopService.getShop(id).getProducts().add(product);
+        this.productService.saveProduct(product, id);
+        this.shopService.saveShop(this.shopService.getShop(id));
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
     @DeleteMapping("/shops/{id}/{idP}/deleteProduct")
     public ResponseEntity<Product> deleteProduct(@PathVariable long idP, @PathVariable long id){
-        Product product = this.productService.deleteProduct(idP);
-        this.shopService.getShop(product.getShopId()).getProducts().remove(product);
-        // Al borrar un producto, con CascadeType.All se borra sola la composition (QUITAR)
-        if (product.getComposition() != null)
-            this.compositionService.deleteComposition(product.getComposition().getId());
+        Product product = this.productService.getProduct(idP);
+        if (product == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        Composition composition = product.getComposition();
+        if (composition != null) { //If product has composition, also delete the composition
+            product.setComposition(null);
+            compositionService.deleteComposition(composition.getId());
+        }
+        this.shopService.getShop(id).getProducts().remove(this.productService.saveProduct(product));
+        this.productService.deleteProduct(idP);
+        this.shopService.saveShop(this.shopService.getShop(id));
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 

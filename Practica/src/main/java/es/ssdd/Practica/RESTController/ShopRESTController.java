@@ -96,7 +96,9 @@ public class ShopRESTController {
         if (supplier == null || shop == null || shop.getSuppliers().contains(supplier))
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         this.shopService.getShop(id).getSuppliers().add(supplier); //Add the supplier to the shop suppliers list
+        this.supplierService.saveSupplier(supplier);
         this.supplierService.getSupplier(idSupplier).getShops().add(shop); //Add the shop to the supplier shops list
+        this.shopService.saveShop(shop);
         return new ResponseEntity<>(shop, HttpStatus.OK);
     }
 
@@ -108,7 +110,9 @@ public class ShopRESTController {
         if (supplier == null || shop == null || !shop.getSuppliers().contains(supplier))
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         this.supplierService.getSupplier(idSupplier).getShops().remove(shop); //Remove the shop to the supplier shops list
+        this.supplierService.saveSupplier(this.supplierService.getSupplier(idSupplier));
         this.shopService.getShop(id).getSuppliers().remove(supplier); //Remove the supplier to the shop suppliers list
+        this.shopService.saveShop(shop);
         return new ResponseEntity<>(shop, HttpStatus.OK);
     }
 }

@@ -1,6 +1,7 @@
 package es.ssdd.Practica.RESTController;
 
 import es.ssdd.Practica.Models.Composition;
+import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Services.CompositionService;
 import es.ssdd.Practica.Services.ProductService;
 import es.ssdd.Practica.Services.ShopService;
@@ -50,8 +51,9 @@ public class CompositionRESTController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         if (composition.getContent() == null)
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        this.compositionService.saveComposition(composition, idP);
-        this.productService.getProduct(idP).setComposition((composition));
+        Product product = productService.getProduct(idP);
+        product.setComposition(this.compositionService.saveComposition(composition, idP));
+        this.productService.saveProduct(product);
         return new ResponseEntity<>(composition, HttpStatus.OK);
     }
 
@@ -61,13 +63,16 @@ public class CompositionRESTController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         if (this.compositionService.getComposition(productService.getProduct(idP).getComposition().getId()) == null)
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        return new ResponseEntity<>(this.compositionService.modifyComposition(idP, composition), HttpStatus.OK);
+        Product product = productService.getProduct(idP);
+        return new ResponseEntity<>(this.compositionService.modifyComposition(product.getComposition().getId(), composition), HttpStatus.OK);
     }
 
     @DeleteMapping("/shops/{id}/{idP}/deleteComposition")
     public ResponseEntity<Composition> deleteComposition(@PathVariable long idP, @PathVariable long id){
-        Composition composition = this.compositionService.deleteComposition(idP);
-        this.productService.getProduct(idP).setComposition(null);
+        Composition composition = productService.getProduct(idP).getComposition();
+        productService.getProduct(idP).setComposition(null);
+        compositionService.deleteComposition(composition.getId());
+        productService.saveProduct(productService.getProduct(idP));
         return new ResponseEntity<>(composition, HttpStatus.OK);
     }
 }
