@@ -1,5 +1,6 @@
 package es.ssdd.Practica.Controller;
 
+import es.ssdd.Practica.Repositories.SupplierRepository;
 import es.ssdd.Practica.Services.CompositionService;
 import es.ssdd.Practica.Services.ProductService;
 import es.ssdd.Practica.Services.ShopService;
@@ -29,36 +30,8 @@ public class ShopController {
     @Autowired
     CompositionService compositionService;
 
-
     @GetMapping("/shops")
     public String getShops(Model model){
-        ArrayList<Shop> shops = new ArrayList<>();
-        /*Supplier supplier;
-        Boolean created = true;
-        for (Shop shop : this.shopService.getShops()) {
-            if (shop.getProducts().size() == 0 && shop.getId() <= 3) { //1 product is created for each store automatically when you press the "visit shops" button in the index for the first time
-                Product product;
-                if (shop.getId() == 1)
-                    product = new Product("Nike Air Jordan", "Nike Air Jordan 1 Black", 100F, null, "/assets/img/locker.jpg", shop.getId());
-                else if (shop.getId() == 2)
-                    product = new Product("Nude Sweater", "Nude Project brow sweater", 69.99F, null, "/assets/img/nude.jpg", shop.getId());
-                else
-                    product = new Product("White Sneakers", "White sneakers from Martin Valen", 79.99F, null, "/assets/img/martin.jpg", shop.getId());
-                this.productService.createProduct(product, shop.getId());
-                if (product.getId() < 4) {
-                    this.shopService.getShop(shop.getId()).getProducts().add(product);
-                    created = false;
-                } else
-                    this.productService.deleteProduct(product.getId());
-            }
-            shops.add(shop);
-        }
-        if (this.supplierService.getSuppliers().isEmpty() && !created){ //The supplier "Global Suppliers" is also created automatically, which distributes to all stores
-            supplier = new Supplier("Global Suppliers", "Supplying shops around the world since 1995", shops);
-            this.supplierService.createSupplier(supplier);
-            for (Shop shop : this.shopService.getShops())
-                shop.getSuppliers().add(supplier);
-        }*/
         model.addAttribute("shops", this.shopService.getShops());
         return "showShops";
     }
@@ -146,18 +119,22 @@ public class ShopController {
     @GetMapping("/shops/{id}/redirectAddSuppliersToShop")
     public String redirectAddSuppliersToShop(HttpServletRequest request, @PathVariable long id){
         Shop shop = this.shopService.getShop(id);
-
+        Supplier supplier;
         String[] selectedValues = request.getParameterValues("checkbox");
 
         if (selectedValues != null) {
             for (String value : selectedValues) {
-                this.supplierService.getSupplier(Long.parseLong(value)).getShops().add(shop);
+                supplier = this.supplierService.getSupplier(Long.parseLong(value));
+                supplier.getShops().add(shop);
+                this.supplierService.createSupplier(supplier);
             }   //Add the shop to the supplier shops list
         }
 
         if (selectedValues != null) {
             for (String value : selectedValues) {
-                this.shopService.getShop(shop.getId()).getSuppliers().add(supplierService.getSupplier(Long.parseLong(value)));
+                supplier = this.supplierService.getSupplier(Long.parseLong(value));
+                shop.getSuppliers().add(supplier);
+                this.shopService.createShop(shop);
             } //Add the supplier to the shop suppliers list
         }
 

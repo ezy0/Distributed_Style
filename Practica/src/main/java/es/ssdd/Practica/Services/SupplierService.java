@@ -54,4 +54,11 @@ public class SupplierService {
         }
         return null;
     }
+
+    /*public void addShop(Shop shop, long idSupplier){
+        if (this.supplierRepository.existsById(idSupplier)){
+            this.supplierRepository.findById(idSupplier).get().getShops().add(shop);
+            this.supplierRepository.save(this.supplierRepository.findById(idSupplier).get());
+        }
+    }*/
 }

@@ -25,10 +25,16 @@ public class Shop {
 
     // (cascade = CascadeType.ALL)
     @OneToMany
+    @JoinTable(name = "shop_product",
+            joinColumns = @JoinColumn(name = "shop_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id"))
     @JsonView(Basic.class)
     private List<Product> products = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "shop_supplier",
+            joinColumns = @JoinColumn(name = "shop_id"),
+            inverseJoinColumns = @JoinColumn(name = "supplier_id"))
     @JsonView(Suppliers.class)
     private List<Supplier> suppliers = new ArrayList<>();
 

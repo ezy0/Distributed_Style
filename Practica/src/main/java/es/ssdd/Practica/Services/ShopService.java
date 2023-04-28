@@ -66,11 +66,6 @@ public class ShopService {
         nudeProjectP.setShopId(idTienda2);
         martinValenP.setShopId(idTienda3);
 
-
-        //this.productService.createProduct1(footLockerP);
-        //this.productService.createProduct1(nudeProjectP);
-        //this.productService.createProduct1(martinValenP);
-
         Product pr1 = this.productService.createProduct1(footLockerP);
         Product pr2 = this.productService.createProduct1(nudeProjectP);
         Product pr3 = this.productService.createProduct1(martinValenP);
@@ -80,17 +75,7 @@ public class ShopService {
         long idProduct2 = pr2.getId();
         long idProduct3 = pr3.getId();
 
-        //composition1.setProductId(idProduct1);
-        //composition2.setProductId(idProduct2);
-        //composition3.setProductId(idProduct3);
-
-        //this.compositionService.createComposition(composition1, idProduct1);
-        //this.compositionService.createComposition(composition2, idProduct2);
-        //this.compositionService.createComposition(composition3, idProduct3);
-
-        composition1.setProductId(idProduct1);
-        pr1.setComposition(composition1);
-        this.compositionService.createComposition1(composition1);
+        pr1.setComposition(this.compositionService.createComposition(composition1, idProduct1));
         pr2.setComposition(this.compositionService.createComposition(composition2, idProduct2));
         pr3.setComposition(this.compositionService.createComposition(composition3, idProduct3));
 

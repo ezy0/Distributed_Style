@@ -38,7 +38,7 @@ public class ProductController {
     public String getProduct(Model model, @PathVariable long idShop, @PathVariable long idProduct) {
         Product product = this.productService.getProduct(idProduct);
         Shop shop = this.shopService.getShop(idShop);
-        Composition composition = this.compositionService.getComposition(idProduct);
+        Composition composition = product.getComposition();
 
         model.addAttribute("nameP", product.getName());
         model.addAttribute("prize", product.getPrize());

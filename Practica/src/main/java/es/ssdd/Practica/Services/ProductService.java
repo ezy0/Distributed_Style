@@ -21,6 +21,9 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private CompositionRepository compositionRepository;
+
     public ProductService(){
     }
 
@@ -60,6 +63,11 @@ public class ProductService {
             return product.get();
         }
         return null;
+    }
+
+    public Product setComposition(Product product, long compositionId){
+       product.setComposition(this.compositionRepository.findById(compositionId).get());
+       return product;
     }
 
     @Transactional
