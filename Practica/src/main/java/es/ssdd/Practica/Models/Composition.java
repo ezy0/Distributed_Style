@@ -1,7 +1,7 @@
 package es.ssdd.Practica.Models;
 
 import com.fasterxml.jackson.annotation.JsonView;
-
+import org.owasp.html.Sanitizers;
 import javax.persistence.*;
 
 @Entity
@@ -23,7 +23,7 @@ public class Composition {
     public Composition(){}
 
     public Composition(String content) {
-        this.content = content;
+        this.content = Sanitizers.FORMATTING.sanitize(content);
     }
 
     public Long getProductId() {
@@ -39,7 +39,7 @@ public class Composition {
     }
 
     public void setContent(String content) {
-        this.content = content;
+        this.content = Sanitizers.FORMATTING.sanitize(content);
     }
 
     public Long getId() {

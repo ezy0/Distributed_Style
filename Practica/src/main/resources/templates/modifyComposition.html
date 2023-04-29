@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <title>DISTRIBUTED STYLE</title>
   <link rel="stylesheet" href="/assets/bootstrap/css/newProductCss.css">
-
+  <script src="https://cdn.ckeditor.com/4.18.0/standard/ckeditor.js"></script>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         <div class="card mb-5">
           <div class="card-body">
             <h1 class="card-title">Current composition information: </h1>
-            <p class="card-text">{{content}}</p>
+            <p class="card-text">{{{content}}}</p>
           </div>
         </div>
       </div>
@@ -32,7 +32,11 @@
             <h2 class="text-center mb-4">New composition</h2>
             <form action="/shops/{{idShop}}/products/{{idProduct}}/redirectModifyComposition">
               <input type="hidden" name="idProduct" value="{{idProduct}}">
-              <div class="mb-3"><input class="form-control" type="text" id="content" name="content" placeholder="New content"></div>
+              <!--div class="mb-3"><input class="form-control" type="text" id="content" name="content" placeholder="New content"></div-->
+              <div class="mb-3"><textarea class="form-control" name="content" placeholder="Content" required></textarea>
+                <script>
+                  CKEDITOR.replace( 'content' );
+                </script>
               <div><button class="btn btn-primary d-block w-100" type="submit">Send</button></div>
             </form>
           </div>

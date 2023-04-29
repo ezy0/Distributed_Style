@@ -31,6 +31,7 @@ public class CompositionController {
         model.addAttribute("idShop",idShop);
         model.addAttribute("idProduct",idProduct);
 
+
         return "newComposition";
     }
 
