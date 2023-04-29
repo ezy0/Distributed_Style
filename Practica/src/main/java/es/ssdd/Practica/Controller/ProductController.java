@@ -3,14 +3,19 @@ package es.ssdd.Practica.Controller;
 import es.ssdd.Practica.Models.Composition;
 import es.ssdd.Practica.Models.Product;
 import es.ssdd.Practica.Models.Shop;
+import es.ssdd.Practica.Repositories.ProductRepository;
 import es.ssdd.Practica.Services.CompositionService;
 import es.ssdd.Practica.Services.ProductService;
 import es.ssdd.Practica.Services.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class ProductController {
@@ -24,11 +29,42 @@ public class ProductController {
     @Autowired
     CompositionService compositionService;
 
+    @Autowired
+    ProductRepository productRepository;
+
 
     @GetMapping("/shops/{idShop}/products")
     public String getShopProducts(Model model, @PathVariable long idShop){
+
         Shop shop = shopService.getShop(idShop);
         model.addAttribute("products",shop.getProducts());
+        model.addAttribute("idShop", shop.getId());
+        model.addAttribute("shopName", shop.getName());
+        return "showProducts";
+    }
+
+    @GetMapping("/shops/{idShop}/products/")
+    public String getProductsOrderBy(Model model, @RequestParam String sortString, @PathVariable long idShop){
+
+        //Convert String to Sort
+        String[] sortParams = sortString.split(",");
+        Sort.Direction direction = Sort.Direction.fromString(sortParams[1]);
+        Sort sort = Sort.by(direction, sortParams[0]);
+
+        Shop shop = shopService.getShop(idShop);
+
+        List<Product> products = new ArrayList<>();
+        if (sort.toString().equals("name: ASC")) {
+            products = productRepository.findAllByShopId(idShop, Sort.by("name").ascending());
+        } else if (sort.toString().equals("name: DESC")) {
+            products = productRepository.findAllByShopId(idShop, Sort.by("name").descending());
+        } else if (sort.toString().equals("prize: ASC")) {
+            products = productRepository.findAllByShopId(idShop, Sort.by("prize").ascending());
+        } else if (sort.toString().equals("prize: DESC")) {
+            products = productRepository.findAllByShopId(idShop, Sort.by("prize").descending());
+        }
+
+        model.addAttribute("products", products);
         model.addAttribute("idShop", shop.getId());
         model.addAttribute("shopName", shop.getName());
         return "showProducts";

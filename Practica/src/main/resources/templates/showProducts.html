@@ -33,6 +33,14 @@
         <div style="text-align:center; margin-bottom: 20px">
             <a class="btn btn-primary btn-lg btn-default" type="button" href="/shops/{{idShop}}/newProduct">ADD PRODUCT</a>
         </div>
+
+        <form method="get" action="/shops/{{idShop}}/products/">
+            <button type="submit" name="sortString" value="name,asc">Sort by name ascending</button>
+            <button type="submit" name="sortString" value="name,desc">Sort by name descending</button>
+            <button type="submit" name="sortString" value="prize,asc">Sort by price ascending</button>
+            <button type="submit" name="sortString" value="prize,desc">Sort by price descending</button>
+        </form>
+
         <footer class="bg-dark py-5">
             <div class="container">
                 <p class="text-center text-white m-0">Copyright © DistributedStyle 2023</p>

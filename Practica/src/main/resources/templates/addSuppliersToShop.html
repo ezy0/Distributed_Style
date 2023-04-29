@@ -18,9 +18,8 @@
             <h2 class="text-center mb-4">You can add these suppliers to the shop</h2>
             <form action="/shops/{{idShop}}/redirectAddSuppliersToShop">
               <div class="mb-xxl-3">{{#suppliers}}
-                <label>
+                <label style="text-transform: uppercase;">
                   <input type="checkbox" name="checkbox" id="options-checkbox{{-index}}" value="{{id}}"> {{name}}
-
                 </label>{{/suppliers}}
               </div>
               <div><button class="btn btn-primary d-block w-100" type="submit">Send</button></div>

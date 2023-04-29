@@ -6,14 +6,31 @@
   <component name="ChangeListManager">
     <list default="true" id="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/CompositionRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/CompositionRESTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ProductRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ProductRESTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ShopRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/ShopRESTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/SupplierRESTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/RESTController/SupplierRESTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/CompositionRESTController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/CompositionRESTController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/ProductRESTController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/ProductRESTController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/ShopRESTController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/ShopRESTController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/SupplierRESTController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/RESTController/SupplierRESTController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/ShopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/SupplierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/SupplierController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/ShopRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Repositories/ShopRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ShopService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ShopService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addShopsToSupplier.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addShopsToSupplier.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addSuppliersToShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addSuppliersToShop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/modifyProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/modifyProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/modifyShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/modifyShop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/modifySupplier.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/modifySupplier.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/newComposition.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/newComposition.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/newSupplier.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/newSupplier.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/removeShopsToSupplier.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/removeShopsToSupplier.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/removeSuppliersToShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/removeSuppliersToShop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/showProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/showProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/showShops.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/showShops.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/showSuppliers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/showSuppliers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/viewProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/viewProduct.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/viewShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/viewShop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/viewSupplier.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/viewSupplier.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ShopController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/ShopController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/SupplierController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/SupplierController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ShopService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ShopService.class" afterDir="false" />
     </list>
     <list id="4563bac8-7133-42ea-8d6d-4f7e4124051d" name="Changes by Alex" comment="" />
     <list id="e4e2b062-7032-456c-9273-a082a6ef3aa9" name="Changes by alvar" comment="" />
@@ -208,6 +225,7 @@
       <workItem from="1682634378225" duration="5809000" />
       <workItem from="1682676028231" duration="5938000" />
       <workItem from="1682693414548" duration="2724000" />
+      <workItem from="1682759016162" duration="7899000" />
     </task>
     <servers />
   </component>

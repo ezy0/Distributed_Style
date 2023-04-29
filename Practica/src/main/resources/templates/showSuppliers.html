@@ -24,7 +24,7 @@
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">{{#suppliers}}
       <div class="col mb-5">
         <a class="card h-100" id="no-sub" style="padding: -20px;" href="/suppliers/{{id}}">
-          <h5 class="fw-bolder" style="text-align: center;color: rgba(0,0,0,0.9);">{{name}}</h5>
+          <h5 class="fw-bolder" style="text-align: center;color: rgba(0,0,0,0.9);text-transform: uppercase;">{{name}}</h5>
         </a>
       </div>{{/suppliers}}
     </div>
@@ -37,6 +37,12 @@
   <div class="container">
     <p class="text-center text-white m-0">Copyright © DistributedStyle 2023</p>
   </div>
+
+  <form method="get" action="/suppliers/">
+    <button type="submit" name="sortString" value="name,asc">Sort by name ascending</button>
+    <button type="submit" name="sortString" value="name,desc">Sort by name descending</button>
+  </form>
+
 </footer>
 <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>

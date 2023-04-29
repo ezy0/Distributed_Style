@@ -2,10 +2,12 @@ package es.ssdd.Practica.Controller;
 
 import es.ssdd.Practica.Models.Shop;
 import es.ssdd.Practica.Models.Supplier;
+import es.ssdd.Practica.Repositories.SupplierRepository;
 import es.ssdd.Practica.Services.ProductService;
 import es.ssdd.Practica.Services.ShopService;
 import es.ssdd.Practica.Services.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 @Controller
@@ -23,10 +26,31 @@ public class SupplierController {
     ProductService productService;
     @Autowired
     SupplierService supplierService;
+    @Autowired
+    SupplierRepository supplierRepository;
 
     @GetMapping("/suppliers")
     public String getSuppliers(Model model){
         model.addAttribute("suppliers", this.supplierService.getSuppliers());
+        return "showSuppliers";
+    }
+
+    @GetMapping("/suppliers/")
+    public String getSuppliersOrderByName(Model model, @RequestParam String sortString){
+
+        //Convert String to Sort
+        String[] sortParams = sortString.split(",");
+        Sort.Direction direction = Sort.Direction.fromString(sortParams[1]);
+        Sort sort = Sort.by(direction, sortParams[0]);
+
+        List<Supplier> suppliers = new ArrayList<>();
+        if (sort.toString().equals("name: ASC")) {
+            suppliers = supplierRepository.findAll(Sort.by("name").ascending());
+        } else if (sort.toString().equals("name: DESC")) {
+            suppliers = supplierRepository.findAll(Sort.by("name").descending());
+        }
+
+        model.addAttribute("suppliers", suppliers);
         return "showSuppliers";
     }
 

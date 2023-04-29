@@ -18,7 +18,7 @@
             <h2 class="text-center mb-4">You can remove these suppliers</h2>
             <form action="/shops/{{idShop}}/redirectRemoveShopsToSupplier">
               <div class="mb-xxl-3">{{#suppliers}}
-                <label>
+                <label style="text-transform: uppercase;">
                   <input type="checkbox" name="checkbox" id="options-checkbox{{-index}}" value="{{id}}"> {{name}}
                 </label>{{/suppliers}}
               </div>

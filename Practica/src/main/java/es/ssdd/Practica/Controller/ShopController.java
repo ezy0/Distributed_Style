@@ -42,25 +42,24 @@ public class ShopController {
     }
 
     @GetMapping("/shops/")
-    public String getShopsOrderByNameAsc(Model model, @RequestParam Sort sort){
+    public String getShopsOrderByName(Model model, @RequestParam String sortString){
+
+        //Convert String to Sort
+        String[] sortParams = sortString.split(",");
+        Sort.Direction direction = Sort.Direction.fromString(sortParams[1]);
+        Sort sort = Sort.by(direction, sortParams[0]);
+
         List<Shop> shops = new ArrayList<>();
-        /*if (sort.toString().equals("nombre,asc")) {
-            shops = shopRepository.findAll(Sort.by("nombre").ascending());
-        } else if (sort.toString().equals("nombre,desc")) {
-            shops = shopRepository.findAll(Sort.by("nombre").descending());
-        }*/
-        shops = shopRepository.findAll(Sort.by("nombre").ascending());
+        if (sort.toString().equals("name: ASC")) {
+            shops = shopRepository.findAll(Sort.by("name").ascending());
+        } else if (sort.toString().equals("name: DESC")) {
+            shops = shopRepository.findAll(Sort.by("name").descending());
+        }
+
         model.addAttribute("shops", shops);
         return "showShops";
     }
-/*
-    @GetMapping("/shops/orderByNameDesc")
-    public String getShopsOrderByNameDesc(Model model){
-        List<Shop> shops = shopRepository.findAll(Sort.by(Sort.Direction.DESC, "name"));
-        model.addAttribute("shops", this.shopService.getShops());
-        return "showShops";
-    }
-*/
+
     @GetMapping("/shops/{id}")
     public String getShop(Model model, @PathVariable long id){
         Shop shop = this.shopService.getShop(id);
