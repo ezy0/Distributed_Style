@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>DISTRIBUTED STYLE</title>
     <link rel="stylesheet" href="/assets/bootstrap/css/newProductCss.css">
+    <!-- RICH TEXT -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
 </head>
 
 <body>
@@ -19,8 +20,9 @@
                         <h3 class="text-center mb-4" style="text-transform: uppercase;">{{shopName}}</h3>
                         <h4 class="text-center mb-4" style="text-transform: uppercase;">{{productName}}</h4>
                         <form action="/shops/{{idShop}}/products/{{idProduct}}/redirectNewComposition">
-                            <div class="mb-3"><input class="form-control" type="text" id="content" name="content" placeholder="Content" required></div>
-
+                            <!--<div class="mb-3"><input class="form-control" type="text" id="content" name="content" placeholder="Content" required></div>-->
+                            <textarea id="content" name="content" required></textarea>
+                            <div><p></p></div>
                             <div><button class="btn btn-primary d-block w-100" type="submit">Send</button></div>
                         </form>
                     </div>
@@ -30,6 +32,15 @@
     </div>
 </section>
 <script src="/assets/bootstrap/js/newProductJs.js"></script>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#content' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
 </body>
 
 </html>
