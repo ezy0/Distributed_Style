@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e728fbc-30dd-49a9-bbd2-6c7f961a9425" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/41954af6-6b62-4b59-aab9-dda8f7e26a89.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/41954af6-6b62-4b59-aab9-dda8f7e26a89.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/CompositionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Controller/CompositionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Composition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Models/Composition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ShopService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/ssdd/Practica/Services/ShopService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/modifyComposition.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/modifyComposition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/newComposition.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/newComposition.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/viewProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/viewProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/CompositionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Controller/CompositionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/newComposition.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/newComposition.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ShopService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/ssdd/Practica/Services/ShopService.class" afterDir="false" />
     </list>
     <list id="4563bac8-7133-42ea-8d6d-4f7e4124051d" name="Changes by Alex" comment="" />
     <list id="e4e2b062-7032-456c-9273-a082a6ef3aa9" name="Changes by alvar" comment="" />
@@ -83,7 +79,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.packagesearch.PackageSearchGeneralConfigurable",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "spring.configuration.checksum": "a31000df514ca6ab0b7b714c2b6551d5",
     "vue.rearranger.settings.migration": "true"
   },
@@ -219,6 +215,7 @@
       <workItem from="1682771018301" duration="4954000" />
       <workItem from="1682780696081" duration="554000" />
       <workItem from="1682787558283" duration="7300000" />
+      <workItem from="1682861466876" duration="3877000" />
     </task>
     <servers />
   </component>
