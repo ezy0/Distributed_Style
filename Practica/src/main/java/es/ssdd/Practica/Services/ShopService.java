@@ -36,17 +36,10 @@ public class ShopService {
     @PostConstruct
 
     public void init(){
-
-        if (this.shopRepository.findByName("foot locker") == null &&
-            this.shopRepository.findByName("nude project") == null &&
-            this.shopRepository.findByName("martin valen") == null &&
-            this.supplierRepository.findByName("global suppliers") == null &&
-            this.productRepository.findByName("nike air jordan") == null &&
-            this.productRepository.findByName("nude sweater") == null &&
-            this.productRepository.findByName("white sneakers") == null &&
-            this.compositionRepository.findByContent("100% leather") == null &&
-            this.compositionRepository.findByContent("100% cotton") == null &&
-            this.compositionRepository.findByContent("100% fur") == null) {
+        if (this.shopRepository.findAll().size() == 0 &&
+            this.supplierRepository.findAll().size() == 0 &&
+            this.productRepository.findAll().size() == 0 &&
+            this.compositionRepository.findAll().size() == 0) {
 
             // SUPPLIER
             Supplier supplier = new Supplier("global suppliers", "Supplying shops around the world since 1995");
